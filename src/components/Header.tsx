@@ -44,12 +44,14 @@ export default function Header() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 15);
+          const y = window.scrollY;
+          setIsScrolled((prev) => (prev ? y > 12 : y > 48));
           ticking = false;
         });
         ticking = true;
       }
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -116,30 +118,39 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 w-full z-50 pt-[10px] px-[10px] pb-[10px] bg-white/95 backdrop-blur-md transition-all duration-300 ${
-        isScrolled ? "shadow-md" : ""
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "pt-0 px-0 pb-0 bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgba(2,24,56,0.1)]"
+          : "pt-[6px] px-[10px] pb-[6px] bg-transparent"
       }`}
     >
       <div
-        className={`w-full rounded-[5px] border border-slate-200/80 bg-white relative transition-shadow duration-300 ${
-          isScrolled ? "shadow-lg" : "shadow-md"
+        className={`w-full bg-white/95 backdrop-blur-md relative transition-all duration-300 ${
+          isScrolled
+            ? "rounded-none border-b border-slate-200/80 shadow-none"
+            : "rounded-[5px] border border-slate-200/80 shadow-md"
         }`}
       >
-        
-        {/* 1. TOP BLUE BAR - Exact color: #0555a0 with top rounded corners */}
-        <div className="w-full bg-[#0555a0] text-white text-[11px] sm:text-xs md:text-[13px] font-normal py-2 px-3 sm:px-6 lg:px-8 border-b border-blue-400/20 shadow-sm rounded-t-[5px]">
+        {/* 1. TOP BLUE BAR - Collapses smoothly when sticky/scrolled */}
+        <div
+          className={`w-full bg-[#0555a0] text-white text-[11px] sm:text-xs font-normal px-3 sm:px-6 lg:px-8 transition-all duration-300 overflow-hidden ${
+            isScrolled
+              ? "max-h-0 py-0 opacity-0 border-b-0"
+              : "max-h-12 py-1.5 opacity-100 border-b border-blue-400/20 shadow-xs rounded-t-[5px]"
+          }`}
+        >
           <div className="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-2">
             {/* Left items: Mail & Address */}
-            <div className="flex items-center space-x-4 sm:space-x-8 min-w-0">
+            <div className="flex items-center space-x-4 sm:space-x-6 min-w-0">
               <a
                 href="mailto:eliocustompools@live.com"
-                className="flex items-center space-x-1.5 sm:space-x-2 text-white/95 hover:text-white transition-colors truncate"
+                className="flex items-center space-x-1.5 text-white/95 hover:text-white transition-colors truncate"
               >
                 <Mail className="w-3.5 h-3.5 shrink-0 stroke-[2.2]" />
                 <span className="tracking-wide truncate">eliocustompools@live.com</span>
               </a>
 
-              <div className="hidden md:flex items-center space-x-2 text-white/95 shrink-0">
+              <div className="hidden md:flex items-center space-x-1.5 text-white/95 shrink-0">
                 <MapPin className="w-3.5 h-3.5 shrink-0 fill-white/20 stroke-[2.2]" />
                 <span className="tracking-wide">
                   412 Ezell pike Nashville TN 37217
@@ -148,7 +159,7 @@ export default function Header() {
             </div>
 
             {/* Center / Right: Social Media & Fountains Announcement */}
-            <div className="flex items-center space-x-3 sm:space-x-6 text-right text-[11px] sm:text-xs md:text-[13px] shrink-0">
+            <div className="flex items-center space-x-3 sm:space-x-5 text-right text-[11px] sm:text-xs shrink-0">
               <div className="hidden lg:flex items-center">
                 <SocialMediaBar variant="header" />
               </div>
@@ -169,13 +180,25 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 2. MAIN NAVBAR - White Bar with bottom rounded corners */}
-        <nav className="w-full bg-white py-2 sm:py-3 px-3 sm:px-6 lg:px-8 rounded-b-[5px] relative">
+        {/* 2. MAIN NAVBAR - Compact & pixel-perfect */}
+        <nav
+          className={`w-full bg-white px-3 sm:px-6 lg:px-8 relative transition-all duration-300 ${
+            isScrolled
+              ? "py-1.5 rounded-none"
+              : "py-1.5 sm:py-2 rounded-b-[5px]"
+          }`}
+        >
           <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2">
             
             {/* Left: Brand Logo */}
             <Link href="/" className="flex items-center shrink-0">
-              <div className="relative h-12 w-36 sm:h-15 sm:w-44 md:h-16 md:w-52 lg:h-[72px] lg:w-[165px] xl:h-[78px] xl:w-[175px] transition-transform hover:scale-[1.02] duration-200">
+              <div
+                className={`relative transition-all duration-300 hover:scale-[1.02] ${
+                  isScrolled
+                    ? "h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36 lg:h-[46px] lg:w-[125px]"
+                    : "h-11 w-32 sm:h-12 sm:w-36 md:h-14 md:w-44 lg:h-[56px] lg:w-[148px]"
+                }`}
+              >
                 <Image
                   src="/assets/logo.png"
                   alt="Pools By Elio - Nashville's Premier Custom Pool Company"
@@ -347,11 +370,15 @@ export default function Header() {
             </div>
 
             {/* Right Action Buttons */}
-            <div className="hidden sm:flex items-center space-x-3 shrink-0">
+            <div className="hidden sm:flex items-center space-x-2.5 shrink-0">
               {/* Phone Button - Exact match: Deep Navy #071684 with white phone icon */}
               <a
                 href="tel:6155683154"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white bg-[#071684] hover:bg-[#051166] text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                className={`inline-flex items-center gap-2 rounded-full text-white bg-[#071684] hover:bg-[#051166] font-semibold shadow-sm hover:shadow-md transition-all duration-200 ${
+                  isScrolled
+                    ? "px-4 py-1.5 text-xs"
+                    : "px-4 sm:px-5 py-2 text-xs sm:text-[13px]"
+                }`}
               >
                 <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
                 <span className="tracking-wide">(615) 568-3154</span>
@@ -360,7 +387,11 @@ export default function Header() {
               {/* Get a Quote Button - Exact match: Royal Blue #0047a0 / #0555a0 */}
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full text-white bg-[#0047a0] hover:bg-[#003870] text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                className={`inline-flex items-center justify-center rounded-full text-white bg-[#0047a0] hover:bg-[#003870] font-semibold shadow-sm hover:shadow-md transition-all duration-200 ${
+                  isScrolled
+                    ? "px-4 sm:px-5 py-1.5 text-xs"
+                    : "px-5 sm:px-6 py-2 text-xs sm:text-[13px]"
+                }`}
               >
                 <span>Get a Quote</span>
               </Link>
