@@ -219,20 +219,12 @@ export default function ServicesSection() {
                         {service.description}
                       </p>
 
-                      <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-3">
-                        <button
-                          onClick={() => setActiveModal(service)}
+                      <div className="pt-1 sm:pt-2">
+                        <Link
+                          href={getServiceUrl(service.id)}
                           className="inline-flex items-center justify-center px-6 sm:px-7 py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-white bg-gradient-to-r from-[#005ba3] to-[#00a3cc] hover:opacity-95 shadow-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.03]"
                         >
                           <span>READ MORE</span>
-                        </button>
-
-                        <Link
-                          href={getServiceUrl(service.id)}
-                          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-[#0055a5] hover:text-[#003870] bg-blue-50/80 hover:bg-blue-100 border border-blue-200 transition-colors uppercase tracking-wider"
-                        >
-                          <span>Dedicated Page</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>
                     </div>
