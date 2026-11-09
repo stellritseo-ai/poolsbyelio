@@ -21,6 +21,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/services`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [
+        `${baseUrl}/assets/service1.png`,
+        `${baseUrl}/assets/service2.png`,
+        `${baseUrl}/assets/service3.png`,
+        `${baseUrl}/assets/service4.png`,
+        `${baseUrl}/assets/service5.png`,
+        `${baseUrl}/assets/service6.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/pools-and-spas`,
       lastModified: now,
       changeFrequency: "weekly",

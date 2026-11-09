@@ -106,7 +106,7 @@ export default function Header() {
     { label: "About Us", href: "/about" },
     {
       label: "Services",
-      href: "/#services",
+      href: "/services",
       hasDropdown: true,
       dropdownItems: subServices,
     },
@@ -231,21 +231,27 @@ export default function Header() {
                       onMouseEnter={() => setServicesDropdownOpen(true)}
                       onMouseLeave={() => setServicesDropdownOpen(false)}
                     >
-                      <button
-                        type="button"
+                      <Link
+                        href={item.href}
                         onClick={() => {
                           setActiveTab(item.label);
-                          setServicesDropdownOpen(!servicesDropdownOpen);
+                          setServicesDropdownOpen(false);
                         }}
-                        className={`flex items-center gap-1 transition-colors py-1.5 px-2 rounded-lg ${
-                          isActive
-                            ? "text-[#071684] font-semibold"
-                            : "text-slate-800 hover:text-[#0555a0]"
+                        className={`flex items-center gap-1 transition-all ${
+                          isPageActive
+                            ? "bg-[#071684] text-white px-5 py-1.5 rounded-full font-semibold shadow-sm hover:bg-[#051166]"
+                            : isActive
+                              ? "text-[#071684] font-semibold py-1.5 px-2 rounded-lg"
+                              : "text-slate-800 hover:text-[#0555a0] py-1.5 px-2 rounded-lg"
                         }`}
                       >
                         <span>{item.label}</span>
-                        <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform ${servicesDropdownOpen ? "rotate-180" : "group-hover:rotate-180"}`} />
-                      </button>
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform ${
+                            isPageActive ? "text-white/90" : "text-slate-500"
+                          } ${servicesDropdownOpen ? "rotate-180" : "group-hover:rotate-180"}`}
+                        />
+                      </Link>
 
                       {/* Dropdown Menu - Ultra-premium 2-column mega menu card */}
                       {servicesDropdownOpen && (
@@ -321,9 +327,17 @@ export default function Header() {
 
                           {/* Dropdown Bottom Banner */}
                           <div className="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between px-2 text-[11.5px]">
-                            <span className="text-slate-500 font-medium">
-                              Ready for your custom backyard retreat?
-                            </span>
+                            <Link
+                              href="/services"
+                              onClick={() => {
+                                setActiveTab("Services");
+                                setServicesDropdownOpen(false);
+                              }}
+                              className="inline-flex items-center gap-1 font-extrabold text-slate-700 hover:text-[#0055a5] transition-colors"
+                            >
+                              <span>View All Services Hub</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
                             <Link
                               href="/quote"
                               onClick={() => setServicesDropdownOpen(false)}
