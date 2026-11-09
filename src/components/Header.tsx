@@ -196,7 +196,7 @@ export default function Header() {
                 className={`relative transition-all duration-300 hover:scale-[1.02] ${
                   isScrolled
                     ? "h-9 w-28 sm:h-10 sm:w-32 md:h-11 md:w-36 lg:h-[46px] lg:w-[125px]"
-                    : "h-11 w-32 sm:h-12 sm:w-36 md:h-14 md:w-44 lg:h-[56px] lg:w-[148px]"
+                    : "h-13 w-40 sm:h-15 sm:w-44 md:h-16 md:w-52 lg:h-[74px] lg:w-[172px] xl:h-[80px] xl:w-[185px]"
                 }`}
               >
                 <Image
