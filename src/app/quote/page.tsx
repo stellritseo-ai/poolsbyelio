@@ -52,6 +52,8 @@ export default function QuotePage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFeature = (feature: string) => {
@@ -62,9 +64,46 @@ export default function QuotePage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formSource: "Interactive 3D Quote & Blueprint Configurator",
+          projectScope,
+          poolStyle,
+          selectedFeatures,
+          budgetTier,
+          timeline,
+          ...formData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.error || "Unable to send your quote request. Please try again."
+        );
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please call us directly at (615) 568-3154."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const projectScopes = [
@@ -658,13 +697,24 @@ export default function QuotePage() {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3.5 rounded-lg bg-rose-600/90 border border-rose-300 text-white text-xs sm:text-sm font-semibold">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-[6px] bg-[#001433] hover:bg-[#000d24] text-white font-extrabold text-sm sm:text-base tracking-wide transition-all duration-200 border-2 border-white shadow-2xl flex items-center justify-center gap-3 transform hover:-translate-y-0.5"
+                      disabled={loading}
+                      className="w-full py-4 rounded-[6px] bg-[#001433] hover:bg-[#000d24] text-white font-extrabold text-sm sm:text-base tracking-wide transition-all duration-200 border-2 border-white shadow-2xl flex items-center justify-center gap-3 transform hover:-translate-y-0.5 disabled:opacity-75"
                     >
                       <Send className="w-5 h-5 text-cyan-300" />
-                      <span>Submit For 3D Quote &amp; Blueprint Consultation</span>
+                      <span>
+                        {loading
+                          ? "Sending Your 3D Quote Request..."
+                          : "Submit For 3D Quote & Blueprint Consultation"}
+                      </span>
                     </button>
                   </form>
                 )}

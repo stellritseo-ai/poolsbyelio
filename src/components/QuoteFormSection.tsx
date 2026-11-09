@@ -15,14 +15,43 @@ export default function QuoteFormSection() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formSource: "Home Page - Request A Quote Form",
+          ...formData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.error || "Unable to send your request. Please try again."
+        );
+      }
+
       setSubmitted(true);
-    }, 600);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please call us at (615) 568-3154."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const services = [
@@ -198,6 +227,12 @@ export default function QuoteFormSection() {
                 className="w-full px-4 py-3 rounded-[5px] bg-white text-slate-800 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-300 resize-y"
               />
             </div>
+
+            {errorMessage && (
+              <div className="p-3 rounded-[5px] bg-rose-600/90 border border-rose-300 text-white text-xs sm:text-sm font-semibold">
+                {errorMessage}
+              </div>
+            )}
 
             {/* Row 5: Send Now Full-Width Dark Button */}
             <div>

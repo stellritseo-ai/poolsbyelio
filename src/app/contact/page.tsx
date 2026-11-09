@@ -41,6 +41,8 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // FAQ Accordion State (open first item by default)
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -49,9 +51,43 @@ export default function ContactPage() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formSource: "Contact Us Page - Direct Inquiry Form",
+          projectType,
+          budgetRange,
+          ...formData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.error || "Unable to send your inquiry. Please try again."
+        );
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please call us directly at (615) 568-3154."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const projectTypes = [
@@ -503,12 +539,19 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="p-3 rounded-[5px] bg-rose-600/90 border border-rose-300 text-white text-xs sm:text-sm font-semibold">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-[5px] bg-[#001433] hover:bg-[#000d24] text-white font-bold text-sm tracking-wide transition-all duration-200 border border-white/20 shadow-lg flex items-center justify-center gap-2"
+                      disabled={loading}
+                      className="w-full py-3.5 rounded-[5px] bg-[#001433] hover:bg-[#000d24] text-white font-bold text-sm tracking-wide transition-all duration-200 border border-white/20 shadow-lg flex items-center justify-center gap-2 disabled:opacity-75"
                     >
-                      <span>Send Now</span>
+                      <span>{loading ? "Sending..." : "Send Now"}</span>
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
