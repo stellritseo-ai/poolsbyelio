@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Sparkles,
   ZoomIn,
@@ -603,19 +604,24 @@ export default function PortfolioSection() {
             <span>OUR WORK</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center leading-tight">
             A Portfolio Of Crafted Escapes
           </h2>
 
-          <p
-            style={{
-              marginTop: "-5px",
-              marginBottom: "-20px",
-            }}
-            className="text-center w-full text-slate-600 text-base sm:text-[17px] font-medium max-w-none lg:whitespace-nowrap leading-relaxed mt-[-5px] mb-[-20px]"
-          >
+          <p className="text-center w-full text-slate-600 text-sm sm:text-base md:text-[17px] font-medium max-w-4xl mx-auto leading-relaxed">
             Every project is engineered in-house and built to the highest structural and architectural standards across Greater Nashville and Middle Tennessee.
           </p>
+
+          <div className="pt-2 sm:pt-3">
+            <Link
+              href="/before-after"
+              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#004b93] hover:bg-[#003870] shadow-md transition-all duration-200 transform hover:scale-105"
+            >
+              <Sparkles className="w-4 h-4 text-cyan-300 shrink-0" />
+              <span>Explore Dedicated Before &amp; After Transformations</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+            </Link>
+          </div>
         </div>
 
         {/* Filter Tabs with Live Item Counts */}
@@ -729,10 +735,7 @@ export default function PortfolioSection() {
           <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-white/10 rounded-full blur-2xl pointer-events-none" />
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
             <div className="space-y-2 max-w-2xl">
-              <h3
-                style={{ fontSize: "29px" }}
-                className="font-extrabold tracking-tight text-[29px]"
-              >
+              <h3 className="font-extrabold tracking-tight text-xl sm:text-2xl md:text-[29px] leading-tight">
                 Ready To Bring Your Custom Pool Vision To Life?
               </h3>
               <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
@@ -742,19 +745,19 @@ export default function PortfolioSection() {
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-              <a
-                href="#quote-form"
+              <Link
+                href="/quote"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold bg-white text-[#003870] hover:bg-cyan-50 shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
               >
                 <span>Request 3D Design & Quote</span>
                 <ArrowRight className="w-4 h-4 text-[#003870]" />
-              </a>
+              </Link>
               <a
-                href="tel:6158040314"
+                href="tel:6155683154"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold bg-[#002d5a]/60 hover:bg-[#002d5a] border border-white/20 text-white transition-all duration-200"
               >
                 <PhoneCall className="w-4 h-4 text-cyan-300" />
-                <span>(615) 804-0314</span>
+                <span>(615) 568-3154</span>
               </a>
             </div>
           </div>
@@ -810,7 +813,7 @@ export default function PortfolioSection() {
             </button>
 
             {/* Centered Image */}
-            <div className="relative w-full h-[55vh] sm:h-[62vh] rounded-[5px] overflow-hidden shadow-2xl border border-white/10 bg-black/50">
+            <div className="relative w-full h-[50dvh] sm:h-[62dvh] rounded-[5px] overflow-hidden shadow-2xl border border-white/10 bg-black/50">
               <Image
                 src={filteredItems[selectedImageIndex].src}
                 alt={filteredItems[selectedImageIndex].title}

@@ -2,6 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, PhoneCall } from "lucide-react";
 
 export default function WhyUsSection() {
   const trustCards = [
@@ -115,11 +117,9 @@ export default function WhyUsSection() {
             {/* Heading */}
             <h2
               style={{
-                fontSize: "33px",
-                marginTop: "-10px",
-                marginBottom: "15px",
+                fontSize: "clamp(1.5rem, 2.5vw + 0.5rem, 2.15rem)",
               }}
-              className="font-extrabold text-white tracking-tight leading-tight drop-shadow-sm text-[33px] mt-[-10px] mb-[15px]"
+              className="font-extrabold text-white tracking-tight leading-tight drop-shadow-sm"
             >
               Why Homeowners &amp; Business Owners Trust Us
             </h2>
@@ -151,10 +151,7 @@ export default function WhyUsSection() {
                     <h3 className="text-sm sm:text-[15px] font-bold text-white tracking-wide leading-snug group-hover/tile:text-cyan-200 transition-colors">
                       {item.title}
                     </h3>
-                    <p
-                      style={{ fontSize: "14px" }}
-                      className="text-[14px] text-white/85 font-normal leading-normal mt-0.5"
-                    >
+                    <p className="text-xs sm:text-[14px] text-white/85 font-normal leading-normal mt-0.5">
                       {item.desc}
                     </p>
                   </div>
@@ -162,14 +159,22 @@ export default function WhyUsSection() {
               ))}
             </div>
 
-            {/* Get An Estimate CTA Button */}
-            <div className="pt-2">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-9 py-3 rounded-full text-sm font-bold text-white bg-[#003882] hover:bg-[#002a66] border-2 border-white shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-400/25"
+            {/* Get An Estimate & Contact CTA Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <Link
+                href="/quote"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-bold text-white bg-[#003882] hover:bg-[#002a66] border-2 border-white shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-400/25"
               >
                 <span>Get An Estimate</span>
-              </a>
+                <ArrowRight className="w-4 h-4 text-cyan-300" />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                <span>Schedule Consultation</span>
+              </Link>
             </div>
 
           </div>

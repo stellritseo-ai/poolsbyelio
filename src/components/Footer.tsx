@@ -13,7 +13,14 @@ import {
   ChevronRight,
   ExternalLink,
 } from "lucide-react";
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./SocialIcons";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  GoogleIcon,
+  YelpIcon,
+  BBBIcon,
+  SocialMediaBar,
+} from "./SocialIcons";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -21,26 +28,27 @@ export default function Footer() {
   };
 
   const services = [
-    { label: "Luxury Pools & Spas", href: "#services" },
-    { label: "Natural Waterfalls & Grottos", href: "#services" },
-    { label: "State-of-the-Art Technology", href: "#services" },
-    { label: "Commercial Aquatic Facilities", href: "#services" },
-    { label: "Architectural Fountains", href: "#services" },
-    { label: "Backyard Living & Cabanas", href: "#services" },
-    { label: "Complete Pool Renovations", href: "#services" },
-    { label: "Rapid Emergency Repairs", href: "#emergency" },
+    { label: "Luxury Pools & Spas", href: "/pools-and-spas" },
+    { label: "Natural Waterfalls & Grottos", href: "/water-features" },
+    { label: "State-of-the-Art Technology", href: "/technology" },
+    { label: "Commercial Aquatic Facilities", href: "/water-parks" },
+    { label: "Architectural Fountains", href: "/fountains" },
+    { label: "Backyard Living & Cabanas", href: "/backyard-concepts" },
+    { label: "Complete Pool Renovations", href: "/pools-and-spas" },
+    { label: "Rapid Emergency Repairs", href: "/contact" },
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About Our Story", href: "#about" },
-    { label: "Craftsmanship & Services", href: "#services" },
-    { label: "Why Homeowners Trust Us", href: "#why-us" },
-    { label: "4-Stage Build Process", href: "#process" },
-    { label: "Project Portfolio (60 Works)", href: "#portfolio" },
-    { label: "Verified Google Reviews", href: "#reviews" },
-    { label: "FAQ & Coverage Map", href: "#faq" },
-    { label: "Request A 3D Quote", href: "#quote-form" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us Directly", href: "/contact" },
+    { label: "Craftsmanship & Services", href: "/#services" },
+    { label: "Why Homeowners Trust Us", href: "/#why-us" },
+    { label: "4-Stage Build Process", href: "/#process" },
+    { label: "Before & After Portfolio (60 Works)", href: "/before-after" },
+    { label: "Verified Google Reviews", href: "/reviews" },
+    { label: "Service Areas & Map", href: "/areas-we-serve" },
+    { label: "Request A 3D Quote", href: "/quote" },
   ];
 
   const serviceAreas = [
@@ -78,10 +86,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-blue-900/60">
           {/* Column 1: Brand & Executive Story (4 Cols) */}
           <div className="lg:col-span-4 space-y-5">
-            <Link href="#hero" className="inline-block">
+            <Link href="/" className="inline-block">
               <div className="relative h-14 w-48 bg-white rounded-[5px] p-2.5 shadow-md flex items-center justify-center transition-transform hover:scale-[1.02] duration-200">
                 <Image
-                  src="/images/logo.png"
+                  src="/assets/logo.png"
                   alt="Pools By Elio Logo"
                   fill
                   unoptimized
@@ -105,35 +113,12 @@ export default function Footer() {
               accountability. We set the standards!
             </p>
 
-            {/* Social Media Links */}
-            <div className="flex items-center space-x-3 pt-2">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-blue-900/60 hover:bg-[#004b93] border border-blue-700/60 hover:border-cyan-400/50 flex items-center justify-center text-blue-200 hover:text-white transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm"
-                aria-label="Facebook"
-              >
-                <FacebookIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-blue-900/60 hover:bg-[#004b93] border border-blue-700/60 hover:border-cyan-400/50 flex items-center justify-center text-blue-200 hover:text-white transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm"
-                aria-label="Instagram"
-              >
-                <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-blue-900/60 hover:bg-[#004b93] border border-blue-700/60 hover:border-cyan-400/50 flex items-center justify-center text-blue-200 hover:text-white transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm"
-                aria-label="LinkedIn"
-              >
-                <LinkedInIcon className="w-4 h-4" />
-              </a>
+            {/* Social Media Links (Facebook, Instagram, Google, Yelp, BBB) */}
+            <div className="pt-2">
+              <span className="block text-xs uppercase font-bold text-cyan-300 tracking-wider mb-2.5">
+                Connect &amp; Verify With Us:
+              </span>
+              <SocialMediaBar variant="footer" />
             </div>
           </div>
 
@@ -145,13 +130,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {services.map((item, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-[13.5px] text-blue-200/80 hover:text-cyan-300 transition-colors flex items-center gap-1.5 group"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-0.5 transition-transform" />
                     <span>{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -165,13 +150,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.map((item, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-[13.5px] text-blue-200/80 hover:text-cyan-300 transition-colors flex items-center gap-1.5 group"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-0.5 transition-transform" />
                     <span>{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -200,19 +185,10 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-cyan-400 shrink-0" />
                 <div>
                   <a
-                    href="tel:6158040314"
+                    href="tel:6155683154"
                     className="hover:text-cyan-300 transition-colors font-bold block"
                   >
-                    (615) 804-0314{" "}
-                    <span className="text-[11px] font-normal text-blue-300">
-                      (Direct Builder)
-                    </span>
-                  </a>
-                  <a
-                    href="tel:6155683154"
-                    className="hover:text-cyan-300 transition-colors text-xs text-blue-300/80 block mt-0.5"
-                  >
-                    (615) 568-3154 (Office &amp; Dispatch)
+                    (615) 568-3154
                   </a>
                 </div>
               </div>
@@ -281,12 +257,12 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center space-x-6">
-            <a href="#about" className="hover:text-white transition-colors">
+            <Link href="/about" className="hover:text-white transition-colors">
               Privacy Policy
-            </a>
-            <a href="#services" className="hover:text-white transition-colors">
+            </Link>
+            <Link href="/contact" className="hover:text-white transition-colors">
               Terms of Service
-            </a>
+            </Link>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-full bg-blue-900/60 hover:bg-[#004b93] text-white transition-all duration-200 flex items-center justify-center border border-blue-700/60 hover:border-cyan-400/50 shadow-sm"

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Play, Star } from "lucide-react";
 
 export default function Hero() {
@@ -142,14 +143,14 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
 
           {/* Left Text Content */}
-          <div className="lg:col-span-7 text-white space-y-6">
+          <div className="lg:col-span-7 text-white space-y-5 sm:space-y-6">
 
             {/* Pill: Outline with pulsating live beacon */}
-            <div className="inline-flex items-center px-6 py-2 rounded-full border-2 border-white/80 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-bold tracking-wider uppercase shadow-sm gap-2.5 transition-all duration-300 hover:bg-white/15">
-              <span className="relative flex h-2 w-2">
+            <div className="inline-flex items-center px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border-2 border-white/80 bg-white/10 backdrop-blur-sm text-white text-[11px] sm:text-sm font-bold tracking-wider uppercase shadow-sm gap-2 sm:gap-2.5 transition-all duration-300 hover:bg-white/15">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
               </span>
@@ -160,10 +161,9 @@ export default function Hero() {
             <div>
               <h1
                 style={{
-                  fontSize: "45px",
-                  marginBottom: "-18px",
+                  fontSize: "clamp(1.85rem, 3.5vw + 0.75rem, 2.85rem)",
                 }}
-                className="font-extrabold tracking-tight text-white leading-tight text-[45px] mb-[-18px] drop-shadow-sm"
+                className="font-extrabold tracking-tight text-white leading-tight drop-shadow-sm"
               >
                 Build Your Dream
                 <span className="block mt-1">Custom Designs &amp; Luxury Pools</span>
@@ -171,33 +171,33 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-white/95 max-w-xl font-normal leading-relaxed drop-shadow-sm">
+            <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-xl font-normal leading-relaxed drop-shadow-sm">
               Custom pools, spas &amp; outdoor living spaces — meticulously crafted to transform your backyard into a private resort.
             </p>
 
             {/* CTA Buttons with hover animation */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center px-7 py-3 rounded-full text-sm font-semibold text-white bg-[#0047a0] hover:bg-[#003870] border-2 border-white shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-500/20"
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+              <Link
+                href="/quote"
+                className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#0047a0] hover:bg-[#003870] border-2 border-white shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-500/20"
               >
                 <span>Get Free Quote</span>
                 <span className="ml-1.5 transition-transform duration-300 group-hover:translate-x-1">&raquo;</span>
-              </a>
+              </Link>
 
-              <a
-                href="#portfolio"
-                className="group inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border-2 border-white backdrop-blur-md transition-all duration-300 transform hover:-translate-y-0.5 gap-2"
+              <Link
+                href="/before-after"
+                className="group inline-flex items-center justify-center px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border-2 border-white backdrop-blur-md transition-all duration-300 transform hover:-translate-y-0.5 gap-2"
               >
-                <div className="w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center transition-colors">
+                <div className="w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center transition-colors shrink-0">
                   <Play className="w-3 h-3 fill-white text-white ml-0.5 group-hover:scale-110 transition-transform" />
                 </div>
                 <span>View Projects</span>
-              </a>
+              </Link>
             </div>
 
             {/* Animated Carousel Indicators with Active Progress Fill */}
-            <div className="flex items-center space-x-2 pt-4">
+            <div className="flex items-center space-x-2 pt-2 sm:pt-4">
               {heroBanners.map((_, i) => (
                 <button
                   key={i}
@@ -224,7 +224,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Liquid Glass Effect Card positioned lower toward the bottom */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end lg:self-end lg:translate-x-4 xl:translate-x-8 lg:translate-y-16 xl:translate-y-20">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end lg:self-end lg:translate-x-0 xl:translate-x-6 lg:translate-y-10 xl:translate-y-16">
             <div
               style={{
                 animation: "floatGlassCard 6s ease-in-out infinite",
@@ -248,19 +248,23 @@ export default function Hero() {
               <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
 
               {/* Top: 5 Stars + 5.0 · 20 reviews */}
-              <div className="flex items-center justify-between mb-6 relative z-10">
+              <Link
+                href="/reviews"
+                className="flex items-center justify-between mb-6 relative z-10 group/rev hover:opacity-95 transition-opacity"
+                title="View 100% Google Verified Reviews"
+              >
                 <div className="flex items-center space-x-1 text-amber-400">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 drop-shadow-sm transition-transform duration-300 hover:scale-125"
+                      className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400 drop-shadow-sm transition-transform duration-300 group-hover/rev:scale-110"
                     />
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-white/95 tracking-wide">
-                  5.0 &middot; 20+ reviews
+                <span className="text-xs sm:text-sm font-medium text-white/95 tracking-wide underline underline-offset-4 decoration-amber-400/60 group-hover/rev:decoration-amber-400">
+                  5.0 &middot; 20+ reviews &rarr;
                 </span>
-              </div>
+              </Link>
 
               {/* Middle: 25+ YEARS EXPERIENCE | 100+ POOLS BUILT */}
               <div className="grid grid-cols-2 gap-6 text-center sm:text-left py-2 relative z-10">

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import {
   Compass,
   Palette,
@@ -70,7 +71,7 @@ export default function ProcessSection() {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
           {/* Top Pill with Cyan-to-Blue Gradient */}
           <div className="inline-flex items-center px-6 py-2 rounded-full bg-gradient-to-r from-[#0052a3] to-[#00a3cc] text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase shadow-sm">
             <span>OUR PROCESS</span>
@@ -79,24 +80,15 @@ export default function ProcessSection() {
           {/* Heading */}
           <h2
             style={{
-              fontSize: "40px",
-              marginTop: "14px",
-              marginBottom: "5px",
+              fontSize: "clamp(1.65rem, 3vw + 0.5rem, 2.5rem)",
             }}
-            className="font-extrabold text-[#002b66] tracking-tight text-[40px] mt-[14px] mb-[5px]"
+            className="font-extrabold text-[#002b66] tracking-tight mt-3 sm:mt-4 mb-2 leading-tight"
           >
             From Concept To Completion
           </h2>
 
           {/* Subtitle */}
-          <p
-            style={{
-              fontSize: "17px",
-              fontWeight: 500,
-              marginBottom: "-60px",
-            }}
-            className="text-slate-600 text-[17px] font-[500] mb-[-60px] mx-auto whitespace-normal lg:whitespace-nowrap leading-relaxed max-w-none"
-          >
+          <p className="text-slate-600 text-sm sm:text-base md:text-[17px] font-medium mx-auto leading-relaxed max-w-3xl">
             A seamless, transparent four-stage journey to bringing your custom backyard paradise into reality.
           </p>
         </div>
@@ -171,13 +163,13 @@ export default function ProcessSection() {
               </div>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#004ba3] to-[#009bb8] hover:opacity-95 shadow-sm transition-all duration-300 transform hover:scale-[1.02] shrink-0"
             >
               <span>Book Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </div>
 

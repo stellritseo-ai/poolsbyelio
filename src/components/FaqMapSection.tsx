@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Sparkles,
   ChevronDown,
@@ -13,6 +14,7 @@ import {
   PhoneCall,
   HardHat,
   Compass,
+  ArrowRight,
 } from "lucide-react";
 
 interface FaqItem {
@@ -121,17 +123,17 @@ export default function FaqMapSection() {
 
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center w-full max-w-none mx-auto space-y-3 mb-12 flex flex-col items-center justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#004b93]/10 border border-[#004b93]/20 text-[#004b93] text-xs font-bold uppercase tracking-widest backdrop-blur-sm shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#004b93]" />
+        <div className="text-center w-full max-w-none mx-auto space-y-3 mb-10 sm:mb-12 flex flex-col items-center justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#004b93]/10 border border-[#004b93]/20 text-[#004b93] text-[11px] sm:text-xs font-bold uppercase tracking-widest backdrop-blur-sm shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#004b93] shrink-0" />
             <span>FREQUENTLY ASKED QUESTIONS &amp; SERVICE REGION</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center leading-tight">
             Got Questions? We Have Answers.
           </h2>
 
-          <p className="text-center w-full text-slate-600 text-base sm:text-[17px] font-medium max-w-none lg:whitespace-nowrap leading-relaxed">
+          <p className="text-center w-full text-slate-600 text-sm sm:text-base md:text-[17px] font-medium max-w-3xl mx-auto leading-relaxed">
             Direct, transparent insights from master builder Jonathan Rodriguez
             on engineering, permitting, timelines, and regional coverage.
           </p>
@@ -252,12 +254,20 @@ export default function FaqMapSection() {
                 </div>
               </div>
 
-              <a
-                href="tel:6158040314"
-                className="shrink-0 px-4 py-2 rounded-full bg-[#004b93] hover:bg-[#003870] text-white text-xs font-bold transition-all shadow-sm"
-              >
-                (615) 804-0314
-              </a>
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                <a
+                  href="tel:6155683154"
+                  className="px-4 py-2 rounded-full bg-[#004b93] hover:bg-[#003870] text-white text-xs font-bold transition-all shadow-sm"
+                >
+                  (615) 568-3154
+                </a>
+                <Link
+                  href="/contact"
+                  className="px-4 py-2 rounded-full bg-white hover:bg-slate-50 text-[#004b93] text-xs font-bold transition-all border border-blue-200 shadow-sm"
+                >
+                  Contact Us &rarr;
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -338,6 +348,17 @@ export default function FaqMapSection() {
                       </span>
                     </div>
                   ))}
+                </div>
+
+                {/* Dedicated Areas Page Link */}
+                <div className="mt-3 text-center">
+                  <Link
+                    href="/areas-we-serve"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#004b93] hover:text-[#00285c] hover:underline"
+                  >
+                    <span>View All Communities on Dedicated Areas Page</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
 

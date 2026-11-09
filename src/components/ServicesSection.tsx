@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Check, X } from "lucide-react";
+import Link from "next/link";
+import { Check, X, ArrowRight } from "lucide-react";
 
 interface ServiceItem {
   id: string;
@@ -16,6 +17,25 @@ interface ServiceItem {
 
 export default function ServicesSection() {
   const [activeModal, setActiveModal] = useState<ServiceItem | null>(null);
+
+  const getServiceUrl = (id: string) => {
+    switch (id) {
+      case "pools-spas":
+        return "/pools-and-spas";
+      case "water-features":
+        return "/water-features";
+      case "state-of-the-art-tech":
+        return "/technology";
+      case "water-parks":
+        return "/water-parks";
+      case "fountains":
+        return "/fountains";
+      case "backyard-concepts":
+        return "/backyard-concepts";
+      default:
+        return "/contact";
+    }
+  };
 
   const services: ServiceItem[] = [
     {
@@ -139,27 +159,19 @@ export default function ServicesSection() {
       <div className="max-w-[1380px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
           {/* Top Pill with Cyan-to-Blue Gradient */}
           <div className="inline-flex items-center px-6 py-2 rounded-full bg-gradient-to-r from-[#0052a3] to-[#00a3cc] text-white text-xs sm:text-[13px] font-bold tracking-wider uppercase shadow-sm">
             <span>WHAT WE CRAFT</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold text-[#002b66] tracking-tight mt-4 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-[42px] font-extrabold text-[#002b66] tracking-tight mt-3 sm:mt-4 mb-3 leading-tight">
             Services Tailored To Your Lifestyle
           </h2>
 
           {/* Paragraph */}
-          <p
-            style={{
-              fontSize: "18px",
-              fontWeight: 500,
-              marginTop: "-10px",
-              marginBottom: "-50px",
-            }}
-            className="text-slate-800 max-w-4xl mx-auto leading-relaxed text-[18px] font-[500] mt-[-10px] mb-[-50px]"
-          >
+          <p className="text-slate-800 max-w-4xl mx-auto leading-relaxed text-sm sm:text-base md:text-[18px] font-medium">
             Pools, spas, water parks, fountains, fire pits, pool houses, outdoor bars, and fully automated backyard concepts. All built in-house by Jonathan and the Elio team.
           </p>
         </div>
@@ -172,12 +184,10 @@ export default function ServicesSection() {
               <div
                 key={service.id}
                 style={{
-                  top: `calc(85px + ${index * 16}px)`,
+                  top: `calc(135px + ${index * 16}px)`,
                   zIndex: 10 + index,
-                  willChange: "transform",
-                  marginBottom: "40px",
                 }}
-                className="sticky mb-[40px] last:mb-0 transform-gpu"
+                className="lg:sticky mb-6 sm:mb-8 lg:mb-[40px] last:mb-0 transform-gpu"
               >
                 {/* Ultra-smooth Card Container with 5px border radius & servicebg.png */}
                 <div
@@ -188,42 +198,42 @@ export default function ServicesSection() {
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                   }}
-                  className="relative rounded-[5px] overflow-hidden border border-white shadow-[0_12px_36px_rgba(0,30,80,0.07),0_2px_6px_rgba(0,0,0,0.04)] p-6 sm:p-8 md:p-10 transition-all duration-300"
+                  className="relative rounded-[5px] overflow-hidden border border-white shadow-[0_12px_36px_rgba(0,30,80,0.07),0_2px_6px_rgba(0,0,0,0.04)] p-5 sm:p-8 md:p-10 transition-all duration-300"
                 >
                   {/* Subtle white wash overlay so text remains razor sharp */}
                   <div className="absolute inset-0 bg-white/75 pointer-events-none rounded-[5px]" />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative z-10">
                     
                     {/* Text Column */}
                     <div
-                      className={`lg:col-span-7 space-y-4 sm:space-y-5 ${
+                      className={`lg:col-span-7 space-y-3 sm:space-y-4 ${
                         isEven ? "lg:order-1" : "lg:order-2"
                       }`}
                     >
-                      <h3 className="text-2xl sm:text-3xl md:text-[32px] font-extrabold text-black tracking-tight leading-tight">
+                      <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold text-black tracking-tight leading-tight">
                         {service.title}
                       </h3>
 
-                      <p
-                        style={{
-                          fontSize: "18px",
-                          marginTop: "-16px",
-                          lineHeight: "36px",
-                          fontWeight: 500,
-                        }}
-                        className="text-slate-800 text-[18px] mt-[-16px] leading-[36px] font-[500]"
-                      >
+                      <p className="text-slate-800 text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[34px] font-medium">
                         {service.description}
                       </p>
 
-                      <div className="pt-2">
+                      <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-3">
                         <button
                           onClick={() => setActiveModal(service)}
-                          className="inline-flex items-center justify-center px-7 py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-white bg-gradient-to-r from-[#005ba3] to-[#00a3cc] hover:opacity-95 shadow-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.03]"
+                          className="inline-flex items-center justify-center px-6 sm:px-7 py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-white bg-gradient-to-r from-[#005ba3] to-[#00a3cc] hover:opacity-95 shadow-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.03]"
                         >
                           <span>READ MORE</span>
                         </button>
+
+                        <Link
+                          href={getServiceUrl(service.id)}
+                          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-[#0055a5] hover:text-[#003870] bg-blue-50/80 hover:bg-blue-100 border border-blue-200 transition-colors uppercase tracking-wider"
+                        >
+                          <span>Dedicated Page</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       </div>
                     </div>
 
@@ -259,7 +269,7 @@ export default function ServicesSection() {
       {/* Detail Modal */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-5 sm:p-8 shadow-2xl relative max-h-[90dvh] overflow-y-auto overscroll-contain">
             <button
               onClick={() => setActiveModal(null)}
               className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
@@ -311,20 +321,28 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            <div className="mt-8 flex justify-end gap-3">
+            <div className="mt-8 flex flex-wrap justify-end gap-3">
               <button
                 onClick={() => setActiveModal(null)}
                 className="px-5 py-2.5 rounded-full text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
               >
                 Close
               </button>
-              <a
-                href="#contact"
+              <Link
+                href={getServiceUrl(activeModal.id)}
+                onClick={() => setActiveModal(null)}
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold text-[#004b93] bg-blue-50 hover:bg-blue-100 transition-colors"
+              >
+                <span>View Full Page</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/quote"
                 onClick={() => setActiveModal(null)}
                 className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-[#004b93] hover:bg-[#003870] shadow-md transition-colors"
               >
                 Request Quote For This Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

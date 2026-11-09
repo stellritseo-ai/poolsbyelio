@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Phone,
   Mail,
@@ -10,53 +11,135 @@ import {
   ChevronDown,
   Menu,
   X,
+  Waves,
+  Droplets,
+  Cpu,
+  Building2,
+  Sparkles,
+  Wine,
+  ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
+import { SocialMediaBar } from "./SocialIcons";
 
 export default function Header() {
-  const [activeTab, setActiveTab] = useState("Home");
+  const pathname = usePathname();
+  const [activeTab, setActiveTab] = useState(
+    pathname === "/about"
+      ? "About Us"
+      : pathname === "/contact"
+      ? "Contact"
+      : pathname === "/areas-we-serve"
+      ? "Areas We Serve"
+      : pathname === "/pools-and-spas" || pathname === "/water-features" || pathname === "/technology" || pathname === "/state-of-the-art-technology" || pathname === "/water-parks" || pathname === "/fountains" || pathname.startsWith("/services")
+      ? "Services"
+      : "Home"
+  );
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 15);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const subServices = [
+    {
+      label: "Pools & Spas",
+      href: "/pools-and-spas",
+      tagline: "Custom gunite pools, lap pools, vanishing edges & heated spas",
+      badge: "Custom Inground",
+      icon: Waves,
+    },
+    {
+      label: "Water Features",
+      href: "/water-features",
+      tagline: "Natural stone waterfalls, rain curtains, grottos & scuppers",
+      badge: "Sight & Sound",
+      icon: Droplets,
+    },
+    {
+      label: "State of the Art Technology",
+      href: "/technology",
+      tagline: "Smartphone automation, variable speed pumps & smart heating",
+      badge: "Smart Pool Tech",
+      icon: Cpu,
+    },
+    {
+      label: "Water Parks",
+      href: "/water-parks",
+      tagline: "Commercial lazy rivers, splash pads & Gaylord Opryland pedigree",
+      badge: "Commercial Scale",
+      icon: Building2,
+    },
+    {
+      label: "Fountains",
+      href: "/fountains",
+      tagline: "Architectural estate fountains, lake aeration & wall water features",
+      badge: "Timeless Beauty",
+      icon: Sparkles,
+    },
+    {
+      label: "Backyard Concepts",
+      href: "/backyard-concepts",
+      tagline: "Pool houses, Nashville swim-up bars, stone fire pits & kitchens",
+      badge: "Complete Living",
+      icon: Wine,
+    },
+  ];
 
   const navLinks = [
-    { label: "Home", href: "#hero" },
-    { label: "About Us", href: "#about" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
     {
       label: "Services",
-      href: "#services",
+      href: "/#services",
       hasDropdown: true,
-      dropdownItems: [
-        { label: "Pools & Spas", href: "#services" },
-        { label: "Water Features", href: "#services" },
-        { label: "State of the Art Technology", href: "#services" },
-        { label: "Water Parks", href: "#services" },
-        { label: "Fountains", href: "#services" },
-        { label: "Backyard Concepts", href: "#services" },
-      ],
+      dropdownItems: subServices,
     },
-    { label: "Before After", href: "#portfolio" },
-    { label: "Areas We Serve", href: "#contact" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" },
+    { label: "Before After", href: "/before-after" },
+    { label: "Areas We Serve", href: "/areas-we-serve" },
+    { label: "Reviews", href: "/reviews" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="relative w-full z-30 pt-[10px] px-[10px] pb-[10px] bg-white">
-      <div className="w-full rounded-[5px] overflow-hidden shadow-md border border-slate-200/80 bg-white">
+    <header
+      className={`sticky top-0 w-full z-50 pt-[10px] px-[10px] pb-[10px] bg-white/95 backdrop-blur-md transition-all duration-300 ${
+        isScrolled ? "shadow-md" : ""
+      }`}
+    >
+      <div
+        className={`w-full rounded-[5px] border border-slate-200/80 bg-white relative transition-shadow duration-300 ${
+          isScrolled ? "shadow-lg" : "shadow-md"
+        }`}
+      >
         
-        {/* 1. TOP BLUE BAR - Exact color: #0555a0 with 19px top rounded corners */}
-        <div className="w-full bg-[#0555a0] text-white text-xs md:text-[13px] font-normal py-2 px-4 sm:px-6 lg:px-8 border-b border-blue-400/20 shadow-sm">
-          <div className="max-w-[1440px] mx-auto flex items-center justify-between">
+        {/* 1. TOP BLUE BAR - Exact color: #0555a0 with top rounded corners */}
+        <div className="w-full bg-[#0555a0] text-white text-[11px] sm:text-xs md:text-[13px] font-normal py-2 px-3 sm:px-6 lg:px-8 border-b border-blue-400/20 shadow-sm rounded-t-[5px]">
+          <div className="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-2">
             {/* Left items: Mail & Address */}
-            <div className="flex items-center space-x-6 sm:space-x-8">
+            <div className="flex items-center space-x-4 sm:space-x-8 min-w-0">
               <a
                 href="mailto:eliocustompools@live.com"
-                className="flex items-center space-x-2 text-white/95 hover:text-white transition-colors"
+                className="flex items-center space-x-1.5 sm:space-x-2 text-white/95 hover:text-white transition-colors truncate"
               >
                 <Mail className="w-3.5 h-3.5 shrink-0 stroke-[2.2]" />
-                <span className="tracking-wide">eliocustompools@live.com</span>
+                <span className="tracking-wide truncate">eliocustompools@live.com</span>
               </a>
 
-              <div className="hidden sm:flex items-center space-x-2 text-white/95">
+              <div className="hidden md:flex items-center space-x-2 text-white/95 shrink-0">
                 <MapPin className="w-3.5 h-3.5 shrink-0 fill-white/20 stroke-[2.2]" />
                 <span className="tracking-wide">
                   412 Ezell pike Nashville TN 37217
@@ -64,13 +147,20 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Right item: "We also design fountains for pools & homes. Click here." */}
-            <div className="text-right text-xs md:text-[13px]">
+            {/* Center / Right: Social Media & Fountains Announcement */}
+            <div className="flex items-center space-x-3 sm:space-x-6 text-right text-[11px] sm:text-xs md:text-[13px] shrink-0">
+              <div className="hidden lg:flex items-center">
+                <SocialMediaBar variant="header" />
+              </div>
+
               <a
-                href="#services"
+                href="http://thehouseoffountains.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/95 hover:text-white transition-colors tracking-wide"
               >
-                <span>We also design fountains for pools &amp; homes. </span>
+                <span className="hidden sm:inline">We also design fountains for pools &amp; homes. </span>
+                <span className="sm:hidden">Fountains: </span>
                 <span className="underline underline-offset-2 font-medium hover:text-cyan-200">
                   Click here.
                 </span>
@@ -79,37 +169,47 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 2. MAIN NAVBAR - White Bar with 19px bottom rounded corners */}
-        <nav className="w-full bg-white py-2.5 sm:py-3 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-[1440px] mx-auto flex items-center justify-between">
+        {/* 2. MAIN NAVBAR - White Bar with bottom rounded corners */}
+        <nav className="w-full bg-white py-2 sm:py-3 px-3 sm:px-6 lg:px-8 rounded-b-[5px] relative">
+          <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2">
             
             {/* Left: Brand Logo */}
-            <Link href="#hero" className="flex items-center shrink-0">
-              <div className="relative h-12 w-36 sm:h-14 sm:w-44 md:h-16 md:w-52 transition-transform hover:scale-[1.02] duration-200">
+            <Link href="/" className="flex items-center shrink-0">
+              <div className="relative h-12 w-36 sm:h-15 sm:w-44 md:h-16 md:w-52 lg:h-[72px] lg:w-[165px] xl:h-[78px] xl:w-[175px] transition-transform hover:scale-[1.02] duration-200">
                 <Image
-                  src="/images/logo.png"
+                  src="/assets/logo.png"
                   alt="Pools By Elio - Nashville's Premier Custom Pool Company"
                   fill
                   priority
+                  unoptimized
                   className="object-contain object-left"
                 />
               </div>
             </Link>
 
             {/* Center: Navigation Links */}
-            <div className="hidden xl:flex items-center space-x-4 lg:space-x-6 2xl:space-x-8 text-[14px] 2xl:text-[15px] font-medium text-slate-800">
+            <div className="hidden xl:flex items-center space-x-3 2xl:space-x-7 text-[14px] 2xl:text-[15px] font-medium text-slate-800">
               {navLinks.map((item) => {
-                const isActive = activeTab === item.label;
+                const isPageActive =
+                  (item.label === "About Us" && pathname === "/about") ||
+                  (item.label === "Contact" && pathname === "/contact") ||
+                  (item.label === "Areas We Serve" && pathname === "/areas-we-serve") ||
+                  (item.label === "Before After" && (pathname === "/before-after" || pathname === "/before-and-after" || pathname === "/portfolio")) ||
+                  (item.label === "Reviews" && (pathname === "/reviews" || pathname === "/testimonials")) ||
+                  (item.label === "Services" && (pathname === "/pools-and-spas" || pathname === "/water-features" || pathname === "/technology" || pathname === "/state-of-the-art-technology" || pathname === "/water-parks" || pathname === "/fountains" || pathname === "/backyard-concepts" || pathname.startsWith("/services"))) ||
+                  (item.label === "Home" && pathname === "/");
+                const isActive = isPageActive || activeTab === item.label;
 
                 if (item.hasDropdown) {
                   return (
                     <div
                       key={item.label}
-                      className="relative group"
+                      className="relative group py-1"
                       onMouseEnter={() => setServicesDropdownOpen(true)}
                       onMouseLeave={() => setServicesDropdownOpen(false)}
                     >
                       <button
+                        type="button"
                         onClick={() => {
                           setActiveTab(item.label);
                           setServicesDropdownOpen(!servicesDropdownOpen);
@@ -121,46 +221,116 @@ export default function Header() {
                         }`}
                       >
                         <span>{item.label}</span>
-                        <ChevronDown className="w-3.5 h-3.5 text-slate-500 transition-transform group-hover:rotate-180" />
+                        <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform ${servicesDropdownOpen ? "rotate-180" : "group-hover:rotate-180"}`} />
                       </button>
 
-                      {/* Dropdown Menu */}
+                      {/* Dropdown Menu - Ultra-premium 2-column mega menu card */}
                       {servicesDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-1.5 w-64 bg-white rounded-xl shadow-2xl border border-slate-100 py-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                          {item.dropdownItems?.map((drop) => (
-                            <a
-                              key={drop.label}
-                              href={drop.href}
-                              onClick={() => {
-                                setActiveTab("Services");
-                                setServicesDropdownOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#0555a0] transition-colors"
+                        <div className="absolute top-full -left-20 xl:-left-28 mt-2 w-[580px] xl:w-[620px] bg-white rounded-2xl shadow-[0_25px_65px_rgba(2,24,56,0.18)] border border-slate-200/90 p-3.5 z-[100] animate-in fade-in slide-in-from-top-2 duration-200 before:content-[''] before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
+                          {/* Header Strip */}
+                          <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-slate-100 px-1">
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-[#0055a5] animate-pulse" />
+                              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#0055a5]">
+                                Pools By Elio Craftsmanship
+                              </span>
+                            </div>
+                            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>100% In-House Builds</span>
+                            </div>
+                          </div>
+
+                          {/* 2-Column Grid */}
+                          <div className="grid grid-cols-2 gap-2">
+                            {subServices.map((drop) => {
+                              const isDropActive = pathname === drop.href;
+                              const IconComponent = drop.icon;
+                              return (
+                                <Link
+                                  key={drop.label}
+                                  href={drop.href}
+                                  onClick={() => {
+                                    setActiveTab("Services");
+                                    setServicesDropdownOpen(false);
+                                  }}
+                                  className={`group/item flex items-start gap-2.5 p-2.5 rounded-xl border transition-all duration-200 ${
+                                    isDropActive
+                                      ? "bg-blue-50/90 border-[#0055a5]/40 shadow-xs"
+                                      : "border-transparent hover:border-blue-100 hover:bg-slate-50/90"
+                                  }`}
+                                >
+                                  <div
+                                    className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 mt-0.5 ${
+                                      isDropActive
+                                        ? "bg-[#0055a5] text-white shadow-sm"
+                                        : "bg-blue-50 text-[#0055a5] group-hover/item:bg-[#0055a5] group-hover/item:text-white"
+                                    }`}
+                                  >
+                                    <IconComponent className="w-4 h-4" />
+                                  </div>
+
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between gap-1">
+                                      <span
+                                        className={`text-[13.5px] font-bold truncate transition-colors ${
+                                          isDropActive
+                                            ? "text-[#0055a5]"
+                                            : "text-slate-900 group-hover/item:text-[#0055a5]"
+                                        }`}
+                                      >
+                                        {drop.label}
+                                      </span>
+                                      <ArrowRight
+                                        className={`w-3.5 h-3.5 text-slate-300 transition-all duration-200 opacity-0 group-hover/item:opacity-100 group-hover/item:text-[#0055a5] group-hover/item:translate-x-0.5 shrink-0 ${
+                                          isDropActive ? "opacity-100 text-[#0055a5]" : ""
+                                        }`}
+                                      />
+                                    </div>
+                                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-snug mt-0.5 font-normal">
+                                      {drop.tagline}
+                                    </p>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+
+                          {/* Dropdown Bottom Banner */}
+                          <div className="mt-2.5 pt-2.5 border-t border-slate-100 flex items-center justify-between px-2 text-[11.5px]">
+                            <span className="text-slate-500 font-medium">
+                              Ready for your custom backyard retreat?
+                            </span>
+                            <Link
+                              href="/quote"
+                              onClick={() => setServicesDropdownOpen(false)}
+                              className="inline-flex items-center gap-1 font-bold text-[#0055a5] hover:text-[#003870] hover:underline"
                             >
-                              {drop.label}
-                            </a>
-                          ))}
+                              <span>Free 3D Estimator</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
+                          </div>
                         </div>
                       )}
                     </div>
                   );
                 }
 
-                if (item.label === "Home") {
+                if (isPageActive) {
                   return (
-                    <a
+                    <Link
                       key={item.label}
                       href={item.href}
                       onClick={() => setActiveTab(item.label)}
                       className="bg-[#071684] text-white px-5 py-1.5 rounded-full font-semibold shadow-sm transition-all hover:bg-[#051166]"
                     >
-                      Home
-                    </a>
+                      {item.label}
+                    </Link>
                   );
                 }
 
                 return (
-                  <a
+                  <Link
                     key={item.label}
                     href={item.href}
                     onClick={() => setActiveTab(item.label)}
@@ -171,7 +341,7 @@ export default function Header() {
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -188,12 +358,12 @@ export default function Header() {
               </a>
 
               {/* Get a Quote Button - Exact match: Royal Blue #0047a0 / #0555a0 */}
-              <a
-                href="#contact"
+              <Link
+                href="/quote"
                 className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 rounded-full text-white bg-[#0047a0] hover:bg-[#003870] text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200"
               >
                 <span>Get a Quote</span>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Hamburger Button */}
@@ -221,25 +391,107 @@ export default function Header() {
 
           {/* Mobile Navigation Drawer */}
           {mobileMenuOpen && (
-            <div className="xl:hidden bg-white border-t border-slate-100 px-6 py-5 rounded-b-[5px] shadow-xl animate-in slide-in-from-top-2 duration-200">
-              <div className="flex flex-col space-y-3">
-                {navLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => {
-                      setActiveTab(item.label);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={`py-2 text-base font-medium rounded-lg px-3 transition-colors ${
-                      activeTab === item.label
-                        ? "bg-blue-50 text-[#071684] font-bold"
-                        : "text-slate-800 hover:bg-slate-50 hover:text-[#0555a0]"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+            <div className="xl:hidden bg-white border-t border-slate-100 px-4 sm:px-6 py-5 rounded-b-[5px] shadow-xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100dvh-110px)] overflow-y-auto overscroll-contain">
+              <div className="flex flex-col space-y-2.5">
+                {navLinks.map((item) => {
+                  if (item.hasDropdown) {
+                    return (
+                      <div key={item.label} className="flex flex-col">
+                        <div className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-50">
+                          <Link
+                            href={item.href}
+                            onClick={() => {
+                              setActiveTab(item.label);
+                              setMobileMenuOpen(false);
+                            }}
+                            className={`text-base font-medium transition-colors ${
+                              activeTab === item.label
+                                ? "text-[#071684] font-bold"
+                                : "text-slate-800 hover:text-[#0555a0]"
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                            className="p-1.5 rounded-md text-slate-500 hover:bg-slate-100 transition-colors"
+                            aria-label="Toggle Services submenu"
+                          >
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform ${
+                                servicesDropdownOpen ? "rotate-180" : ""
+                              }`}
+                            />
+                          </button>
+                        </div>
+
+                        {servicesDropdownOpen && (
+                          <div className="pl-2.5 pr-2 py-2 space-y-1.5 bg-blue-50/70 rounded-xl mt-1.5 mb-2 border-l-2 border-[#0055a5]">
+                            {subServices.map((drop) => {
+                              const isDropActive = pathname === drop.href;
+                              const IconComponent = drop.icon;
+                              return (
+                                <Link
+                                  key={drop.label}
+                                  href={drop.href}
+                                  onClick={() => {
+                                    setActiveTab("Services");
+                                    setMobileMenuOpen(false);
+                                    setServicesDropdownOpen(false);
+                                  }}
+                                  className={`flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-sm font-semibold transition-colors min-w-0 ${
+                                    isDropActive
+                                      ? "bg-[#0055a5] text-white shadow-xs"
+                                      : "text-slate-700 hover:text-[#0555a0] hover:bg-white/90"
+                                  }`}
+                                >
+                                  <IconComponent
+                                    className={`w-4 h-4 shrink-0 ${
+                                      isDropActive ? "text-white" : "text-[#0055a5]"
+                                    }`}
+                                  />
+                                  <span className="truncate min-w-0">{drop.label}</span>
+                                  <span
+                                    className={`hidden sm:inline-block shrink-0 text-[10px] uppercase font-bold ml-auto px-2 py-0.5 rounded-full ${
+                                      isDropActive
+                                        ? "bg-white/20 text-white"
+                                        : "bg-white text-slate-500 border border-slate-200"
+                                    }`}
+                                  >
+                                    {drop.badge}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => {
+                        setActiveTab(item.label);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`py-2 text-base font-medium rounded-lg px-3 transition-colors ${
+                        (item.label === "About Us" && pathname === "/about") ||
+                        (item.label === "Contact" && pathname === "/contact") ||
+                        (item.label === "Areas We Serve" && pathname === "/areas-we-serve") ||
+                        (item.label === "Home" && pathname === "/") ||
+                        activeTab === item.label
+                          ? "bg-blue-50 text-[#071684] font-bold"
+                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0555a0]"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
 
                 <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
                   <a
@@ -249,13 +501,30 @@ export default function Header() {
                     <Phone className="w-4 h-4 fill-white" />
                     <span>Call (615) 568-3154</span>
                   </a>
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/quote"
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full py-3 text-center rounded-full text-white bg-[#0047a0] font-semibold text-sm shadow-md"
                   >
                     Get a Quote
+                  </Link>
+
+                  <a
+                    href="http://thehouseoffountains.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-2.5 px-3 rounded-xl bg-blue-50 text-[#0055a5] text-xs font-semibold hover:bg-blue-100 border border-blue-200/80 transition-colors"
+                  >
+                    <span>We also design fountains for pools &amp; homes. </span>
+                    <span className="underline font-bold text-[#071684]">Click here.</span>
                   </a>
+
+                  <div className="pt-2 flex flex-col items-center gap-2">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      Connect With Pools By Elio
+                    </span>
+                    <SocialMediaBar variant="compact" />
+                  </div>
                 </div>
               </div>
             </div>

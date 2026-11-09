@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { Leaf } from "lucide-react";
+import Link from "next/link";
+import { Leaf, ArrowRight } from "lucide-react";
 
 export default function WelcomeSection() {
   const showcasePools = [
@@ -70,44 +71,26 @@ export default function WelcomeSection() {
         </div>
 
         {/* Main Heading */}
-        <div className="text-center max-w-5xl mx-auto">
+        <div className="text-center max-w-5xl mx-auto mt-3 sm:mt-4">
           <h2
             style={{
-              fontSize: "42px",
-              marginTop: "0px",
-              marginBottom: "px",
+              fontSize: "clamp(1.65rem, 3vw + 0.5rem, 2.625rem)",
             }}
-            className="font-extrabold text-[#0f172a] tracking-tight leading-snug text-[42px] mt-[-10px] mb-[-11px]"
+            className="font-extrabold text-[#0f172a] tracking-tight leading-snug"
           >
             25 Years of Excellence &mdash; Family Owned, Hands-On
           </h2>
         </div>
 
         {/* Description Paragraph */}
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          <p
-            style={{
-              fontSize: "18px",
-              width: "120%",
-              fontWeight: 500,
-              marginBottom: "-21px",
-              marginTop: "15px",
-              lineHeight: "34px",
-            }}
-            className="text-slate-800 text-center leading-relaxed text-[18px] font-[500]"
-          >
+        <div className="flex flex-col items-center text-center max-w-6xl mx-auto mt-3 sm:mt-4">
+          <p className="w-full text-slate-800 text-center text-sm sm:text-base md:text-[18px] font-medium leading-relaxed sm:leading-[30px] md:leading-[34px]">
             Founded by Jonathan Elio Rodriguez and David Elio Rodriguez, Pools by Elio brings over 25 years of industry leadership to every project &mdash; big or small. Jonathan is hands-on with every build, ensuring quality from start to finish. With everything done in-house, we have the resources and capability to set the standard. Whether it&apos;s a pool bar in downtown Nashville or the lazy river at Gaylord Opryland&apos;s Sound Waves, we can build your dream oasis.
           </p>
         </div>
 
         {/* Two Blue Feature Cards */}
-        <div
-          style={{
-            marginTop: "40px",
-            marginBottom: "-38px",
-          }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 mt-[40px] mb-[-38px]"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-7 mt-7 sm:mt-9">
 
           {/* Card 1: Master Craftsmanship */}
           <div className="group relative w-full sm:w-[350px] flex items-center gap-4 px-6 py-4 rounded-[14px] bg-[#005ba3] text-white shadow-[0_4px_16px_rgba(0,75,147,0.22)] border border-white/15 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,75,147,0.3)]">
@@ -153,6 +136,25 @@ export default function WelcomeSection() {
 
         </div>
 
+        {/* Action Buttons: About & Before/After Gallery */}
+        <div className="flex flex-wrap items-center justify-center gap-3.5 mt-6 sm:mt-8">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#004b93] hover:bg-[#003870] shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <span>Our 25-Year Story &amp; Leadership</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+
+          <Link
+            href="/before-after"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 hover:border-[#004b93] shadow-sm transition-all"
+          >
+            <span>Explore 60+ Before &amp; After Projects</span>
+            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+          </Link>
+        </div>
+
         {/* Keyframe animation for infinite smooth slide with pause on hover */}
         <style>{`
           @keyframes infiniteMarquee {
@@ -187,9 +189,11 @@ export default function WelcomeSection() {
         {/* Marquee Track */}
         <div className="marquee-track">
           {infinitePools.map((pool, idx) => (
-            <div
+            <Link
               key={idx}
-              className="group/card relative w-[220px] sm:w-[250px] md:w-[270px] aspect-[3/4] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 shrink-0 bg-slate-100 border border-slate-200/70 mr-4 sm:mr-5 cursor-pointer"
+              href="/before-after"
+              title="View in Before & After Gallery"
+              className="group/card relative w-[220px] sm:w-[250px] md:w-[270px] aspect-[3/4] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 shrink-0 bg-slate-100 border border-slate-200/70 mr-4 sm:mr-5 cursor-pointer block"
             >
               <Image
                 src={pool.img}
@@ -202,7 +206,7 @@ export default function WelcomeSection() {
               <div className="absolute inset-0 rounded-2xl border border-white/25 pointer-events-none" />
               {/* Gentle dark gradient on card hover for contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

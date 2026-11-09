@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import {
   Sparkles,
   Star,
@@ -173,7 +174,7 @@ const row2Reviews: ReviewItem[] = [
 
 function TestimonialCard({ review }: { review: ReviewItem }) {
   return (
-    <div className="w-[360px] sm:w-[410px] shrink-0 bg-white/95 rounded-[5px] p-5 sm:p-6 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(66,133,244,0.12)] hover:border-[#4285F4]/60 transition-all duration-300 flex flex-col justify-between group relative select-none">
+    <div className="w-[290px] sm:w-[360px] md:w-[410px] shrink-0 bg-white/95 rounded-[5px] p-4 sm:p-6 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(66,133,244,0.12)] hover:border-[#4285F4]/60 transition-all duration-300 flex flex-col justify-between group relative select-none">
       <div>
         {/* Top Header: Google Branding, Stars, Verified Badge */}
         <div className="flex items-center justify-between gap-2 mb-3">
@@ -258,18 +259,18 @@ export default function TestimonialsSection() {
             <span>TESTIMONIALS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-[40px] font-extrabold text-[#003870] tracking-tight text-center leading-tight">
             Stories From The Backyard
           </h2>
 
-          <p className="text-center w-full text-slate-600 text-base sm:text-[17px] font-medium max-w-none lg:whitespace-nowrap leading-relaxed">
+          <p className="text-center w-full text-slate-600 text-sm sm:text-base md:text-[17px] font-medium max-w-3xl mx-auto leading-relaxed">
             Real 5-star experiences from homeowners we&apos;ve had the honor to
             serve across Greater Nashville &amp; Middle Tennessee.
           </p>
 
           {/* Google Verified Master Trust Rating Bar */}
           <div className="pt-2">
-            <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-white border border-slate-200/90 shadow-sm">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border border-slate-200/90 shadow-sm">
               <div className="flex items-center gap-2">
                 <GoogleLogo className="w-5 h-5 shrink-0" />
                 <span className="font-extrabold text-slate-900 text-sm sm:text-base">
@@ -286,7 +287,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
 
-              <span className="text-xs font-bold text-slate-700 border-l border-slate-200 pl-3">
+              <span className="text-xs font-bold text-slate-700 sm:border-l sm:border-slate-200 sm:pl-3">
                 100% Verified By Google Reviews
               </span>
 
@@ -301,8 +302,8 @@ export default function TestimonialsSection() {
       {/* Infinite Auto-Sliding Two Rows of Testimonials */}
       <div className="relative mt-4 space-y-4 overflow-hidden">
         {/* Soft edge gradient fade masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#f8fafc] via-[#f8fafc]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#ffffff] via-[#ffffff]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-20 md:w-28 bg-gradient-to-r from-[#f8fafc] via-[#f8fafc]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-20 md:w-28 bg-gradient-to-l from-[#ffffff] via-[#ffffff]/80 to-transparent z-20" />
 
         {/* Row 1: Slides Left smoothly */}
         <div className="overflow-hidden py-1">
@@ -326,22 +327,31 @@ export default function TestimonialsSection() {
       {/* Bottom CTA & Trust Action */}
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-10">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 text-center">
-          <a
-            href="#quote-form"
+          <Link
+            href="/quote"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#004b93] hover:bg-[#003870] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
           >
             <span>Start Your Backyard Transformation</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
+
+          <Link
+            href="/reviews"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-[#004b93] bg-blue-50 hover:bg-blue-100 border border-blue-200 shadow-sm transition-all duration-200"
+          >
+            <Sparkles className="w-4 h-4 text-[#004b93]" />
+            <span>Dedicated Reviews Page</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
           <a
-            href="https://www.google.com/search?q=Pools+by+Elio+Nashville+reviews"
+            href="https://www.google.com/searchviewer/10?svid=CCYSESoPCg0vZy8xMW5ucXFwX2YwGAo"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-400 shadow-sm transition-all"
           >
             <GoogleLogo className="w-4 h-4" />
-            <span>Read All Google Reviews</span>
+            <span>Verify on Google Reviews</span>
             <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
           </a>
         </div>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   PhoneCall,
   Wrench,
@@ -10,6 +11,7 @@ import {
   Users,
   Trophy,
   HardHat,
+  ArrowRight,
 } from "lucide-react";
 
 export default function EmergencyStatsSection() {
@@ -106,20 +108,20 @@ export default function EmergencyStatsSection() {
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
                 <a
-                  href="tel:6158040314"
+                  href="tel:6155683154"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 shadow-lg shadow-rose-900/40 hover:shadow-rose-900/60 transition-all duration-300 transform hover:-translate-y-0.5"
                 >
                   <PhoneCall className="w-4 h-4 animate-bounce" />
-                  <span>Call Emergency Line: (615) 804-0314</span>
+                  <span>Call Emergency Line: (615) 568-3154</span>
                 </a>
 
-                <a
-                  href="tel:6155683154"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold text-blue-100 bg-white/10 hover:bg-white/20 border border-white/20 transition-all"
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/30 backdrop-blur-md transition-all shadow-sm"
                 >
-                  <Wrench className="w-4 h-4 text-cyan-300" />
-                  <span>Office: (615) 568-3154</span>
-                </a>
+                  <span>Request Repair Online</span>
+                  <ArrowRight className="w-4 h-4 text-cyan-300" />
+                </Link>
               </div>
             </div>
 
@@ -127,7 +129,7 @@ export default function EmergencyStatsSection() {
             <div className="lg:col-span-5 relative min-h-[300px] sm:min-h-[360px] lg:min-h-full overflow-hidden p-4 sm:p-6 flex items-center justify-center">
               <div className="relative w-full h-full min-h-[280px] sm:min-h-[320px] rounded-[5px] overflow-hidden border border-white/20 shadow-2xl group">
                 <Image
-                  src="/images/services/emergency-repair.webp"
+                  src="/assets/service1.png"
                   alt="Pool & Spa Repair and Maintenance Service"
                   fill
                   unoptimized

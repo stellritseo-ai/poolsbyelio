@@ -22,13 +22,24 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 110px;
+  overflow-x: clip;
 }
 
 body {
   background-color: #ffffff;
   color: #1e293b;
-  overflow-x: hidden;
+  overflow-x: clip;
+  min-height: 100dvh;
+}
+
+/* Hide scrollbars on horizontal filter/thumbnail rails while preserving touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom pool water ripple / glow animations */
