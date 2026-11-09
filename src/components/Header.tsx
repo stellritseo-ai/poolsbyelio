@@ -9,8 +9,7 @@ import {
   Mail,
   MapPin,
   ChevronDown,
-  Menu,
-  X,
+  ChevronRight,
   Waves,
   Droplets,
   Cpu,
@@ -19,6 +18,14 @@ import {
   Wine,
   ArrowRight,
   ShieldCheck,
+  Home,
+  Award,
+  Layers,
+  Images,
+  Compass,
+  Star,
+  MessageSquare,
+  ExternalLink,
 } from "lucide-react";
 import { SocialMediaBar } from "./SocialIcons";
 
@@ -102,18 +109,50 @@ export default function Header() {
   ];
 
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
+    {
+      label: "Home",
+      href: "/",
+      subtitle: "Nashville's Custom Pool & Spa Builder",
+      icon: Home,
+    },
+    {
+      label: "About Us",
+      href: "/about",
+      subtitle: "25+ Years of Family-Owned Craftsmanship",
+      icon: Award,
+    },
     {
       label: "Services",
       href: "/services",
+      subtitle: "6 Master Aquatic & Outdoor Living Divisions",
+      icon: Layers,
       hasDropdown: true,
       dropdownItems: subServices,
     },
-    { label: "Before After", href: "/before-after" },
-    { label: "Areas We Serve", href: "/areas-we-serve" },
-    { label: "Reviews", href: "/reviews" },
-    { label: "Contact", href: "/contact" },
+    {
+      label: "Before After",
+      href: "/before-after",
+      subtitle: "Interactive Sliders & 45+ Project Gallery",
+      icon: Images,
+    },
+    {
+      label: "Areas We Serve",
+      href: "/areas-we-serve",
+      subtitle: "50-Mile Middle Tennessee Service Radius",
+      icon: Compass,
+    },
+    {
+      label: "Reviews",
+      href: "/reviews",
+      subtitle: "5.0★ Verified Homeowner Testimonials",
+      icon: Star,
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+      subtitle: "Direct Builder Dispatch & Showroom HQ",
+      icon: MessageSquare,
+    },
   ];
 
   return (
@@ -411,104 +450,243 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex xl:hidden items-center space-x-2">
+            {/* Mobile Action & Animated 3-Line Hamburger Trigger */}
+            <div className="flex xl:hidden items-center gap-2">
               <a
                 href="tel:6155683154"
-                className="p-2 rounded-full bg-[#071684] text-white sm:hidden"
-                aria-label="Call Now"
+                className="inline-flex sm:hidden items-center justify-center w-10 h-10 rounded-xl bg-[#071684] hover:bg-[#051166] text-white shadow-sm active:scale-95 transition-all"
+                aria-label="Call (615) 568-3154"
               >
                 <Phone className="w-4 h-4 fill-white" />
               </a>
+
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl text-slate-800 hover:text-[#0555a0] hover:bg-slate-100 transition-colors"
+                aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
+                className={`group inline-flex items-center gap-2.5 h-10 px-3.5 rounded-xl border font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  mobileMenuOpen
+                    ? "bg-[#00285c] text-white border-[#00285c] shadow-md"
+                    : "bg-slate-50/90 text-[#00285c] border-slate-200/90 hover:bg-blue-50/80 hover:border-blue-200 shadow-2xs"
+                }`}
               >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
+                <span className="hidden xs:inline text-[11px] font-extrabold tracking-widest">
+                  {mobileMenuOpen ? "Close" : "Menu"}
+                </span>
+                {/* Precision Animated 3-Line Architectural Icon */}
+                <span className="relative w-5 h-3.5 flex flex-col justify-between items-end">
+                  <span
+                    className={`h-[2px] rounded-full transition-all duration-300 origin-center ${
+                      mobileMenuOpen
+                        ? "w-5 bg-cyan-300 translate-y-[6px] rotate-45"
+                        : "w-5 bg-[#00285c] group-hover:bg-[#0055a5]"
+                    }`}
+                  />
+                  <span
+                    className={`h-[2px] rounded-full transition-all duration-300 ${
+                      mobileMenuOpen
+                        ? "w-0 opacity-0 bg-cyan-300"
+                        : "w-3.5 bg-[#0055a5] group-hover:w-5"
+                    }`}
+                  />
+                  <span
+                    className={`h-[2px] rounded-full transition-all duration-300 origin-center ${
+                      mobileMenuOpen
+                        ? "w-5 bg-cyan-300 -translate-y-[6px] -rotate-45"
+                        : "w-4 bg-[#00285c] group-hover:w-5 group-hover:bg-[#0055a5]"
+                    }`}
+                  />
+                </span>
               </button>
             </div>
           </div>
 
-          {/* Mobile Navigation Drawer */}
+          {/* Mobile Navigation Backdrop Scrim */}
           {mobileMenuOpen && (
-            <div className="xl:hidden bg-white border-t border-slate-100 px-4 sm:px-6 py-5 rounded-b-[5px] shadow-xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100dvh-110px)] overflow-y-auto overscroll-contain">
-              <div className="flex flex-col space-y-2.5">
+            <div
+              onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
+              className="xl:hidden fixed inset-x-0 bottom-0 top-[72px] bg-slate-950/45 backdrop-blur-[2px] z-40 animate-in fade-in duration-200"
+            />
+          )}
+
+          {/* Ultra-Premium Mobile Navigation Drawer */}
+          {mobileMenuOpen && (
+            <div className="xl:hidden absolute left-0 right-0 top-full mt-1.5 mx-1 sm:mx-2 bg-white rounded-2xl border border-slate-200/90 shadow-[0_28px_70px_rgba(0,20,55,0.28)] z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100dvh-88px)] flex flex-col">
+              {/* Top Authority Strip */}
+              <div className="bg-gradient-to-r from-[#001a40] via-[#00285c] to-[#0047a0] px-4 py-2.5 text-white flex items-center justify-between gap-2 shrink-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse shrink-0" />
+                  <span className="text-[10.5px] sm:text-xs font-extrabold uppercase tracking-widest text-cyan-200 truncate">
+                    Pools By Elio • Master Aquatic Builder
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-400/20 border border-emerald-300/30 text-emerald-200 text-[10px] font-bold shrink-0">
+                  <ShieldCheck className="w-3 h-3 text-emerald-300" />
+                  <span>In-House Crew</span>
+                </span>
+              </div>
+
+              {/* Scrollable Navigation Body */}
+              <div className="p-3 sm:p-4 overflow-y-auto overscroll-contain space-y-2 flex-1">
                 {navLinks.map((item) => {
+                  const ItemIcon = item.icon;
+                  const isPageActive =
+                    (item.label === "About Us" && pathname === "/about") ||
+                    (item.label === "Contact" && pathname === "/contact") ||
+                    (item.label === "Areas We Serve" && pathname === "/areas-we-serve") ||
+                    (item.label === "Before After" &&
+                      (pathname === "/before-after" ||
+                        pathname === "/before-and-after" ||
+                        pathname === "/portfolio")) ||
+                    (item.label === "Reviews" &&
+                      (pathname === "/reviews" || pathname === "/testimonials")) ||
+                    (item.label === "Services" &&
+                      (pathname === "/pools-and-spas" ||
+                        pathname === "/water-features" ||
+                        pathname === "/technology" ||
+                        pathname === "/state-of-the-art-technology" ||
+                        pathname === "/water-parks" ||
+                        pathname === "/fountains" ||
+                        pathname === "/backyard-concepts" ||
+                        pathname.startsWith("/services"))) ||
+                    (item.label === "Home" && pathname === "/");
+
                   if (item.hasDropdown) {
                     return (
-                      <div key={item.label} className="flex flex-col">
-                        <div className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-slate-50">
+                      <div
+                        key={item.label}
+                        className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+                          servicesDropdownOpen || isPageActive
+                            ? "border-[#0055a5]/35 bg-blue-50/35 shadow-2xs"
+                            : "border-slate-200/80 bg-white hover:border-blue-200"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between p-2.5 sm:p-3 gap-2">
                           <Link
                             href={item.href}
                             onClick={() => {
                               setActiveTab(item.label);
                               setMobileMenuOpen(false);
                             }}
-                            className={`text-base font-medium transition-colors ${
-                              activeTab === item.label
-                                ? "text-[#071684] font-bold"
-                                : "text-slate-800 hover:text-[#0555a0]"
-                            }`}
+                            className="flex items-center gap-3 min-w-0 flex-1 group/nav"
                           >
-                            {item.label}
+                            <div
+                              className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                isPageActive
+                                  ? "bg-[#00285c] text-cyan-300 shadow-xs"
+                                  : "bg-blue-50 text-[#00509e] group-hover/nav:bg-[#00509e] group-hover/nav:text-white"
+                              }`}
+                            >
+                              <ItemIcon className="w-4 h-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`text-sm sm:text-[15px] font-extrabold truncate ${
+                                    isPageActive ? "text-[#00285c]" : "text-slate-900"
+                                  }`}
+                                >
+                                  {item.label}
+                                </span>
+                                <span className="px-2 py-0.5 rounded-full bg-[#00509e]/10 text-[#00509e] text-[10px] font-extrabold uppercase tracking-wider">
+                                  6 Divisions
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                                {item.subtitle}
+                              </p>
+                            </div>
                           </Link>
+
                           <button
                             type="button"
                             onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                            className="p-1.5 rounded-md text-slate-500 hover:bg-slate-100 transition-colors"
+                            className={`px-2.5 py-2 rounded-lg border text-xs font-bold flex items-center gap-1 transition-all shrink-0 cursor-pointer ${
+                              servicesDropdownOpen
+                                ? "bg-[#00285c] text-white border-[#00285c]"
+                                : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-blue-50 hover:text-[#00509e]"
+                            }`}
                             aria-label="Toggle Services submenu"
                           >
+                            <span className="text-[10.5px] font-extrabold uppercase">
+                              {servicesDropdownOpen ? "Hide" : "Explore"}
+                            </span>
                             <ChevronDown
-                              className={`w-4 h-4 transition-transform ${
-                                servicesDropdownOpen ? "rotate-180" : ""
+                              className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                                servicesDropdownOpen ? "rotate-180 text-cyan-300" : ""
                               }`}
                             />
                           </button>
                         </div>
 
                         {servicesDropdownOpen && (
-                          <div className="pl-2.5 pr-2 py-2 space-y-1.5 bg-blue-50/70 rounded-xl mt-1.5 mb-2 border-l-2 border-[#0055a5]">
-                            {subServices.map((drop) => {
-                              const isDropActive = pathname === drop.href;
-                              const IconComponent = drop.icon;
-                              return (
-                                <Link
-                                  key={drop.label}
-                                  href={drop.href}
-                                  onClick={() => {
-                                    setActiveTab("Services");
-                                    setMobileMenuOpen(false);
-                                    setServicesDropdownOpen(false);
-                                  }}
-                                  className={`flex items-center gap-2.5 py-2 px-2.5 rounded-lg text-sm font-semibold transition-colors min-w-0 ${
-                                    isDropActive
-                                      ? "bg-[#0055a5] text-white shadow-xs"
-                                      : "text-slate-700 hover:text-[#0555a0] hover:bg-white/90"
-                                  }`}
-                                >
-                                  <IconComponent
-                                    className={`w-4 h-4 shrink-0 ${
-                                      isDropActive ? "text-white" : "text-[#0055a5]"
-                                    }`}
-                                  />
-                                  <span className="truncate min-w-0">{drop.label}</span>
-                                  <span
-                                    className={`hidden sm:inline-block shrink-0 text-[10px] uppercase font-bold ml-auto px-2 py-0.5 rounded-full ${
+                          <div className="px-2.5 pb-3 pt-1 border-t border-blue-100/80 bg-white/90 space-y-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1">
+                              {subServices.map((drop) => {
+                                const isDropActive = pathname === drop.href;
+                                const IconComponent = drop.icon;
+                                return (
+                                  <Link
+                                    key={drop.label}
+                                    href={drop.href}
+                                    onClick={() => {
+                                      setActiveTab("Services");
+                                      setMobileMenuOpen(false);
+                                      setServicesDropdownOpen(false);
+                                    }}
+                                    className={`flex items-start gap-2.5 p-2.5 rounded-xl border transition-all min-w-0 ${
                                       isDropActive
-                                        ? "bg-white/20 text-white"
-                                        : "bg-white text-slate-500 border border-slate-200"
+                                        ? "bg-[#00285c] text-white border-[#00285c] shadow-sm"
+                                        : "bg-slate-50/80 hover:bg-blue-50/80 text-slate-800 border-slate-200/70"
                                     }`}
                                   >
-                                    {drop.badge}
-                                  </span>
-                                </Link>
-                              );
-                            })}
+                                    <div
+                                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
+                                        isDropActive
+                                          ? "bg-white/15 text-cyan-300"
+                                          : "bg-white text-[#00509e] shadow-2xs border border-blue-100"
+                                      }`}
+                                    >
+                                      <IconComponent className="w-4 h-4" />
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                      <div className="flex items-center justify-between gap-1">
+                                        <span className="text-xs sm:text-[13px] font-extrabold truncate">
+                                          {drop.label}
+                                        </span>
+                                        <ChevronRight
+                                          className={`w-3.5 h-3.5 shrink-0 ${
+                                            isDropActive ? "text-cyan-300" : "text-slate-400"
+                                          }`}
+                                        />
+                                      </div>
+                                      <p
+                                        className={`text-[10.5px] line-clamp-1 mt-0.5 ${
+                                          isDropActive ? "text-blue-100" : "text-slate-500"
+                                        }`}
+                                      >
+                                        {drop.tagline}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+
+                            <Link
+                              href="/services"
+                              onClick={() => {
+                                setActiveTab("Services");
+                                setMobileMenuOpen(false);
+                                setServicesDropdownOpen(false);
+                              }}
+                              className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#003870] text-xs font-extrabold transition-colors"
+                            >
+                              <span>View Complete Services Hub Page</span>
+                              <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
                           </div>
                         )}
                       </div>
@@ -523,53 +701,91 @@ export default function Header() {
                         setActiveTab(item.label);
                         setMobileMenuOpen(false);
                       }}
-                      className={`py-2 text-base font-medium rounded-lg px-3 transition-colors ${
-                        (item.label === "About Us" && pathname === "/about") ||
-                        (item.label === "Contact" && pathname === "/contact") ||
-                        (item.label === "Areas We Serve" && pathname === "/areas-we-serve") ||
-                        (item.label === "Home" && pathname === "/") ||
-                        activeTab === item.label
-                          ? "bg-blue-50 text-[#071684] font-bold"
-                          : "text-slate-800 hover:bg-slate-50 hover:text-[#0555a0]"
+                      className={`group/nav flex items-center justify-between p-2.5 sm:p-3 rounded-xl border transition-all duration-200 ${
+                        isPageActive
+                          ? "bg-gradient-to-r from-[#00285c] to-[#00509e] text-white border-[#00285c] shadow-md"
+                          : "bg-white hover:bg-slate-50/90 text-slate-900 border-slate-200/80 hover:border-blue-200"
                       }`}
                     >
-                      {item.label}
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div
+                          className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                            isPageActive
+                              ? "bg-white/15 text-cyan-300"
+                              : "bg-blue-50 text-[#00509e] group-hover/nav:bg-[#00509e] group-hover/nav:text-white"
+                          }`}
+                        >
+                          <ItemIcon className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-sm sm:text-[15px] font-extrabold truncate">
+                            {item.label}
+                          </div>
+                          <div
+                            className={`text-[11px] truncate mt-0.5 ${
+                              isPageActive ? "text-blue-100" : "text-slate-500"
+                            }`}
+                          >
+                            {item.subtitle}
+                          </div>
+                        </div>
+                      </div>
+
+                      <ChevronRight
+                        className={`w-4 h-4 shrink-0 transition-transform group-hover/nav:translate-x-0.5 ${
+                          isPageActive ? "text-cyan-300" : "text-slate-400"
+                        }`}
+                      />
                     </Link>
                   );
                 })}
+              </div>
 
-                <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+              {/* Anchored Bottom Conversion & Contact Dock */}
+              <div className="p-3.5 sm:p-4 bg-slate-50 border-t border-slate-200/90 space-y-3 shrink-0">
+                {/* Dual Primary Action Buttons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <a
                     href="tel:6155683154"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full text-white bg-[#071684] font-semibold text-sm shadow-md"
+                    className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-white bg-[#071684] hover:bg-[#051166] font-extrabold text-xs sm:text-sm shadow-md transition-all"
                   >
-                    <Phone className="w-4 h-4 fill-white" />
-                    <span>Call (615) 568-3154</span>
+                    <Phone className="w-4 h-4 fill-white shrink-0" />
+                    <span>(615) 568-3154</span>
                   </a>
                   <Link
                     href="/quote"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full py-3 text-center rounded-full text-white bg-[#0047a0] font-semibold text-sm shadow-md"
+                    className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-white bg-gradient-to-r from-[#00509e] to-[#0077cc] hover:from-[#003870] hover:to-[#00509e] font-extrabold text-xs sm:text-sm shadow-md transition-all"
                   >
-                    Get a Quote
+                    <span>Get Free 3D Quote</span>
+                    <ArrowRight className="w-4 h-4 shrink-0" />
                   </Link>
+                </div>
 
-                  <a
-                    href="http://thehouseoffountains.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center py-2.5 px-3 rounded-xl bg-blue-50 text-[#0055a5] text-xs font-semibold hover:bg-blue-100 border border-blue-200/80 transition-colors"
-                  >
-                    <span>We also design fountains for pools &amp; homes. </span>
-                    <span className="underline font-bold text-[#071684]">Click here.</span>
-                  </a>
-
-                  <div className="pt-2 flex flex-col items-center gap-2">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                      Connect With Pools By Elio
+                {/* Fountains Sister-Brand Card */}
+                <a
+                  href="http://thehouseoffountains.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-2 py-2.5 px-3.5 rounded-xl bg-blue-50/90 hover:bg-blue-100/90 text-[#003870] border border-blue-200/80 text-xs font-semibold transition-colors"
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Sparkles className="w-4 h-4 text-[#0055a5] shrink-0" />
+                    <span className="truncate">
+                      We also design fountains for pools &amp; homes.{" "}
+                      <strong className="underline text-[#071684]">Click here</strong>
                     </span>
-                    <SocialMediaBar variant="compact" />
                   </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#0055a5] shrink-0" />
+                </a>
+
+                {/* HQ Address & Social Row */}
+                <div className="pt-1 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-600">
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <MapPin className="w-3.5 h-3.5 text-[#00509e] shrink-0" />
+                    <span>412 Ezell pike Nashville TN 37217</span>
+                  </div>
+                  <SocialMediaBar variant="compact" />
                 </div>
               </div>
             </div>
