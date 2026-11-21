@@ -797,7 +797,6 @@ export default function BeforeAfterPage() {
               alt="Pools By Elio Before and After Project Transformations"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-25"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -988,7 +987,6 @@ export default function BeforeAfterPage() {
                             src={currentStudy.afterImage}
                             alt={`After: ${currentStudy.title}`}
                             fill
-                            unoptimized
                             className="object-cover"
                           />
                           <span className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 bg-emerald-600 text-white text-[10px] sm:text-xs font-extrabold uppercase px-2.5 sm:px-3 py-1 rounded-full shadow-md z-10">
@@ -1006,7 +1004,6 @@ export default function BeforeAfterPage() {
                               src={currentStudy.beforeImage}
                               alt={`Before: ${currentStudy.title}`}
                               fill
-                              unoptimized
                               className="object-cover"
                             />
                             <span className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 bg-amber-600 text-white text-[10px] sm:text-xs font-extrabold uppercase px-2.5 sm:px-3 py-1 rounded-full shadow-md z-10">
@@ -1042,7 +1039,6 @@ export default function BeforeAfterPage() {
                           src={currentStudy.beforeImage}
                           alt={`Before: ${currentStudy.title}`}
                           fill
-                          unoptimized
                           className="object-cover"
                         />
                         <span className="absolute top-4 left-4 bg-amber-600 text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
@@ -1055,7 +1051,6 @@ export default function BeforeAfterPage() {
                           src={currentStudy.afterImage}
                           alt={`After: ${currentStudy.title}`}
                           fill
-                          unoptimized
                           className="object-cover"
                         />
                         <span className="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
@@ -1378,7 +1373,6 @@ export default function BeforeAfterPage() {
                       alt={item.title}
                       fill
                       sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                      unoptimized
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
 
@@ -1532,7 +1526,6 @@ export default function BeforeAfterPage() {
               src="/assets/banner3.png"
               alt="Pools By Elio Custom Pools"
               fill
-              unoptimized
               className="object-cover object-center"
             />
           </div>
@@ -1682,7 +1675,6 @@ export default function BeforeAfterPage() {
                 src={filteredItems[selectedImageIndex].src}
                 alt={filteredItems[selectedImageIndex].title}
                 fill
-                unoptimized
                 priority
                 className="object-contain"
               />
@@ -1721,7 +1713,6 @@ export default function BeforeAfterPage() {
                   src={item.src}
                   alt={item.title}
                   fill
-                  unoptimized
                   className="object-cover"
                 />
               </button>

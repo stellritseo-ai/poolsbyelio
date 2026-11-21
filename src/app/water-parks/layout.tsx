@@ -4,19 +4,16 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Commercial Water Parks, Lazy Rivers & Resort Pool Contractors Nashville TN",
+  title: "Commercial Water Parks & Lazy River Builders",
   description:
-    "Commercial aquatic construction backed by pedigree from Gaylord Opryland's SoundWaves lazy river and downtown Nashville hospitality venues. We build commercial lazy rivers, splash pads, resort pools, and municipal water parks.",
+    "Commercial water park construction, lazy rivers, wave pools, splash pads and hotel pools in Tennessee—including the lazy river at Sound Waves, Gaylord Opryland.",
   path: "/water-parks",
-  ogImage: "/assets/service4.png",
   keywords: [
-    "commercial pool contractor Nashville TN",
-    "water park construction company Tennessee",
-    "lazy river builder Nashville",
-    "SoundWaves Gaylord Opryland pool builder",
-    "hotel and resort pool builders Middle TN",
-    "commercial splash pad contractor Tennessee",
+    "water park construction companies",
+    "commercial water park builders Tennessee",
+    "lazy river construction contractors",
+    "Sound Waves Gaylord Opryland lazy river",
+    "splash pad construction Tennessee",
   ],
 });
 

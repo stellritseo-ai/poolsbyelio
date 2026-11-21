@@ -128,7 +128,6 @@ export default function Hero() {
                   src={banner.src}
                   alt={banner.alt}
                   fill
-                  unoptimized
                   priority={index === 0}
                   className="object-cover object-center"
                 />

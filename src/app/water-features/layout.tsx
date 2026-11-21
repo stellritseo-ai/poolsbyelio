@@ -4,17 +4,14 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Custom Pool Water Features, Waterfalls & Rock Grottos in Nashville TN",
+  title: "Custom Pool Water Features & Waterfalls",
   description:
-    "Elevate your custom swimming pool with natural boulder waterfalls, swim-in rock grottos, sheer descent rain curtains, scuppers, and LED laminar deck jets across Nashville, Brentwood & Franklin, TN. Built 100% in-house.",
+    "Natural stone waterfalls, rock grottos, sheer descents, scuppers and LED laminar deck jets built in-house for pools across Nashville, Brentwood and Franklin, TN.",
   path: "/water-features",
-  ogImage: "/assets/service2.png",
   keywords: [
-    "pool waterfalls Nashville TN",
-    "custom pool rock grotto builder Tennessee",
+    "custom pool waterfalls Nashville TN",
+    "rock grotto pool builder Tennessee",
     "sheer descent waterfalls Brentwood TN",
-    "pool scuppers and deck jets Franklin TN",
     "custom pool water features Middle TN",
   ],
 });

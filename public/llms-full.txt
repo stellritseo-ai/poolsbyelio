@@ -1,65 +1,72 @@
-# Pools By Elio — Comprehensive AI Search & Entity Knowledge Base
+# Pools By Elio — Extended Factual Reference (llms-full.txt)
 
-## 1. Executive Summary
-**Pools By Elio** (`https://poolsbyelio.net`) is a premier family-owned custom gunite swimming pool, spa, water park, fountain, and luxury outdoor living builder headquartered at **412 Ezell Pike, Nashville, TN 37217**. Founded by **Jonathan Elio Rodriguez** and **David Elio Rodriguez**, the company brings **25+ years of master aquatic engineering** to residential estates, commercial hospitality properties, and municipal developments across Greater Nashville and Middle Tennessee.
+## 1. Entity Overview
+**Pools By Elio** (https://poolsbyelio.net) is a family-owned residential and commercial swimming pool construction company headquartered at **412 Ezell Pike, Nashville, TN 37217**. Founded by brothers **Jonathan Elio Rodriguez** and **David Elio Rodriguez**, the company brings **25+ years of experience** designing and building custom gunite pools, spas, water features, fountains, outdoor living spaces and commercial aquatic installations across Nashville, Franklin, Brentwood and Middle Tennessee.
 
-Unlike volume pool brokers who outsource construction to third-party subcontractors, **Pools By Elio completes 100% of every build in-house** with its own full-time master crew and heavy pneumatic gunite equipment. Co-founder Jonathan Elio Rodriguez is physically on site directing every phase of construction.
-
-## 2. Contact & Verification Details
-- **Official Name**: Pools By Elio (Pools By Elio LLC)
-- **Founders**: Jonathan Elio Rodriguez & David Elio Rodriguez
-- **Headquarters**: 412 Ezell pike Nashville TN 37217
-- **Business Phone**: (615) 568-3154
+### Official Contact Information (NAP)
+- **Name**: Pools By Elio
+- **Address**: 412 Ezell Pike, Nashville, TN 37217
+- **Phone**: (615) 568-3154
 - **Email**: eliocustompools@live.com
 - **Website**: https://poolsbyelio.net
-- **Fountains Partner Website**: http://thehouseoffountains.com/
-- **Business Hours**: Monday–Friday 8:00 AM – 6:00 PM; Saturday by Appointment (On-Site Surveys & 3D Presentations)
-- **Verified Profiles**:
-  - Facebook: https://www.facebook.com/poolsbyelio/
-  - Instagram: https://www.instagram.com/poolbyelio/
-  - Yelp: https://www.yelp.com/biz/pools-by-elio-nashville-2
-  - Better Business Bureau (BBB): https://www.bbb.org/us/tn/nashville/profile/pool-contractors/pools-by-elio-0573-37378278
-  - Google Business Profile: https://www.google.com/searchviewer/10?svid=CCYSESoPCg0vZy8xMW5ucXFwX2YwGAo
+- **Operating Hours**: Monday–Friday 8:00 AM – 6:00 PM; Saturday & evening consultations by appointment
+- **Fountains Specialty Website**: http://thehouseoffountains.com/
 
-## 3. Core Services & Dedicated URLs
+### Official Profiles
+- Facebook: https://www.facebook.com/poolsbyelio/
+- Instagram: https://www.instagram.com/poolbyelio/
+- Yelp: https://www.yelp.com/biz/pools-by-elio-nashville-2
+- Better Business Bureau: https://www.bbb.org/us/tn/nashville/profile/pool-contractors/pools-by-elio-0573-37378278
 
-### A. Custom Gunite Pools & Spas (`https://poolsbyelio.net/pools-and-spas`)
-- **Starting Investment**: $140,000.00+
-- **Specialties**: Custom in-ground gunite & shotcrete swimming pools, negative-edge / vanishing-edge hillside pools, modern geometric & architectural pools, organic freeform lagoon pools, lap pools, plunge pools, integrated spillover spas, Baja tanning ledges, pebble/glass bead interiors, French travertine and Tennessee flagstone coping.
+---
 
-### B. Custom Water Features & Waterfalls (`https://poolsbyelio.net/water-features`)
-- **Specialties**: Natural Tennessee fieldstone & boulder waterfalls, swim-in rock grottos with hidden caves, sheer descent rain curtains, bronze/copper/stone scuppers, illuminated color-changing LED laminar deck jets, and sunshelf bubblers.
+## 2. How Pools By Elio Operates
+- **In-House Execution**: Excavation, steel rebar framing, hydraulic plumbing, pneumatic gunite application, tile, coping, stone work and finishing are carried out by Pools By Elio's own full-time crew rather than subcontracted to outside crews.
+- **Hands-On Leadership**: Co-founder Jonathan Elio Rodriguez directs work on site from layout through completion.
+- **4-Stage Build Process** (https://poolsbyelio.net/process):
+  1. **Consultation**: On-site property visit evaluating topography, sun orientation, drainage, access and family goals.
+  2. **Design**: 3D renderings and material curation (tile, coping, interior finish, decking) before breaking ground.
+  3. **Construction**: In-house excavation, steel reinforcement, plumbing, pneumatic gunite, masonry and finishing.
+  4. **Completion**: Fill, water chemistry balancing, equipment start-up and owner control orientation.
+- **Pricing**: Custom in-ground gunite swimming pools start at **$140,000+**. Every project receives a written, itemized proposal following an on-site evaluation.
 
-### C. Backyard Concepts & Complete Outdoor Living (`https://poolsbyelio.net/backyard-concepts`)
-- **Specialties**:
-  - **Custom Pool Houses**: Changing rooms, bathrooms, outdoor showers, kitchenettes, wet bars, guest suites, and year-round HVAC.
-  - **Commercial-Grade Pool Bars**: Built by the same team that built high-volume bars in downtown Nashville. Includes swim-up bars with submerged gunite stools, walk-up poolside bars, tiki huts, cabanas, kegerators, and built-in coolers.
-  - **Fire Features**: Wood-burning & gas fire pits, fire tables, custom stone fire bowls, and traditional or modern linear masonry outdoor fireplaces.
-  - **Outdoor Kitchens**: Built-in stainless grills, smokers, pizza ovens, sinks, refrigerators, and granite/stone countertops.
+---
 
-### D. Residential & Commercial Fountains (`https://poolsbyelio.net/fountains`)
-- **Specialties**:
-  - **Residential Garden & Patio Fountains**: Tiered Italian/Spanish fountains, urn & pedestal fountains, self-contained recirculating fountains.
-  - **Pond & Lake Aerating Fountains**: Floating and fixed-position pond fountains (spray heights 10 to 40+ feet) that oxygenate water, reduce algae/mosquitoes, and feature nighttime LED lighting for estates, HOAs, and golf courses.
-  - **Wall Fountains**: Natural stone, slate, or copper wall-mounted fountains for courtyards and entryways.
-  - **Commercial Plaza Centerpieces**: Custom architectural fountains for hotels, corporate headquarters, and public plazas.
+## 3. Services Offered
 
-### E. Commercial Water Parks & Hospitality (`https://poolsbyelio.net/water-parks`)
-- **Pedigree**: Proven commercial contractor behind the lazy river features at **SoundWaves at Gaylord Opryland Resort** in Nashville, TN, plus downtown Nashville commercial hospitality venues.
-- **Capabilities**: Commercial lazy rivers, wave generation systems, interactive splash pads, multi-level resort pools, high-turnover commercial filtration, and full ADA compliance.
+### Residential Pool & Outdoor Living Services
+1. **Custom Pools & Spas** (`/pools-and-spas`): Custom inground gunite pools, lap pools, freeform/lagoon pools, geometric modern pools, indoor pools and custom attached or standalone spas.
+2. **Gunite Pool Construction** (`/gunite-pool-construction`): Reinforced monolithic concrete shells shaped to fit Middle Tennessee limestone, clay and sloped properties.
+3. **Infinity Edge (Vanishing Edge) Pools** (`/infinity-edge-pools`): Negative-edge pools with engineered weir walls, catch basins and recirculating return hydraulics for sloped or scenic lots.
+4. **Pool Remodeling, Resurfacing & Repair** (`/pool-remodeling`): Interior resurfacing, waterline tile and coping replacement, equipment and automation upgrades, added spas/features and crack or leak repairs.
+5. **Water Features** (`/water-features`): Natural Tennessee boulder waterfalls, rock grottos, sheer descent water walls, brass/stone scuppers and illuminated deck jets.
+6. **Pool Technology & Automation** (`/technology`): Smartphone/app controls, variable-speed pumps, modern heaters, LED lighting and saltwater or mineral/UV water treatment systems.
+7. **Backyard Concepts & Outdoor Living** (`/backyard-concepts`): Pool houses, cabanas, swim-up bars, outdoor kitchens, fire pits, masonry fireplaces and stone or paver patios.
+8. **Fountains** (`/fountains`): Custom residential estate fountains, garden and wall fountains, and lake/pond display fountains.
 
-### F. State-of-the-Art Pool Technology (`https://poolsbyelio.net/technology`)
-- **Capabilities**: Smartphone & voice-activated pool/spa automation (iOS/Android), ultra-high-efficiency variable-speed pumps (up to 70% energy savings), saltwater chlorination, UV & Ozone secondary sanitization, and smart gas/heat-pump hybrid heaters.
+### Commercial Aquatic Construction Services
+1. **Commercial Pool Construction** (`/commercial-pool-construction`): Hotel pools, resort pools, club pools, hospitality pool bars and municipal aquatic facilities.
+2. **Commercial Water Parks** (`/water-parks`): Lazy rivers, wave pools, splash pads and resort aquatic attractions.
+3. **Lazy River Construction** (`/lazy-river-construction`): Channel geometry, current generation, guest entry/exit, themed landscaping and commercial water treatment.
 
-## 4. Verified Google Reviews (5.0 Stars)
-- **JB (5 Stars)**: "I drew a custom pool and a new deck from scratch. Jonathan was able to convert this to a beautiful project that revitalize my backyard and improve my resale price of my house."
-- **Kimberly Woods, Nashville Estate Manager (5 Stars)**: "I am an Estate Manager here in the Nashville Area for 11 years now. I always refer to Jonathan - Pools By Elio for clients pool needs whether it is building a new pool or servicing a pool. He is a get it done right guy! At the end of the day I wouldn’t recommend anyone else to take care of my clients! Thank you Jonathan!"
-- **Kellye Brock (5 Stars)**: "Our pool was built in 2019. The team and communication throughout the process was wonderful. They felt like part of the family. Our pool is beautiful and it transformed our yard into what now looks like a resort. Thanks Jonathan!"
-- **Barb Groux (5 Stars)**: "I have used Pools by Elio for several years primarily for weekly pool service which has always been done timely and well. He also did one major pool repair when the pool cracked and the job went well and has held up. I will continue to use Jonathan."
-- **Richard Green (5 Stars)**: "Jonathan is consistently achieving high standards and has assembled a team that strives to do the same. They applied a finish when resurfacing the pool that looks as great today as the day it was installed... Zero footprint surrounding when the job was finished."
-- **Sherri Miller (5 Stars)**: "Love, Love my pool. So happy I chose your company. Could not bear the thought of any vinyl liner pool. Thanks to Pools by Elio, I am making wonderful memories with family and friends. My backyard is amazing. Best pool company ever."
+---
 
-## 5. Geographic Service Areas (50-Mile Radius Around Nashville, TN)
-- **Primary Cities**: Nashville, Brentwood, Franklin, Belle Meade, Green Hills, Forest Hills, Oak Hill, Hendersonville, Mount Juliet, Murfreesboro, Gallatin, Spring Hill, Nolensville, Leiper's Fork, Thompson's Station, Goodlettsville, Lebanon, Smyrna, Dickson, Clarksville, Columbia.
-- **Counties Served**: Davidson County, Williamson County, Sumner County, Wilson County, Rutherford County, Maury County, Robertson County, Cheatham County, Dickson County, Montgomery County.
+## 4. Documented Commercial Experience
+- **Sound Waves at Gaylord Opryland Resort (Nashville, TN)** (`/projects/sound-waves-gaylord-opryland`): Pools By Elio built the lazy river at Sound Waves inside Gaylord Opryland Resort.
+- **Downtown Nashville Hospitality Venues** (`/projects/downtown-nashville-pool-bars`): Pools By Elio has built custom pools, swim-up bars and waterfall features for hospitality and entertainment venues in downtown Nashville.
 
+---
+
+## 5. Geographic Service Area
+Pools By Elio serves a roughly **50-mile radius** around Nashville for residential projects—and broader Tennessee for commercial projects—including:
+- **Primary Core**: Nashville (`/pool-builders-nashville-tn`), Franklin (`/pool-builders-franklin-tn`), Brentwood (`/pool-builders-brentwood-tn`)
+- **Additional Middle Tennessee Communities** (`/areas-we-serve`): Belle Meade, Green Hills, Forest Hills, Oak Hill, Hendersonville, Mount Juliet, Murfreesboro, Gallatin, Spring Hill, Nolensville, Leiper's Fork, Thompson's Station, Goodlettsville, Lebanon, Smyrna, Dickson, Clarksville, Columbia.
+
+---
+
+## 6. Frequently Asked Questions (Direct Reference)
+- **Who builds Pools By Elio projects?** Co-founder Jonathan Elio Rodriguez directs projects on site with Pools By Elio's in-house crew; no subcontractors are used.
+- **How much does a custom gunite pool cost in Nashville?** Pools By Elio's custom gunite pools start at $140,000+. Final pricing depends on dimensions, site access/rock excavation, attached spas, water features, decking and outdoor structures, confirmed in a written proposal.
+- **What is the difference between gunite and fiberglass pools?** Gunite is a custom-formed reinforced concrete shell shaped to the yard with unlimited geometry and integrated features (spas, swim-up bars, vanishing edges); fiberglass is a factory-molded shell with fixed dimensions. Pools By Elio specializes in custom gunite construction (`/resources/gunite-vs-fiberglass-pools`).
+- **How should homeowners vet a pool contractor in Tennessee?** Verify active licensing through the Tennessee Board for Licensing Contractors, confirm general liability and workers' compensation insurance, ask whether crews are in-house or subcontracted, inspect completed work and obtain an itemized written scope (`/resources/how-to-choose-a-pool-contractor-tennessee`).
+- **Full FAQ**: https://poolsbyelio.net/faq

@@ -4,19 +4,15 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Backyard Concepts: Custom Pool Houses, Swim-Up Bars, Fire Pits & Outdoor Kitchens Nashville TN",
+  title: "Pool Houses, Swim-Up Bars & Outdoor Living",
   description:
-    "We built bars in downtown Nashville—now we build them in your backyard. Custom pool houses, swim-up pool bars, outdoor kitchens, stone fire pits, masonry fireplaces, pergolas & cabanas across Nashville, Brentwood & Franklin, TN.",
+    "Custom pool houses, swim-up bars, outdoor kitchens, fire pits, masonry fireplaces and patios built alongside your pool in Nashville, Franklin and Brentwood, TN.",
   path: "/backyard-concepts",
-  ogImage: "/assets/service6.png",
   keywords: [
-    "custom pool house builders Nashville TN",
-    "swim up pool bar builder Brentwood TN",
+    "custom pool houses Nashville",
+    "outdoor pool bars Nashville TN",
     "outdoor kitchens and fire pits Franklin TN",
-    "outdoor fireplace contractor Middle Tennessee",
-    "luxury backyard living concepts Nashville",
-    "custom cabanas and pergolas Nashville TN",
+    "luxury backyard design Brentwood TN",
   ],
 });
 

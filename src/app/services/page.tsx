@@ -44,7 +44,7 @@ export default function ServicesHubPage() {
       category: "Residential" as ServiceCategory,
       badge: "Signature Division",
       investment: "Starting at $140,000+",
-      timeline: "10–16 Weeks",
+      timeline: "Confirmed in your proposal",
       href: "/pools-and-spas",
       image: "/assets/service1.png",
       secondaryImage: "/assets/gallery/20.webp",
@@ -60,8 +60,8 @@ export default function ServicesHubPage() {
       ],
       deliverables: [
         "3D CAD Blueprints",
-        "Lifetime Structural Shell",
-        "Turnkey Permitting",
+        "Structural Gunite Shell",
+        "Design-to-Build Support",
       ],
     },
     {
@@ -71,7 +71,7 @@ export default function ServicesHubPage() {
       category: "Features & Tech" as ServiceCategory,
       badge: "Sight & Sound",
       investment: "Custom Integrated or Standalone",
-      timeline: "3–8 Weeks",
+      timeline: "Confirmed in your proposal",
       href: "/water-features",
       image: "/assets/service2.png",
       secondaryImage: "/assets/gallery/341640127040.jpg",
@@ -98,7 +98,7 @@ export default function ServicesHubPage() {
       category: "Features & Tech" as ServiceCategory,
       badge: "Smart Pool Tech",
       investment: "Included in New Builds & Retrofits",
-      timeline: "1–3 Weeks (Retrofits)",
+      timeline: "Confirmed in your proposal",
       href: "/technology",
       image: "/assets/service3.png",
       secondaryImage: "/assets/gallery/21.webp",
@@ -107,7 +107,7 @@ export default function ServicesHubPage() {
         "Command every aspect of your aquatic retreat from your iPhone, iPad, or voice assistant. We integrate industry-leading Pentair, Hayward, and Jandy automation with ultra-efficient variable-speed pumps.",
       highlights: [
         "One-touch iOS/Android control for spa heat, jets, lighting & waterfalls",
-        "ENERGY STAR variable-speed pumps cutting electrical consumption up to 70%",
+        "Variable-speed pumps engineered to reduce pool energy consumption",
         "Advanced salt chlorine generation, UV-C & ozone mineral sanitization",
         "Hybrid heat pumps & high-efficiency gas heaters for 4-season comfort",
         "Synchronized RGBW LED color-changing underwater and landscape lighting",
@@ -136,13 +136,13 @@ export default function ServicesHubPage() {
         "Continuous-flow commercial lazy rivers & high-volume wave/activity pools",
         "Zero-depth interactive municipal splash pads, spraygrounds & tipping buckets",
         "Multi-family luxury apartment, HOA clubhouse & boutique hotel resort pools",
-        "Full Tennessee Department of Health commercial code & ADA compliance",
+        "Commercial aquatic code and ADA accessibility addressed during design",
         "Heavy-duty commercial surge tanks, high-rate sand/regenerative filtration",
       ],
       deliverables: [
-        "Health Dept. Compliance",
+        "Commercial Code Review",
         "Commercial Hydraulics",
-        "ADA Certified",
+        "Accessibility-Minded Design",
       ],
     },
     {
@@ -152,13 +152,13 @@ export default function ServicesHubPage() {
       category: "Features & Tech" as ServiceCategory,
       badge: "The House of Fountains",
       investment: "Bespoke Design & Fabrication",
-      timeline: "3–10 Weeks",
+      timeline: "Confirmed in your proposal",
       href: "/fountains",
       image: "/assets/service5.png",
       secondaryImage: "/assets/gallery/24.webp",
       icon: Sparkles,
       description:
-        "In partnership with our specialty division (The House of Fountains), we design and engineer grand courtyard fountains, tiered European limestone centerpieces, and commercial pond/lake fountains.",
+        "Through our fountain specialty site (The House of Fountains), we design and engineer grand courtyard fountains, tiered European limestone centerpieces, and commercial pond/lake fountains.",
       highlights: [
         "Grand circular estate driveway & motorcourt architectural fountains",
         "Custom zero-edge reflection basins and formal courtyard water walls",
@@ -179,13 +179,13 @@ export default function ServicesHubPage() {
       category: "Residential" as ServiceCategory,
       badge: "Complete Outdoor Living",
       investment: "Turnkey Master-Planned Estates",
-      timeline: "8–16 Weeks",
+      timeline: "Confirmed in your proposal",
       href: "/backyard-concepts",
       image: "/assets/service6.png",
       secondaryImage: "/assets/gallery/22.webp",
       icon: Wine,
       description:
-        "Famous across Nashville as the 'Swim-Up Bar Kings,' we design cohesive outdoor living environments that unite your pool with sunken wet bars, gourmet kitchens, cedar cabanas, and fire bowls.",
+        "With swim-up bars among our signature builds, we design cohesive outdoor living environments that unite your pool with sunken wet bars, gourmet kitchens, cedar cabanas, and fire bowls.",
       highlights: [
         "Signature in-pool gunite bar stools & sunken dry-side bartender stations",
         "Custom timber-frame pavilions, pool houses & climate-controlled cabanas",
@@ -210,13 +210,13 @@ export default function ServicesHubPage() {
     {
       title: "Custom Estate Pool & Spa",
       subtitle: "Residential Flagship Build",
-      startingPrice: "$140,000 – $250,000+",
-      typicalTimeline: "10 – 16 Weeks",
-      shellEngineering: "Monolithic 4,000+ PSI Pneumatic Shotcrete / Gunite with #4/#5 Steel Rebar Grid",
+      startingPrice: "Starting at $140,000+",
+      typicalTimeline: "Confirmed in your proposal",
+      shellEngineering: "Monolithic pneumatic gunite shell over a hand-tied steel reinforcement grid",
       idealFor: "Homeowners in Nashville, Brentwood, Franklin, Belle Meade & Middle TN seeking a permanent backyard resort",
       includedItems: [
         "3D CAD architectural rendering & topographical laser survey",
-        "Full HOA architectural packet & municipal building permit management",
+        "Design presentation and guidance through the approvals your property requires",
         "Custom gunite pool shell, tanning ledge & optional spillover spa",
         "Variable-speed pump, sanitization, LED lighting & smartphone automation",
         "Premium waterline tile, interior aggregate finish & stone/paver coping",
@@ -227,8 +227,8 @@ export default function ServicesHubPage() {
     {
       title: "Complete Backyard Resort & Swim-Up Bar",
       subtitle: "Pool + Outdoor Living Master Plan",
-      startingPrice: "$200,000 – $400,000+",
-      typicalTimeline: "12 – 20 Weeks",
+      startingPrice: "Scoped per project",
+      typicalTimeline: "Confirmed in your proposal",
       shellEngineering: "Integrated Gunite Pool, Sunken Bartender Pit, Structural Footings & Utility Trenches",
       idealFor: "Entertainers wanting a cohesive pool, swim-up bar, outdoor kitchen, pavilion & fire feature built by one team",
       includedItems: [
@@ -249,11 +249,11 @@ export default function ServicesHubPage() {
       shellEngineering: "Heavy-Duty Commercial Gunite, Surge Tanks, High-Rate Filtration & ADA Access",
       idealFor: "Hotels, resorts, luxury multi-family apartments, HOA clubhouses, water parks & municipal splash pads",
       includedItems: [
-        "Full coordination with architects, civil engineers & TN Health Department",
+        "Coordination with project architects, engineers and approving agencies",
         "Lazy rivers, zero-depth splash pads, commercial slides & resort pools",
-        "Automated commercial chemical controllers (ORP/pH) & UV sanitization",
-        "ADA compliant lifts, zero-entry ramps, anti-entrapment VGB main drains",
-        "Turnkey commercial warranty & operator commissioning training",
+        "Commercial-grade filtration and water treatment systems",
+        "Accessible entries and safety-conscious drain design",
+        "Commissioning and operator orientation",
       ],
       ctaHref: "/water-parks",
       ctaLabel: "Explore Commercial Water Parks",
@@ -262,8 +262,8 @@ export default function ServicesHubPage() {
       title: "Complete Gunite Renovation & Modernization",
       subtitle: "Structural Restoration & Tech Upgrades",
       startingPrice: "Custom Scope Assessment",
-      typicalTimeline: "3 – 8 Weeks",
-      shellEngineering: "Hydro-Blasting, Structural Crack Injection, Bond Coating & Hydraulic Re-Plumbing",
+      typicalTimeline: "Confirmed in your proposal",
+      shellEngineering: "Condition assessment, structural repair, resurfacing and equipment modernization",
       idealFor: "Aging gunite/concrete pools needing modern pebble finishes, new tile/coping, tanning ledges, or smart automation",
       includedItems: [
         "Complete chip-out/hydro-blasting and quartz or pebble interior resurfacing",
@@ -286,7 +286,7 @@ export default function ServicesHubPage() {
     {
       step: "02",
       title: "Turnkey Permitting & HOA Approval",
-      desc: "We prepare all stamped structural engineering drawings, setback plot plans, and HOA submission packages across Davidson, Williamson, and surrounding counties.",
+      desc: "We walk you through the approvals your property may need, including HOA and municipal requirements, before construction begins.",
     },
     {
       step: "03",
@@ -321,7 +321,7 @@ export default function ServicesHubPage() {
     },
     {
       q: "Can we combine multiple services—like a pool, waterfall, swim-up bar, and outdoor kitchen—into one build?",
-      a: "Yes! That is our specialty. Designing and building your pool, water features, automation, swim-up bar, pavilion, and hardscaping simultaneously under one master blueprint saves significant time, prevents utility conflicts, and guarantees architectural harmony.",
+      a: "Yes! That is our specialty. Designing and building your pool, water features, automation, swim-up bar, pavilion, and hardscaping simultaneously under one master blueprint saves significant time, prevents utility conflicts, and supports architectural harmony.",
     },
     {
       q: "Do you also renovate existing concrete/gunite pools or upgrade older pool equipment?",
@@ -349,7 +349,6 @@ export default function ServicesHubPage() {
               alt="Pools By Elio Master Aquatic Construction Services in Nashville TN"
               fill
               priority
-              unoptimized
               className="object-cover object-center scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#001535]/95 via-[#00285c]/88 to-[#00285c]/75" />
@@ -426,7 +425,7 @@ export default function ServicesHubPage() {
                       </h2>
                     </div>
                     <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[10px] font-bold uppercase">
-                      Licensed GC
+                      In-House Crew
                     </span>
                   </div>
 
@@ -481,7 +480,7 @@ export default function ServicesHubPage() {
                 },
                 {
                   value: "100% In-House",
-                  label: "Zero Broker Subcontracting Markup",
+                  label: "No Subcontractors, One Accountable Crew",
                 },
                 {
                   value: "$140,000+",
@@ -579,7 +578,6 @@ export default function ServicesHubPage() {
                         src={service.image}
                         alt={`${service.title} - Pools By Elio Nashville`}
                         fill
-                        unoptimized
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#001838]/90 via-[#001838]/25 to-transparent" />
@@ -962,14 +960,13 @@ export default function ServicesHubPage() {
                   src="/assets/gallery/20.webp"
                   alt="Pools By Elio Luxury Pool Renovation and Remodeling in Nashville TN"
                   fill
-                  unoptimized
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#001433]/90 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#001433]/90 backdrop-blur-md border border-white/20 flex items-center justify-between">
                   <div>
                     <div className="text-xs font-extrabold text-cyan-300 uppercase">
-                      45+ Verified Transformations
+                      Real Project Photos
                     </div>
                     <div className="text-sm font-bold text-white">
                       Inspect Our Interactive Comparison Sliders

@@ -4,18 +4,14 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "100% Google Verified Reviews & 5.0-Star Client Testimonials | Pools By Elio Nashville",
+  title: "Customer Reviews & Testimonials | Nashville, TN",
   description:
-    "Read 100% Google Verified 5.0-star reviews from Nashville, Brentwood, Franklin & Belle Meade homeowners and estate managers. Discover why families trust Jonathan Elio Rodriguez and Pools By Elio for custom gunite pools and repairs.",
+    "Read homeowner and estate manager testimonials about building, remodeling and repairing custom pools with Jonathan Elio Rodriguez and Pools By Elio in Nashville.",
   path: "/reviews",
-  ogImage: "/assets/banner2.png",
   keywords: [
     "Pools By Elio reviews",
-    "best pool builder reviews Nashville TN",
-    "top rated gunite pool company Brentwood TN",
+    "pool builder reviews Nashville TN",
     "Jonathan Elio Rodriguez reviews",
-    "5 star pool contractor Franklin TN",
   ],
 });
 

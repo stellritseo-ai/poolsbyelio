@@ -4,18 +4,14 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Request a Free 3D Pool Design & Custom Gunite Pool Estimate | Nashville TN",
+  title: "Request a Custom Pool Quote | Nashville, TN",
   description:
-    "Use our interactive 5-step pool estimator to request your free 3D digital pool design and on-site consultation with Jonathan Elio Rodriguez in Nashville, Brentwood, Franklin & Middle TN. Custom gunite pools start at $140,000+.",
+    "Configure your project scope and request an on-site consultation and 3D design proposal in Nashville, Franklin and Brentwood, TN. Custom pools start at $140,000+.",
   path: "/quote",
-  ogImage: "/assets/banner3.png",
   keywords: [
     "custom pool quote Nashville TN",
-    "gunite pool cost calculator Tennessee",
-    "free 3D pool design Brentwood TN",
     "pool construction estimate Franklin TN",
-    "how much does a gunite pool cost Nashville",
+    "3D pool design consultation Brentwood TN",
   ],
 });
 

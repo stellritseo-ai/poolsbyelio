@@ -28,40 +28,45 @@ export default function Footer() {
   };
 
   const services = [
-    { label: "Luxury Pools & Spas", href: "/pools-and-spas" },
-    { label: "Natural Waterfalls & Grottos", href: "/water-features" },
-    { label: "State-of-the-Art Technology", href: "/technology" },
-    { label: "Commercial Aquatic Facilities", href: "/water-parks" },
-    { label: "Architectural Fountains", href: "/fountains" },
+    { label: "All Services Hub", href: "/services" },
+    { label: "Custom Pools & Spas", href: "/pools-and-spas" },
+    { label: "Gunite Pool Construction", href: "/gunite-pool-construction" },
+    { label: "Infinity Edge Pools", href: "/infinity-edge-pools" },
+    { label: "Pool Remodeling & Repair", href: "/pool-remodeling" },
+    { label: "Water Features & Waterfalls", href: "/water-features" },
+    { label: "Pool Technology & Automation", href: "/technology" },
     { label: "Backyard Living & Cabanas", href: "/backyard-concepts" },
-    { label: "Complete Pool Renovations", href: "/pools-and-spas" },
-    { label: "Rapid Emergency Repairs", href: "/contact" },
+    { label: "Commercial Pools & Water Parks", href: "/commercial-pool-construction" },
+    { label: "Lazy River Construction", href: "/lazy-river-construction" },
+    { label: "Architectural Fountains", href: "/fountains" },
   ];
 
   const quickLinks = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
-    { label: "Contact Us Directly", href: "/contact" },
-    { label: "Craftsmanship & Services", href: "/#services" },
-    { label: "Why Homeowners Trust Us", href: "/#why-us" },
-    { label: "4-Stage Build Process", href: "/#process" },
-    { label: "Before & After Portfolio (60 Works)", href: "/before-after" },
-    { label: "Verified Google Reviews", href: "/reviews" },
-    { label: "Service Areas & Map", href: "/areas-we-serve" },
-    { label: "Request A 3D Quote", href: "/quote" },
+    { label: "Our 4-Stage Process", href: "/process" },
+    { label: "Our Projects", href: "/projects" },
+    { label: "Before & After Gallery", href: "/before-after" },
+    { label: "Customer Reviews", href: "/reviews" },
+    { label: "Pool Construction FAQ", href: "/faq" },
+    { label: "Guides & Resources", href: "/resources" },
+    { label: "Areas We Serve", href: "/areas-we-serve" },
+    { label: "Request A Quote", href: "/quote" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
-  const serviceAreas = [
-    "Nashville",
-    "Brentwood",
-    "Franklin",
-    "Belle Meade",
-    "Green Hills",
-    "Mount Juliet",
-    "Hendersonville",
-    "Forest Hills",
-    "Oak Hill",
-    "Murfreesboro",
+  const serviceAreaLinks = [
+    { label: "Nashville, TN", href: "/pool-builders-nashville-tn" },
+    { label: "Franklin, TN", href: "/pool-builders-franklin-tn" },
+    { label: "Brentwood, TN", href: "/pool-builders-brentwood-tn" },
+    { label: "All Middle TN Areas", href: "/areas-we-serve" },
+  ];
+
+  const resourceLinks = [
+    { label: "Pool Cost in Nashville", href: "/resources/custom-pool-cost-nashville" },
+    { label: "Gunite vs. Fiberglass", href: "/resources/gunite-vs-fiberglass-pools" },
+    { label: "Build Timeline", href: "/resources/pool-construction-timeline" },
+    { label: "Choose a TN Contractor", href: "/resources/how-to-choose-a-pool-contractor-tennessee" },
   ];
 
   return (
@@ -92,7 +97,6 @@ export default function Footer() {
                   src="/assets/logo.png"
                   alt="Pools By Elio Logo"
                   fill
-                  unoptimized
                   priority
                   className="object-contain p-1"
                 />
@@ -225,25 +229,36 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Middle TN Communities Served Ribbon */}
-        <div className="py-4 border-b border-blue-900/60 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-blue-200/70 text-center">
+        {/* Middle TN Local Pages & Planning Guides Ribbon */}
+        <div className="py-4 border-b border-blue-900/60 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-blue-200/80 text-center">
           <span className="text-white font-bold uppercase tracking-wider text-[11px]">
-            Primary Service Corridor:
+            Local Service Pages:
           </span>
-          {serviceAreas.map((area, idx) => (
-            <span key={idx} className="hover:text-cyan-300 transition-colors">
-              {area}, TN
-            </span>
+          {serviceAreaLinks.map((area) => (
+            <Link
+              key={area.href}
+              href={area.href}
+              className="hover:text-cyan-300 transition-colors font-medium"
+            >
+              {area.label}
+            </Link>
           ))}
         </div>
 
-        {/* SEO Keywords Ribbon */}
-        <div className="py-4 border-b border-blue-900/60 text-center">
-          <p className="text-[11.5px] text-blue-300/60 tracking-wide leading-relaxed">
-            custom pool builders Nashville TN &bull; luxury gunite pool construction
-            Franklin TN &bull; pool companies Brentwood TN &bull; residential pool
-            builders Middle TN &bull; SoundWaves Opryland commercial contractor
-          </p>
+        {/* Homeowner Planning Guides */}
+        <div className="py-4 border-b border-blue-900/60 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-blue-200/75 text-center">
+          <span className="text-white font-bold uppercase tracking-wider text-[11px]">
+            Planning Guides:
+          </span>
+          {resourceLinks.map((guide) => (
+            <Link
+              key={guide.href}
+              href={guide.href}
+              className="hover:text-cyan-300 transition-colors"
+            >
+              {guide.label}
+            </Link>
+          ))}
         </div>
 
         {/* Bottom Bar: Copyright & Navigation */}
@@ -257,11 +272,14 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center space-x-6">
-            <Link href="/about" className="hover:text-white transition-colors">
-              Privacy Policy
+            <Link href="/faq" className="hover:text-white transition-colors">
+              FAQ
+            </Link>
+            <Link href="/resources" className="hover:text-white transition-colors">
+              Resources
             </Link>
             <Link href="/contact" className="hover:text-white transition-colors">
-              Terms of Service
+              Contact
             </Link>
             <button
               onClick={scrollToTop}

@@ -3,6 +3,8 @@ import nodemailer from "nodemailer";
 
 interface ContactSubmissionPayload {
   formSource?: string;
+  /** Honeypot: real visitors never fill this in. */
+  website?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -28,24 +30,72 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#039;");
 }
 
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+// Best-effort per-instance limiter (serverless instances do not share memory).
+// For hard guarantees add a durable limiter (e.g. Vercel WAF rate limiting).
+const recentHits = new Map<string, number[]>();
+
+function isRateLimited(key: string): boolean {
+  const now = Date.now();
+  const hits = (recentHits.get(key) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS
+  );
+  hits.push(now);
+  recentHits.set(key, hits);
+  return hits.length > RATE_LIMIT_MAX;
+}
+
+const singleLine = (value: unknown, max: number): string =>
+  String(value ?? "")
+    .replace(/[\r\n\t]+/g, " ")
+    .trim()
+    .slice(0, max);
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 export async function POST(request: Request) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "unknown";
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Too many requests. Please wait a few minutes or call us at (615) 568-3154.",
+        },
+        { status: 429 }
+      );
+    }
+
     const body = (await request.json()) as ContactSubmissionPayload;
 
-    const name = (body.name || "").trim();
-    const email = (body.email || "").trim();
-    const phone = (body.phone || "").trim();
-    const address = (body.address || "").trim();
-    const service = (body.service || "").trim();
-    const message = (body.message || body.notes || "").trim();
-    const formSource = (body.formSource || "Website Inquiry Form").trim();
-    const projectType = (body.projectType || "").trim();
-    const budgetRange = (body.budgetRange || body.budgetTier || "").trim();
-    const projectScope = (body.projectScope || "").trim();
-    const poolStyle = (body.poolStyle || "").trim();
-    const timeline = (body.timeline || "").trim();
+    // Honeypot tripped: pretend success so bots learn nothing, send nothing.
+    if (body.website && String(body.website).trim() !== "") {
+      return NextResponse.json({ success: true, message: "Received." });
+    }
+
+    const name = singleLine(body.name, 120);
+    const email = singleLine(body.email, 160);
+    const phone = singleLine(body.phone, 40);
+    const address = singleLine(body.address, 220);
+    const service = singleLine(body.service, 160);
+    const message = String(body.message || body.notes || "").trim().slice(0, 4000);
+    const formSource = singleLine(body.formSource || "Website Inquiry Form", 120);
+    const projectType = singleLine(body.projectType, 80);
+    const budgetRange = singleLine(body.budgetRange || body.budgetTier, 80);
+    const projectScope = singleLine(body.projectScope, 120);
+    const poolStyle = singleLine(body.poolStyle, 120);
+    const timeline = singleLine(body.timeline, 80);
     const selectedFeatures = Array.isArray(body.selectedFeatures)
-      ? body.selectedFeatures.filter(Boolean)
+      ? body.selectedFeatures
+          .filter(Boolean)
+          .slice(0, 30)
+          .map((f) => singleLine(f, 100))
       : [];
 
     if (!name || !email || !phone) {
@@ -53,6 +103,16 @@ export async function POST(request: Request) {
         {
           success: false,
           error: "Name, email, and phone number are required.",
+        },
+        { status: 400 }
+      );
+    }
+
+    if (!EMAIL_PATTERN.test(email) || phone.replace(/\D/g, "").length < 7) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Please enter a valid email address and phone number.",
         },
         { status: 400 }
       );

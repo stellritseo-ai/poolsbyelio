@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function QuoteFormSection() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export default function QuoteFormSection() {
     service: "",
     address: "",
     message: "",
+    website: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -42,6 +44,10 @@ export default function QuoteFormSection() {
         );
       }
 
+      trackEvent("generate_lead", {
+        form_source: "home_quote_form",
+        service: formData.service || "general",
+      });
       setSubmitted(true);
     } catch (err) {
       setErrorMessage(
@@ -123,6 +129,7 @@ export default function QuoteFormSection() {
                   service: "",
                   address: "",
                   message: "",
+                  website: "",
                 });
               }}
               className="mt-4 px-6 py-2.5 rounded-full bg-white text-[#00509e] font-bold text-xs uppercase tracking-wider hover:bg-slate-100 transition-colors shadow-sm"
@@ -234,6 +241,20 @@ export default function QuoteFormSection() {
               </div>
             )}
 
+            {/* Honeypot field — hidden from human visitors */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              value={formData.website}
+              onChange={(e) =>
+                setFormData({ ...formData, website: e.target.value })
+              }
+              className="hidden"
+            />
+
             {/* Row 5: Send Now Full-Width Dark Button */}
             <div>
               <button
@@ -243,6 +264,9 @@ export default function QuoteFormSection() {
               >
                 {loading ? "Sending..." : "Send Now"}
               </button>
+              <p className="text-[11px] text-blue-100/80 text-center mt-2.5">
+                Your contact information is sent directly to our Nashville team to respond to your inquiry and is never sold or shared.
+              </p>
             </div>
           </form>
         )}

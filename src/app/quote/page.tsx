@@ -6,6 +6,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
+import { trackEvent } from "@/lib/analytics";
 import {
   Phone,
   Mail,
@@ -49,6 +50,7 @@ export default function QuotePage() {
     phone: "",
     address: "",
     notes: "",
+    website: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -94,6 +96,11 @@ export default function QuotePage() {
         );
       }
 
+      trackEvent("generate_lead", {
+        form_source: "quote_configurator_form",
+        project_scope: projectScope,
+        budget_tier: budgetTier,
+      });
       setSubmitted(true);
     } catch (err) {
       setErrorMessage(
@@ -274,7 +281,6 @@ export default function QuotePage() {
               alt="Pools By Elio Custom 3D Pool Quote"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -387,6 +393,7 @@ export default function QuotePage() {
                             phone: "",
                             address: "",
                             notes: "",
+                            website: "",
                           });
                         }}
                         className="px-8 py-3 rounded-full bg-white text-[#00509e] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition-colors shadow-lg"
@@ -703,6 +710,18 @@ export default function QuotePage() {
                       </div>
                     )}
 
+                    {/* Honeypot field — hidden from human visitors */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={formData.website}
+                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      className="hidden"
+                    />
+
                     {/* Submit Button */}
                     <button
                       type="submit"
@@ -716,6 +735,9 @@ export default function QuotePage() {
                           : "Submit For 3D Quote & Blueprint Consultation"}
                       </span>
                     </button>
+                    <p className="text-[11px] text-blue-100/80 text-center">
+                      Your project specifications are sent directly to our Nashville team to prepare your consultation—never sold or shared.
+                    </p>
                   </form>
                 )}
               </div>
@@ -904,7 +926,6 @@ export default function QuotePage() {
                       src="/assets/gallery/21.webp"
                       alt="Commercial Grade Pool Construction by Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

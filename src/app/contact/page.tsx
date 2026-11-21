@@ -27,6 +27,7 @@ import {
   FileCheck,
 } from "lucide-react";
 import { SocialMediaBar } from "@/components/SocialIcons";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactPage() {
   // Form State
@@ -39,6 +40,7 @@ export default function ContactPage() {
     service: "",
     address: "",
     message: "",
+    website: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -78,6 +80,11 @@ export default function ContactPage() {
         );
       }
 
+      trackEvent("generate_lead", {
+        form_source: "contact_page_form",
+        project_type: projectType,
+        service: formData.service || "general",
+      });
       setSubmitted(true);
     } catch (err) {
       setErrorMessage(
@@ -211,7 +218,6 @@ export default function ContactPage() {
               alt="Contact Pools By Elio"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/80" />
@@ -391,6 +397,7 @@ export default function ContactPage() {
                           service: "",
                           address: "",
                           message: "",
+                          website: "",
                         });
                       }}
                       className="mt-4 px-6 py-2.5 rounded-full bg-white text-[#00509e] font-bold text-xs uppercase tracking-wider hover:bg-slate-100 transition-colors shadow-sm"
@@ -545,6 +552,18 @@ export default function ContactPage() {
                       </div>
                     )}
 
+                    {/* Honeypot field — hidden from human visitors */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={formData.website}
+                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      className="hidden"
+                    />
+
                     {/* Submit Button */}
                     <button
                       type="submit"
@@ -554,6 +573,9 @@ export default function ContactPage() {
                       <span>{loading ? "Sending..." : "Send Now"}</span>
                       <Send className="w-4 h-4" />
                     </button>
+                    <p className="text-[11px] text-blue-100/80 text-center">
+                      Your contact details are used solely to respond to your project inquiry and are never sold or shared.
+                    </p>
                   </form>
                 )}
               </div>
@@ -739,14 +761,14 @@ export default function ContactPage() {
                   </div>
 
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412182.3223460992!2d-86.78514695!3d36.186640350000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sNashville%2C%20TN%2C%20USA!5e0!3m2!1sen!2snp!4v1793924341147!5m2!1sen!2snp"
+                    src="https://www.google.com/maps?q=412+Ezell+Pike,+Nashville,+TN+37217&output=embed"
                     width="100%"
                     height="420"
                     style={{ border: 0 }}
                     allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"
-                    title="Pools by Elio Middle Tennessee Service Area"
+                    title="Map showing Pools By Elio at 412 Ezell Pike, Nashville, TN 37217"
                     className="w-full"
                   />
                 </div>

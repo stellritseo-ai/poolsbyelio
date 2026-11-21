@@ -132,7 +132,6 @@ export default function EmergencyStatsSection() {
                   src="/assets/service1.png"
                   alt="Pool & Spa Repair and Maintenance Service"
                   fill
-                  unoptimized
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />

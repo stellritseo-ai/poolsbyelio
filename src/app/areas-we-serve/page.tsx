@@ -289,7 +289,6 @@ export default function AreasWeServePage() {
               alt="Pools By Elio Middle Tennessee Service Area"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -476,7 +475,6 @@ export default function AreasWeServePage() {
                       src={item.image}
                       alt={`Pools by Elio in ${item.city}`}
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />

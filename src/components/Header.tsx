@@ -132,7 +132,7 @@ export default function Header() {
     {
       label: "Before After",
       href: "/before-after",
-      subtitle: "Interactive Sliders & 45+ Project Gallery",
+      subtitle: "Interactive Sliders & Project Gallery",
       icon: Images,
     },
     {
@@ -144,7 +144,7 @@ export default function Header() {
     {
       label: "Reviews",
       href: "/reviews",
-      subtitle: "5.0★ Verified Homeowner Testimonials",
+      subtitle: "Homeowner Testimonials & Google Reviews",
       icon: Star,
     },
     {
@@ -243,7 +243,6 @@ export default function Header() {
                   alt="Pools By Elio - Nashville's Premier Custom Pool Company"
                   fill
                   priority
-                  unoptimized
                   className="object-contain object-left"
                 />
               </div>

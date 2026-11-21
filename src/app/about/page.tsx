@@ -163,7 +163,6 @@ export default function AboutPage() {
               alt="Pools By Elio Custom Luxury Pool"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-35"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/80" />
@@ -238,7 +237,6 @@ export default function AboutPage() {
                       alt="We Are Pools by Elio - Luxury Custom Pool & Spa in Middle Tennessee"
                       fill
                       priority
-                      unoptimized
                       className="object-cover object-center transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#02122c]/70 via-transparent to-transparent" />
@@ -291,7 +289,6 @@ export default function AboutPage() {
                       src="/assets/gallery/22.webp"
                       alt="Commercial and Resort Pool Craftsmanship by Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
@@ -307,7 +304,6 @@ export default function AboutPage() {
                       src="/assets/gallery/23.webp"
                       alt="Custom Backyard Swim-Up Bar Pool"
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -317,7 +313,6 @@ export default function AboutPage() {
                       src="/assets/gallery/24.webp"
                       alt="Nighttime LED Lit Fountain Pool"
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -403,7 +398,6 @@ export default function AboutPage() {
                     src="/assets/first.png"
                     alt="Jonathan Elio Rodriguez – Founder & Hands-On Operator"
                     fill
-                    unoptimized
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -445,7 +439,6 @@ export default function AboutPage() {
                     src="/assets/second.png"
                     alt="David Elio Rodriguez – Co-Founder"
                     fill
-                    unoptimized
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -510,7 +503,6 @@ export default function AboutPage() {
                       src="/assets/whyimg.png"
                       alt="Why Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center"
                     />
                   </div>
@@ -539,7 +531,6 @@ export default function AboutPage() {
                           src={item.icon}
                           alt={item.title}
                           fill
-                          unoptimized
                           className="object-contain p-1"
                         />
                       </div>
@@ -597,7 +588,6 @@ export default function AboutPage() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        unoptimized
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />

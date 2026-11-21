@@ -164,7 +164,6 @@ export default function FountainsPage() {
               alt="Pools By Elio Custom Fountains"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -256,7 +255,6 @@ export default function FountainsPage() {
                       alt="Custom Fountains by Pools By Elio"
                       fill
                       priority
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#02122c]/80 via-transparent to-transparent" />
@@ -351,7 +349,6 @@ export default function FountainsPage() {
                     src={fountainCategories[activeFountain].image}
                     alt={fountainCategories[activeFountain].title}
                     fill
-                    unoptimized
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
@@ -434,7 +431,6 @@ export default function FountainsPage() {
                       src="/assets/gallery/24.webp"
                       alt="Nighttime Illuminated Fountains by Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

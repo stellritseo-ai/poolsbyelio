@@ -4,19 +4,15 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Custom Residential & Commercial Fountains, Pond & Lake Fountains Nashville TN",
+  title: "Custom Residential & Commercial Fountains",
   description:
-    "Design and build custom tiered garden fountains, floating pond & lake aerating fountains (up to 40+ ft spray), wall fountains, and corporate plaza water features in Nashville, Brentwood & Franklin, TN. 100% in-house installation.",
+    "Custom residential estate fountains, garden and wall fountains, floating pond and lake fountains, and commercial plaza water features in Nashville and Middle TN.",
   path: "/fountains",
-  ogImage: "/assets/service5.png",
   keywords: [
     "custom fountains Nashville TN",
+    "commercial fountains and water features",
     "pond and lake fountains Middle Tennessee",
-    "floating fountain installation Brentwood TN",
-    "commercial fountain contractor Nashville",
-    "tiered garden fountains Franklin TN",
-    "The House of Fountains Nashville",
+    "garden fountains Brentwood Franklin TN",
   ],
 });
 

@@ -260,7 +260,6 @@ export default function PoolsAndSpasPage() {
               alt="Pools By Elio Custom Swimming Pools and Spas"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -341,7 +340,6 @@ export default function PoolsAndSpasPage() {
                       alt="Custom Swimming Pool and Spa by Pools By Elio"
                       fill
                       priority
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#02122c]/80 via-transparent to-transparent" />
@@ -406,7 +404,6 @@ export default function PoolsAndSpasPage() {
                       src={style.image}
                       alt={style.title}
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -506,7 +503,6 @@ export default function PoolsAndSpasPage() {
                       src={spa.image}
                       alt={spa.title}
                       fill
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -563,7 +559,6 @@ export default function PoolsAndSpasPage() {
                       src="/assets/gallery/24.webp"
                       alt="Pool & Spa Combo Built by Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

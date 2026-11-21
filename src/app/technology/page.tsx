@@ -171,7 +171,6 @@ export default function TechnologyPage() {
               alt="Pools By Elio State of the Art Pool Technology"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -489,7 +488,6 @@ export default function TechnologyPage() {
                       src="/assets/banner2.png"
                       alt="Commercial Pool Automation by Pools by Elio"
                       fill
-                      unoptimized
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

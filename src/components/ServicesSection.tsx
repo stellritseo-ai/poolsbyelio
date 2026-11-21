@@ -157,7 +157,7 @@ export default function ServicesSection() {
       <div className="absolute inset-0 bg-white/20 pointer-events-none rounded-[5px]" />
 
       <div className="max-w-[1380px] mx-auto px-3 sm:px-5 lg:px-6 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
           {/* Top Pill with Cyan-to-Blue Gradient */}
@@ -204,12 +204,11 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-white/75 pointer-events-none rounded-[5px]" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center relative z-10">
-                    
+
                     {/* Text Column */}
                     <div
-                      className={`lg:col-span-7 space-y-3 sm:space-y-4 ${
-                        isEven ? "lg:order-1" : "lg:order-2"
-                      }`}
+                      className={`lg:col-span-7 space-y-3 sm:space-y-4 ${isEven ? "lg:order-1" : "lg:order-2"
+                        }`}
                     >
                       <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold text-black tracking-tight leading-tight">
                         {service.title}
@@ -231,9 +230,8 @@ export default function ServicesSection() {
 
                     {/* Image Column - Compact width & height */}
                     <div
-                      className={`lg:col-span-5 flex justify-center ${
-                        isEven ? "lg:order-2 lg:justify-end" : "lg:order-1 lg:justify-start"
-                      }`}
+                      className={`lg:col-span-5 flex justify-center ${isEven ? "lg:order-2 lg:justify-end" : "lg:order-1 lg:justify-start"
+                        }`}
                     >
                       <div
                         style={{ borderRadius: "5px" }}
@@ -243,7 +241,6 @@ export default function ServicesSection() {
                           src={service.image}
                           alt={service.title}
                           fill
-                          unoptimized
                           className="object-cover object-center transition-transform duration-700 hover:scale-105"
                         />
                       </div>
@@ -275,7 +272,6 @@ export default function ServicesSection() {
                 src={activeModal.image}
                 alt={activeModal.title}
                 fill
-                unoptimized
                 className="object-cover"
               />
             </div>

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-config";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WelcomeSection from "@/components/WelcomeSection";
@@ -11,6 +13,14 @@ import EmergencyStatsSection from "@/components/EmergencyStatsSection";
 import QuoteFormSection from "@/components/QuoteFormSection";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Custom Pool Builders in Nashville, TN | Pools By Elio",
+  absoluteTitle: true,
+  description:
+    "Family-owned custom gunite pool, spa and outdoor living builder in Nashville, serving Franklin, Brentwood and Middle Tennessee for 25+ years. (615) 568-3154",
+  path: "/",
+});
 
 export default function Home() {
   return (

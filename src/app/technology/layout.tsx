@@ -4,18 +4,15 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Smart Pool Automation, Variable Speed Pumps & Pool Technology Nashville TN",
+  title: "Smart Pool Automation & Equipment Technology",
   description:
-    "Control your pool temperature, LED lighting, spa jets, and saltwater sanitization from your smartphone. Pools By Elio installs ultra-quiet variable-speed pumps (up to 70% energy savings) and smart pool automation in Nashville & Middle TN.",
+    "Control pool temperature, LED lighting, spa jets and sanitization from your smartphone. Variable-speed pumps and modern pool automation in Nashville & Middle TN.",
   path: "/technology",
-  ogImage: "/assets/service3.png",
   keywords: [
     "smart pool automation Nashville TN",
+    "how does pool automation work",
     "variable speed pool pumps Brentwood TN",
-    "saltwater pool conversion Franklin TN",
-    "automated pool controls Middle Tennessee",
-    "energy efficient pool equipment Nashville",
+    "saltwater pool equipment Franklin TN",
   ],
 });
 

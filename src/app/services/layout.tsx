@@ -3,19 +3,15 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Custom Pool, Spa, Water Park & Outdoor Living Services in Nashville, TN",
+  title: "Custom Pool & Outdoor Living Services",
   description:
-    "Explore all 6 master aquatic construction divisions by Pools By Elio in Nashville & Middle TN: Custom Gunite Pools & Spas, Water Features, Smart Pool Technology, Commercial Water Parks, Fountains, and Luxury Backyard Concepts.",
+    "Explore Pools By Elio's in-house divisions in Nashville & Middle TN: Custom Gunite Pools & Spas, Water Features, Pool Tech, Commercial Water Parks and Outdoor Living.",
   path: "/services",
-  ogImage: "/assets/banner1.png",
   keywords: [
     "pool construction services Nashville TN",
-    "custom gunite pool builder services Middle Tennessee",
-    "luxury pool and spa services Brentwood Franklin",
+    "custom gunite pool builder Middle Tennessee",
     "commercial water park construction Tennessee",
-    "custom pool fountains and water features Nashville",
-    "backyard outdoor living and swim up bars Nashville",
+    "backyard outdoor living Nashville",
   ],
 });
 
@@ -26,7 +22,7 @@ export default function ServicesLayout({
 }) {
   return (
     <>
-      <PageJsonLd
+      <PageJsonLd pageType="CollectionPage"
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },

@@ -190,7 +190,6 @@ export default function WaterParksPage() {
               alt="Pools By Elio Commercial Water Parks"
               fill
               priority
-              unoptimized
               className="object-cover object-center opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#02122c]/95 via-[#03204c]/90 to-[#042d6b]/85" />
@@ -278,7 +277,6 @@ export default function WaterParksPage() {
                       alt="Commercial Water Parks by Pools By Elio"
                       fill
                       priority
-                      unoptimized
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#02122c]/80 via-transparent to-transparent" />
@@ -373,7 +371,6 @@ export default function WaterParksPage() {
                     src={attractions[activeAttraction].image}
                     alt={attractions[activeAttraction].title}
                     fill
-                    unoptimized
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />

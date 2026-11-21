@@ -4,17 +4,14 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Before & After Pool Transformations & 60+ Project Portfolio | Nashville TN",
+  title: "Before & After Pool Portfolio | Nashville, TN",
   description:
-    "Explore interactive before-and-after gunite pool transformations and 60+ completed luxury swimming pools, spas, waterfalls, commercial water parks, and outdoor living projects across Nashville, Brentwood, Franklin & Belle Meade, TN.",
+    "Explore interactive before-and-after pool transformations and project photography from Pools By Elio across Nashville, Brentwood, Franklin and Middle Tennessee.",
   path: "/before-after",
-  ogImage: "/assets/gallery/20.webp",
   keywords: [
     "pool before and after Nashville TN",
     "custom pool portfolio Brentwood TN",
     "gunite pool gallery Franklin TN",
-    "luxury swimming pool photos Belle Meade TN",
     "Pools By Elio completed projects",
   ],
 });

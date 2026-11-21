@@ -4,12 +4,10 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "About Pools By Elio | Jonathan & David Elio Rodriguez — 25+ Years Master Pool Builders",
+  title: "About Pools By Elio | Nashville Pool Builders",
   description:
-    "Founded by Jonathan Elio Rodriguez & David Elio Rodriguez, Pools By Elio brings 25+ years of family-owned, 100% in-house gunite pool craftsmanship to Nashville & Middle Tennessee. Zero subcontractors, commercial-grade engineering.",
+    "Meet co-founders Jonathan and David Elio Rodriguez. Over 25 years of family-owned, in-house custom gunite pool construction across Nashville and Middle Tennessee.",
   path: "/about",
-  ogImage: "/assets/whyimg.png",
   keywords: [
     "about Pools By Elio",
     "Jonathan Elio Rodriguez Nashville",
@@ -26,7 +24,7 @@ export default function AboutLayout({
 }) {
   return (
     <>
-      <PageJsonLd
+      <PageJsonLd pageType="AboutPage"
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "About Us", path: "/about" },

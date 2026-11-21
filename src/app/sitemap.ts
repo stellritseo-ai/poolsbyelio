@@ -1,141 +1,143 @@
 import type { MetadataRoute } from "next";
-import { SITE_CONFIG } from "@/lib/seo-config";
+import { SITE_CONFIG, absoluteUrl } from "@/lib/seo-config";
+import { allContentPages } from "@/content";
 
+/**
+ * Canonical, indexable URLs only.
+ * Legacy alias routes (/portfolio, /before-and-after, /testimonials, /areas,
+ * /get-a-quote, /state-of-the-art-technology, /services/*) are 308-redirected
+ * in next.config.ts and intentionally excluded here.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_CONFIG.url;
-  const now = "2026-11-09";
+  const lastModified = SITE_CONFIG.lastUpdated;
 
-  return [
+  const coreAndExistingRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: now,
+      url: SITE_CONFIG.url,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
       images: [
-        `${baseUrl}/assets/banner1.png`,
-        `${baseUrl}/assets/banner2.png`,
-        `${baseUrl}/assets/banner3.png`,
-        `${baseUrl}/assets/gallery/20.webp`,
-        `${baseUrl}/assets/gallery/21.webp`,
-        `${baseUrl}/assets/gallery/22.webp`,
+        absoluteUrl("/assets/banner1.png"),
+        absoluteUrl("/assets/banner2.png"),
+        absoluteUrl("/assets/gallery/20.webp"),
       ],
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: now,
+      url: absoluteUrl("/services"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
-        `${baseUrl}/assets/service1.png`,
-        `${baseUrl}/assets/service2.png`,
-        `${baseUrl}/assets/service3.png`,
-        `${baseUrl}/assets/service4.png`,
-        `${baseUrl}/assets/service5.png`,
-        `${baseUrl}/assets/service6.png`,
+        absoluteUrl("/assets/service1.png"),
+        absoluteUrl("/assets/service2.png"),
+        absoluteUrl("/assets/service3.png"),
+        absoluteUrl("/assets/service4.png"),
+        absoluteUrl("/assets/service5.png"),
+        absoluteUrl("/assets/service6.png"),
       ],
     },
     {
-      url: `${baseUrl}/pools-and-spas`,
-      lastModified: now,
+      url: absoluteUrl("/pools-and-spas"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.95,
-      images: [
-        `${baseUrl}/assets/service1.png`,
-        `${baseUrl}/assets/gallery/20.webp`,
-        `${baseUrl}/assets/gallery/21.webp`,
-      ],
+      images: [absoluteUrl("/assets/service1.png"), absoluteUrl("/assets/gallery/20.webp")],
     },
     {
-      url: `${baseUrl}/water-features`,
-      lastModified: now,
+      url: absoluteUrl("/water-features"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [
-        `${baseUrl}/assets/service2.png`,
-        `${baseUrl}/assets/gallery/341640127040.jpg`,
-      ],
+      images: [absoluteUrl("/assets/service2.png")],
     },
     {
-      url: `${baseUrl}/backyard-concepts`,
-      lastModified: now,
+      url: absoluteUrl("/backyard-concepts"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [
-        `${baseUrl}/assets/service6.png`,
-        `${baseUrl}/assets/gallery/22.webp`,
-      ],
+      images: [absoluteUrl("/assets/service6.png")],
     },
     {
-      url: `${baseUrl}/fountains`,
-      lastModified: now,
+      url: absoluteUrl("/fountains"),
+      lastModified,
       changeFrequency: "weekly",
-      priority: 0.9,
-      images: [
-        `${baseUrl}/assets/service5.png`,
-        `${baseUrl}/assets/gallery/24.webp`,
-      ],
+      priority: 0.85,
+      images: [absoluteUrl("/assets/service5.png")],
     },
     {
-      url: `${baseUrl}/water-parks`,
-      lastModified: now,
+      url: absoluteUrl("/water-parks"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
-      images: [
-        `${baseUrl}/assets/service4.png`,
-        `${baseUrl}/assets/gallery/341762942040.jpg`,
-      ],
+      images: [absoluteUrl("/assets/service4.png")],
     },
     {
-      url: `${baseUrl}/technology`,
-      lastModified: now,
+      url: absoluteUrl("/technology"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.85,
-      images: [`${baseUrl}/assets/service3.png`],
+      images: [absoluteUrl("/assets/service3.png")],
     },
     {
-      url: `${baseUrl}/before-after`,
-      lastModified: now,
+      url: absoluteUrl("/before-after"),
+      lastModified,
       changeFrequency: "weekly",
-      priority: 0.95,
+      priority: 0.9,
       images: [
-        `${baseUrl}/assets/gallery/20.webp`,
-        `${baseUrl}/assets/gallery/21.webp`,
-        `${baseUrl}/assets/gallery/22.webp`,
-        `${baseUrl}/assets/gallery/23.webp`,
-        `${baseUrl}/assets/gallery/24.webp`,
+        absoluteUrl("/assets/gallery/20.webp"),
+        absoluteUrl("/assets/gallery/21.webp"),
+        absoluteUrl("/assets/gallery/22.webp"),
       ],
     },
     {
-      url: `${baseUrl}/reviews`,
-      lastModified: now,
+      url: absoluteUrl("/reviews"),
+      lastModified,
       changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: absoluteUrl("/areas-we-serve"),
+      lastModified,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/areas-we-serve`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: now,
+      url: absoluteUrl("/about"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.85,
-      images: [`${baseUrl}/assets/whyimg.png`],
+      images: [absoluteUrl("/assets/whyimg.png")],
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
+      url: absoluteUrl("/contact"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/quote`,
-      lastModified: now,
+      url: absoluteUrl("/quote"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.95,
+    },
+    {
+      url: absoluteUrl("/resources"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
-}
 
+  const generatedContentRoutes: MetadataRoute.Sitemap = allContentPages.map(
+    (page) => ({
+      url: absoluteUrl(page.path),
+      lastModified: page.article?.dateModified ?? lastModified,
+      changeFrequency: page.kind === "guide" ? "monthly" : "weekly",
+      priority: page.sitemapPriority,
+      images: [absoluteUrl(page.heroImage.src)],
+    })
+  );
+
+  return [...coreAndExistingRoutes, ...generatedContentRoutes];
+}

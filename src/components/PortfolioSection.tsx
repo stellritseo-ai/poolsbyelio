@@ -670,7 +670,6 @@ export default function PortfolioSection() {
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                unoptimized
                 className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
 
@@ -818,7 +817,6 @@ export default function PortfolioSection() {
                 src={filteredItems[selectedImageIndex].src}
                 alt={filteredItems[selectedImageIndex].title}
                 fill
-                unoptimized
                 priority
                 className="object-contain"
               />
@@ -857,7 +855,6 @@ export default function PortfolioSection() {
                   src={item.src}
                   alt={item.title}
                   fill
-                  unoptimized
                   className="object-cover"
                 />
               </button>

@@ -4,18 +4,15 @@ import { createPageMetadata } from "@/lib/seo-config";
 import { PageJsonLd } from "@/components/JsonLdSchema";
 
 export const metadata: Metadata = createPageMetadata({
-  title:
-    "Contact Pools By Elio | Schedule On-Site Pool Consultation & Emergency Repair Nashville TN",
+  title: "Contact Pools By Elio | Nashville, TN",
   description:
-    "Contact Jonathan Elio Rodriguez & Pools By Elio at 412 Ezell pike Nashville TN 37217. Call (615) 568-3154 or email eliocustompools@live.com to schedule your custom pool consultation or repair service.",
+    "Contact Pools By Elio at 412 Ezell Pike, Nashville, TN 37217. Call (615) 568-3154 or email eliocustompools@live.com to schedule a pool consultation or repair.",
   path: "/contact",
-  ogImage: "/assets/banner1.png",
   keywords: [
     "contact Pools By Elio",
     "pool consultation Nashville TN",
-    "emergency pool repair Nashville TN",
+    "pool repair Nashville TN",
     "412 Ezell Pike Nashville pool company",
-    "pool builder phone number Nashville",
   ],
 });
 
@@ -26,7 +23,7 @@ export default function ContactLayout({
 }) {
   return (
     <>
-      <PageJsonLd
+      <PageJsonLd pageType="ContactPage"
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Contact Us", path: "/contact" },
