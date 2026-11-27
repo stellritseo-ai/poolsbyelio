@@ -97,7 +97,7 @@ export default function Footer() {
                   src="/assets/logo.png"
                   alt="Pools By Elio Logo"
                   fill
-                  priority
+                  sizes="192px"
                   className="object-contain p-1"
                 />
               </div>

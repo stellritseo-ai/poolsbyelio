@@ -79,6 +79,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-white text-slate-800`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[#00285c] focus:text-white focus:font-bold focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <GlobalJsonLd />
         {children}
         <SiteAnalytics />

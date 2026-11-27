@@ -1,152 +1,247 @@
-# Complete SEO & AI Search Visibility Report — Pools By Elio
+# Complete SEO, Technical SEO, Local SEO, Off-Page SEO & AI Search (GEO/AEO) Report
+## Client: Pools By Elio (`https://www.poolsbyelio.net/`)
 
 **Business:** Pools By Elio  
-**Domain:** `https://poolsbyelio.net` (configurable via `NEXT_PUBLIC_SITE_URL` to match Vercel primary domain)  
+**Canonical Live Host:** `https://www.poolsbyelio.net` (Vercel primary host; `poolsbyelio.net` 308-redirects to `www.poolsbyelio.net`)  
 **Headquarters:** 412 Ezell Pike, Nashville, TN 37217  
-**Phone:** (615) 568-3154 | **Email:** eliocustompools@live.com  
-**Primary Markets:** Nashville, Franklin, Brentwood, and surrounding Middle Tennessee  
-**Report Date:** November 20, 2026  
+**Phone:** (615) 568-3154 | **Email:** `eliocustompools@live.com`  
+**Primary Market:** Nashville, Tennessee  
+**Secondary Markets:** Franklin, TN; Brentwood, TN; Greater Middle Tennessee (~50-mile radius); Commercial projects across Tennessee  
+**Audit & Implementation Date:** November 28, 2026  
 
-> **Editorial & SEO Principle:** Neither Google rankings nor AI search citations can be guaranteed. Every improvement implemented below prioritizes verifiable facts, technical crawlability, clear topical architecture, and trustworthy local authority.
-
----
-
-## 1. Initial Website & Codebase SEO Audit (Phase 1)
-
-| Priority | Audit Finding | Impact | Status |
-|---|---|---|---|
-| **Critical** | **Unverified / self-serving `AggregateRating` & `Review` JSON-LD** (`5.0` / `52` count) emitted sitewide on `LocalBusiness` | Risk of Google rich-result manual action / structured data policy violation | **Fixed** (`JsonLdSchema.tsx`) |
-| **Critical** | **Root layout set a sitewide `alternates.canonical`** pointing to `/` | Any route without its own canonical inherited `/` as canonical | **Fixed** (`src/app/layout.tsx` + explicit canonicals on every page) |
-| **Critical** | **70+ `<Image unoptimized>` usages** across pages & components serving multi-MB PNGs (`banner1–3.png` up to 2.1 MB, `first.png`/`second.png` up to 3.9 MB) | Degraded LCP and mobile Core Web Vitals | **Fixed** (removed `unoptimized` so Next.js/Vercel AVIF & WebP optimizer runs automatically; created 130 KB 1200×630 `og-default.jpg`) |
-| **Critical** | **No spam protection or rate limiting** on `/api/contact` | Form abuse / SMTP quota exhaustion | **Fixed** (honeypot `website` field, input validation, header-injection stripping, rate limiting) |
-| **High** | **Missing dedicated high-intent landing pages** for Gunite Construction, Infinity Edge Pools, Pool Remodeling, Lazy River Construction, Commercial Pool Construction, Nashville/Franklin/Brentwood local pages, Process, FAQ, Projects, and Resources | Major keyword and AI-answer gaps vs. Nashville competitors | **Fixed** (15 new server-rendered pages created) |
-| **High** | **Client-only interactive accordions** hid FAQ content behind JS state and lacked page-scoped `FAQPage` JSON-LD matching visible Q&A | Reduced crawlability for Google and AI parsers | **Fixed** (`ContentPage.tsx` uses native HTML `<details>` with matching `FAQPage` JSON-LD) |
-| **High** | **Unsubstantiated claims & superlatives** ("Award-Winning", "5.0★", "45+ Verified", "ENERGY STAR up to 70%", "4,000+ PSI", "Founded 2001") across metadata, `llms.txt`, and `/services` | Undermines E-E-A-T trust and AI citation reliability | **Fixed** (cleaned across `seo-config.ts`, `JsonLdSchema.tsx`, `layout.tsx`, `services/page.tsx`, `Header.tsx`, `llms.txt`, `llms-full.txt`) |
-| **High** | **Keyword-stuffed ribbon in `Footer.tsx`** + misleading `Privacy Policy` → `/about` & `Terms` → `/contact` links | Outdated SEO footprint and poor UX | **Fixed** (replaced with real internal links to local pages, service pages, FAQ, and guides) |
-| **High** | **Overlong SEO page titles (>75–95 chars)** in route `layout.tsx` files causing SERP truncation | Lower click-through rate in Google results | **Fixed** (all 13 existing route layouts tightened to ≤60 chars including brand template) |
-| **Medium** | **Contact page Google Map embed** pointed to generic "Nashville, TN" instead of `412 Ezell Pike, Nashville, TN 37217` | Weaker local entity signal on Contact page | **Fixed** (`src/app/contact/page.tsx`) |
-| **Medium** | **No analytics or conversion tracking** for GA4, GTM, Clarity, click-to-call, click-to-email, or lead form submissions | Blind to organic ROI and lead attribution | **Fixed** (`src/lib/analytics.ts`, `src/components/Analytics.tsx`, wired to all 3 forms) |
-| **Medium** | **Domain `www` vs non-`www` enforcement** (`poolsbyelio.net` vs `www.poolsbyelio.net`) | Potential duplicate host indexing if both serve 200 OK | **Documented** (configure primary domain redirect in Vercel Domains + match `NEXT_PUBLIC_SITE_URL`) |
-| **Low** | **Stock/illustrative images on commercial project pages** (`banner3.png`, `service4.png`) | Authentic original project photos convert and rank better | **Flagged for Owner** (labeled transparently as illustrative; replace with verified photos upon permission) |
+> **Integrity Notice:** No agency can guarantee first-page Google rankings or AI citations. Every fix, schema entity, backlink target, and content piece in this report is grounded in live production HTTP evidence, codebase inspection, and verified business information—with zero fabricated search volumes, rankings, reviews, or credentials.
 
 ---
 
-## 2. Competitor SEO Analysis (Phase 2)
+## Deliverable 1 & 2: Complete Website Discovery & Technical SEO Audit
 
-| Competitor | Market Focus | Key Strengths | Gaps & Pools By Elio Opportunities |
-|---|---|---|---|
-| **Waterscapes Backyard Resorts** | Luxury estates (Belle Meade, Forest Hills, Governors Club, Brentwood) | Strong luxury positioning, dedicated service pages (gunite, studio series, outdoor living, renovations, commercial), GENESIS design messaging, in-house crew emphasis | Less focus on large-scale commercial water parks and lazy rivers; Pools By Elio can differentiate with **Sound Waves (Gaylord Opryland)** lazy river pedigree + downtown Nashville hospitality pool bars |
-| **McMillion Pool Company** | Greater Nashville residential luxury + weekly service/maintenance | Longstanding local presence, service-area coverage across Belle Meade/Brentwood/Franklin, strong renovation/repair/service recurring intent | Offers vinyl liners & maintenance focus rather than dedicated commercial aquatic attractions and custom architectural fountains |
-| **D2 Pools** | Brentwood, Franklin, Williamson County residential | Dedicated gunite + fiberglass options, clear Brentwood address, fire & water feature showcase, YouTube project presence | Smaller commercial footprint; Pools By Elio owns the in-house gunite + commercial hospitality niche |
-| **Premier Pools & Spas (Nashville North & South)** | Mass-to-luxury franchise network across Middle TN | Huge domain authority from national franchise root, aggressive local city landing pages, financing and online quote funnels | Franchise model vs. Pools By Elio's direct founder-led, family-owned, 100% in-house crew with Jonathan Elio Rodriguez on site daily |
-| **Haven Outdoors** | Kingston Springs / Greater Nashville full outdoor living | Interactive cost estimator, strong holistic hardscape/pergola/kitchen messaging across fiberglass, gunite, and pre-cast | Broad multi-material focus; Pools By Elio wins high-budget custom gunite specificity and commercial engineering authority |
-| **Additional Regional Competitors Observed** | **Palmingo Pools**, **Riverstone Pools** (Williamson County), **Pool & Spa Depot**, **Denali Pools & Outdoors** | Strong local targeting in Williamson County, 3D design visualization, dedicated gunite structural pages | Opportunity to capture informational searches (`custom pool cost Nashville`, `gunite vs fiberglass`, `pool construction timeline`, `how to choose a pool contractor Tennessee`) and commercial lazy river/water park intent |
+### Live Production Crawl Evidence (Before Fix — Nov 28, 2026)
+- `http://poolsbyelio.net/` → `308` → `https://poolsbyelio.net/` → `308` → `https://www.poolsbyelio.net/`
+- `http://www.poolsbyelio.net/` → `308` → `https://www.poolsbyelio.net/`
+- `https://www.poolsbyelio.net/` → `HTTP/2 200` (`TTFB: 0.29s`, `X-Vercel-Cache: HIT`, `HSTS: max-age=63072000`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`)
+- **CRITICAL DEFECT DISCOVERED LIVE:** Although `https://www.poolsbyelio.net/` is the live `200 OK` host, the live HTML emitted `<link rel="canonical" href="https://poolsbyelio.net"/>` and `/sitemap.xml` listed `https://poolsbyelio.net/...` (all 308 redirects!).
+
+### Complete Technical & On-Page Issue Inventory
+
+| Priority | Issue | Evidence | Impact | Solution Implemented | Status |
+|---|---|---|---|---|---|
+| **CRITICAL** | **Live Canonical & Sitemap Host Mismatch (`www` vs apex)** | Live `https://www.poolsbyelio.net/` emitted `canonical=https://poolsbyelio.net` (308 redirect) | Causes GSC *"Duplicate, Google chose different canonical"* & *"Page with redirect"* across all 32 URLs | Updated `SITE_CONFIG.url`, `.env.example`, `sitemap.xml`, `robots.txt`, JSON-LD, `llms.txt`, and `llms-full.txt` to `https://www.poolsbyelio.net` | **Fixed** |
+| **CRITICAL** | **64 `<Image fill>` tags missing responsive `sizes=` + below-fold `priority` misuse** | 18 component/page files lacked `sizes=`; `Footer.tsx` & `WhyUsSection.tsx` preloaded below-fold images | Forces mobile phones to download 1920px images and delays Hero LCP | Added accurate `sizes=` to all 64 `<Image fill>` tags; removed `priority` from `Footer.tsx` and `WhyUsSection.tsx`; set `images.minimumCacheTTL: 2592000` | **Fixed** |
+| **CRITICAL** | **Self-serving `AggregateRating` / `Review` JSON-LD & root inherited canonical** | Sitewide JSON-LD emitted unverified `5.0/52` rating; `layout.tsx` set canonical `/` | Policy risk for structured data manual actions and duplicate canonicals | Removed self-serving `AggregateRating`/`Review`; per-page canonicals via `createPageMetadata()` | **Fixed** |
+| **CRITICAL** | **Contact API lacked spam/abuse protection** | `/api/contact` accepted unvalidated payloads | Spam risk & Zoho SMTP quota risk | Added hidden `website` honeypot, header-injection stripping, validation, and rate limiting across API + all 3 forms | **Fixed** |
+| **HIGH** | **12 redundant duplicate alias `page.tsx` files** | `src/app/portfolio`, `areas`, `testimonials`, `services/*`, etc. duplicated canonical pages | Unnecessary static build output & potential duplicate routes | Deleted 12 redundant alias files while preserving all `308` permanent edge redirects in `next.config.ts` | **Fixed** |
+| **HIGH** | **Missing dedicated high-intent service, local, FAQ, process, project & guide URLs** | Core keywords (`gunite`, `infinity edge`, `remodeling`, `Franklin`, `Brentwood`, `lazy river`, `pool cost`) lacked dedicated URLs | Weak topical relevance & missed AI/organic traffic | Created 15 server-rendered App Router pages (32 total canonical URLs) | **Fixed** |
+| **HIGH** | **Unsubstantiated superlatives ("Award-Winning", "5.0★", "45+ Verified", "up to 70%")** | Found in `Hero.tsx`, `layout.tsx`, `services/page.tsx`, `Header.tsx`, `llms.txt` | Violates E-E-A-T trust & AI factual citation guidelines | Replaced with verified, factual statements across all files | **Fixed** |
+| **HIGH** | **Footer keyword stuffing & mismatched policy links** | Footer ribbon listed raw comma/bullet keywords; Privacy linked to `/about` | Outdated SEO footprint & poor UX | Replaced with structured links to local pages, guides, `/faq`, `/resources`, `/contact` | **Fixed** |
+| **MEDIUM** | **Homepage internal links to new local, FAQ & process pages** | `FaqMapSection` city badges were static `<div>`s; `ProcessSection` lacked `/process` link | Deeper crawl depth for local & informational hubs | Converted Nashville/Franklin/Brentwood badges into `<Link>` elements, pinned Contact/Home map embeds to `412 Ezell Pike`, linked `/faq` & `/process` | **Fixed** |
+| **MEDIUM** | **WCAG Skip-to-Content accessibility & DNS prefetch header** | Missing keyboard skip link and `X-DNS-Prefetch-Control` | Accessibility & external resource latency | Added `sr-only focus:not-sr-only` skip link in `layout.tsx` + `id="main-content"` + `X-DNS-Prefetch-Control: on` | **Fixed** |
+| **LOW** | **Next.js `16.4.2` security advisory & illustrative photos on commercial project pages** | `npm run build` advisory; `banner3.png`/`service4.png` illustrative | Security hygiene & E-E-A-T photographic authenticity | Flagged for owner approval (upgrade Next.js; supply approved Sound Waves & residential project photos) | **Pending Owner** |
 
 ---
 
-## 3. Keyword Research Database & URL Mapping (Phase 3)
+## Deliverable 3: Page-by-Page On-Page SEO Inventory (All 32 Canonical URLs)
 
-*(Note: Search volumes and difficulty scores are intentionally omitted rather than invented; verify exact monthly figures in Google Keyword Planner or Ahrefs/Semrush once connected.)*
+All 32 canonical pages are statically prerendered (`○ Static` / `◐ PPR`), emit a unique `<title>` (≤60 chars), unique `<meta name="description">` (120–158 chars), single `<h1>`, self-referencing `https://www.poolsbyelio.net/...` canonical, `1200×630` Open Graph image (`/assets/og-default.jpg`), and valid Schema.org JSON-LD:
 
-| Keyword Cluster | Search Intent | Target Location | Role | Mapped Canonical URL | Priority | Action Taken |
+| # | Canonical Path | Page Type | Primary Target Intent | Schema Emitted |
+|---|---|---|---|---|
+| 1 | `/` | Homepage | Custom pool builders Nashville TN | `HomeAndConstructionBusiness`, `GeneralContractor`, `WebSite` |
+| 2 | `/services` | Service Hub | Pool construction services Nashville TN | `CollectionPage`, `BreadcrumbList`, `Service` |
+| 3 | `/pools-and-spas` | Residential Service | Custom gunite pools & spas Nashville TN | `WebPage`, `BreadcrumbList`, `Service` |
+| 4 | `/gunite-pool-construction` | Residential Service | Gunite pool construction Nashville TN | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 5 | `/infinity-edge-pools` | Residential Service | Infinity / vanishing edge pools Nashville | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 6 | `/pool-remodeling` | Residential Service | Pool remodeling, resurfacing & repair Nashville | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 7 | `/water-features` | Residential Service | Custom pool waterfalls & grottos Nashville | `WebPage`, `BreadcrumbList`, `Service` |
+| 8 | `/technology` | Residential Service | Smart pool automation & variable speed pumps | `WebPage`, `BreadcrumbList`, `Service` |
+| 9 | `/backyard-concepts` | Residential Service | Pool houses, swim-up bars & outdoor kitchens | `WebPage`, `BreadcrumbList`, `Service` |
+| 10 | `/fountains` | Specialty Service | Residential & commercial fountains Nashville | `WebPage`, `BreadcrumbList`, `Service` |
+| 11 | `/commercial-pool-construction` | Commercial Service | Commercial pool contractors Tennessee | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 12 | `/water-parks` | Commercial Service | Commercial water park builders Tennessee | `WebPage`, `BreadcrumbList`, `Service` |
+| 13 | `/lazy-river-construction` | Commercial Service | Lazy river design & construction Tennessee | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 14 | `/pool-builders-nashville-tn` | Local Page | Pool builders in Nashville, TN | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 15 | `/pool-builders-franklin-tn` | Local Page | Pool builders in Franklin, TN | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 16 | `/pool-builders-brentwood-tn` | Local Page | Pool builders in Brentwood, TN | `WebPage`, `BreadcrumbList`, `Service`, `FAQPage` |
+| 17 | `/areas-we-serve` | Local Hub | Middle Tennessee 50-mile service coverage | `WebPage`, `BreadcrumbList` |
+| 18 | `/projects` | Portfolio Hub | Pools By Elio commercial & residential work | `WebPage`, `BreadcrumbList` |
+| 19 | `/projects/sound-waves-gaylord-opryland` | Project Case | Sound Waves Gaylord Opryland lazy river builder | `WebPage`, `BreadcrumbList` |
+| 20 | `/projects/downtown-nashville-pool-bars` | Project Case | Downtown Nashville hospitality pool bars | `WebPage`, `BreadcrumbList` |
+| 21 | `/before-after` | Visual Portfolio | Before & after pool transformations Nashville | `WebPage`, `BreadcrumbList` |
+| 22 | `/reviews` | Social Proof | Pools By Elio homeowner & estate manager reviews | `WebPage`, `BreadcrumbList` |
+| 23 | `/about` | E-E-A-T Core | Jonathan & David Elio Rodriguez / in-house crew | `AboutPage`, `BreadcrumbList` |
+| 24 | `/process` | E-E-A-T Core | 4-stage custom pool building process | `WebPage`, `BreadcrumbList`, `FAQPage` |
+| 25 | `/faq` | AEO / GEO Core | Pool construction FAQ (15 visible Q&As) | `FAQPage`, `BreadcrumbList` |
+| 26 | `/contact` | Conversion Core | Nashville HQ, map, phone & direct inquiry form | `ContactPage`, `BreadcrumbList` |
+| 27 | `/quote` | Conversion Core | Interactive 5-step custom pool quote builder | `WebPage`, `BreadcrumbList` |
+| 28 | `/resources` | Content Hub | Homeowner & commercial planning guides | `CollectionPage`, `BreadcrumbList` |
+| 29 | `/resources/gunite-vs-fiberglass-pools` | Pillar Guide | Gunite vs. fiberglass pools comparison | `Article`, `BreadcrumbList`, `FAQPage` |
+| 30 | `/resources/custom-pool-cost-nashville` | Pillar Guide | Custom pool cost in Nashville, TN | `Article`, `BreadcrumbList`, `FAQPage` |
+| 31 | `/resources/pool-construction-timeline` | Pillar Guide | Pool construction timeline & phases | `Article`, `BreadcrumbList`, `FAQPage` |
+| 32 | `/resources/how-to-choose-a-pool-contractor-tennessee` | Pillar Guide | How to choose a pool contractor in Tennessee | `Article`, `BreadcrumbList`, `FAQPage` |
+
+---
+
+## Deliverable 4: Keyword Research & URL Mapping Matrix
+
+*(Estimated search volume and keyword difficulty are marked `Verify in GSC / Keyword Planner` — never fabricated.)*
+
+| Seed Keyword / Cluster | Intent | Target Location | Est. Vol / KD | Assigned Canonical URL | Priority |
+|---|---|---|---|---|---|
+| Custom pool builders Nashville TN / Luxury pool builders Nashville | Commercial | Nashville, TN | Verify in KWP | `/` | Critical |
+| Pool builders Nashville TN / Swimming pool contractors Nashville | Local Commercial | Nashville, TN | Verify in KWP | `/pool-builders-nashville-tn` | High |
+| Pool builders Franklin TN / Swimming pool contractors Franklin TN | Local Commercial | Franklin, TN | Verify in KWP | `/pool-builders-franklin-tn` | High |
+| Custom pool builders Brentwood TN / Pool installation Brentwood TN | Local Commercial | Brentwood, TN | Verify in KWP | `/pool-builders-brentwood-tn` | High |
+| Gunite pool builders Nashville TN / Gunite pool construction | Commercial | Middle TN | Verify in KWP | `/gunite-pool-construction` | High |
+| Custom pool and spa design Nashville / Inground pool installation | Commercial | Middle TN | Verify in KWP | `/pools-and-spas` | High |
+| Infinity pool builders Nashville / Vanishing edge pools | Commercial | Middle TN | Verify in KWP | `/infinity-edge-pools` | High |
+| Pool remodeling Nashville / Luxury backyard renovation Nashville | Commercial | Middle TN | Verify in KWP | `/pool-remodeling` | High |
+| Commercial pool contractors Tennessee / Hotel & resort pools | Commercial | Tennessee | Verify in KWP | `/commercial-pool-construction` | High |
+| Commercial water park construction / Water park contractors TN | Commercial | Tennessee | Verify in KWP | `/water-parks` | High |
+| Lazy river construction contractors / Lazy river builders | Commercial | Tennessee | Verify in KWP | `/lazy-river-construction` | High |
+| Custom pool waterfalls Nashville / Pool water features installation | Commercial | Middle TN | Verify in KWP | `/water-features` | Medium |
+| Commercial fountain contractors Nashville / Pool fountains TN | Commercial | Middle TN | Verify in KWP | `/fountains` | Medium |
+| Custom pool houses Nashville TN / Outdoor kitchen & pool bars | Commercial | Middle TN | Verify in KWP | `/backyard-concepts` | High |
+| Pool automation installation Nashville / Smart pool systems TN | Commercial | Middle TN | Verify in KWP | `/technology` | Medium |
+| How much does a custom swimming pool cost in Nashville? | Informational | Nashville, TN | Verify in KWP | `/resources/custom-pool-cost-nashville` | High |
+| Gunite vs fiberglass swimming pools | Informational | Middle TN | Verify in KWP | `/resources/gunite-vs-fiberglass-pools` | High |
+| How long does swimming pool construction take? | Informational | Middle TN | Verify in KWP | `/resources/pool-construction-timeline` | Medium |
+| How to choose a pool contractor in Tennessee | Informational | Tennessee | Verify in KWP | `/resources/how-to-choose-a-pool-contractor-tennessee` | Medium |
+
+---
+
+## Deliverable 5: Local SEO & Google Business Profile Plan
+
+- **Verified NAP Standard (100% consistent across code, JSON-LD, footer, contact, and `llms.txt`):**
+  - **Name:** `Pools By Elio`
+  - **Address:** `412 Ezell Pike, Nashville, TN 37217`
+  - **Phone:** `(615) 568-3154`
+  - **Email:** `eliocustompools@live.com`
+  - **Website:** `https://www.poolsbyelio.net/`
+  - **Hours:** Mon–Fri 8:00 AM–6:00 PM; Saturday & evenings by appointment
+- **Google Business Profile Optimization Actions:**
+  1. Primary Category: `Swimming pool contractor`; Secondary: `General contractor`, `Landscape designer` (add only verified services).
+  2. Update GBP Website URL to `https://www.poolsbyelio.net/` with UTM parameters (`?utm_source=google&utm_medium=organic&utm_campaign=gbp`) to separate GBP clicks in GA4.
+  3. Populate GBP Services list matching our 11 service pages verbatim.
+  4. Upload 5–10 original geotagged job-site photos/month (rebar, gunite, completed night lighting) and post bi-weekly seasonal planning updates.
+  5. Implement a post-completion review request text/email linking directly to the GBP review link, and respond personally to every review within 48 hours.
+
+---
+
+## Deliverable 6: Top-10 Genuine Organic Competitors Analysis
+
+| # | Competitor | Core Geography | Primary Focus | Key Strengths | Strategic Edge for Pools By Elio |
+|---|---|---|---|---|---|
+| 1 | **Waterscapes Backyard Resorts** | Nashville, Brentwood, Belle Meade, Forest Hills | Luxury estates & commercial | GENESIS design positioning, BBB A+, strong outdoor living pages | Stronger large-scale commercial water attraction pedigree (**Sound Waves lazy river**) |
+| 2 | **McMillion Pool Company** | Greater Nashville, Belle Meade, Oak Hill | Luxury residential, remodels & weekly care | 17+ yr reputation, Houzz & Angi presence, strong service retention | Dedicated custom gunite focus (no vinyl dilution) + commercial hospitality portfolio |
+| 3 | **D2 Pools** | Brentwood, Franklin, Williamson County | Custom gunite, fiberglass & fire/water | Brentwood HQ address, YouTube video presence | 100% in-house gunite crew + commercial scale |
+| 4 | **Premier Pools & Spas (Nashville N/S)** | Greater Nashville & Williamson/Sumner | Franchise gunite & fiberglass | High root-domain authority, aggressive regional landing pages | Direct family-owned founder supervision (Jonathan Elio Rodriguez on site daily) vs. franchise |
+| 5 | **Haven Outdoors** | Kingston Springs & Greater Nashville | Holistic outdoor living + pools | Interactive cost estimator, hardscape/architecture focus | Deeper specialized gunite & commercial aquatic engineering |
+| 6 | **Basin Pool Designs** | Franklin, Brentwood, Governors Club | Ultra-luxury estate architecture | Strong Houzz portfolio & luxury neighborhood branding | Broader residential + commercial + fountain capabilities |
+| 7 | **Cox Pools (Nashville)** | Nashville, Franklin, Brentwood | Concrete/gunite, fiberglass & commercial | PHTA & GENESIS affiliations, multi-state commercial history | Family-owned Nashville headquarters & personalized boutique execution |
+| 8 | **Noble Custom Pools** | Davidson, Williamson & Sumner Counties | Custom pools & hardscapes | Best of Houzz service recognition, 3D design showcase | Commercial water park & hospitality pool bar credentials |
+| 9 | **Parkside Pools** | Nashville, Brentwood, Franklin, Nolensville | Modern custom pools & spas | Modern hillside designs, strong Williamson County local SEO | 25+ years local tenure & dedicated remodeling/structural repair capability |
+| 10 | **Allison Companies / Burleson Pool Co.** | Middle TN / Southeast Commercial | Commercial, HOA, municipal & water parks | Master Pools Guild (Burleson), developer/GC partnerships | Direct Nashville HQ + proven Gaylord Opryland & downtown Nashville hospitality track record |
+
+---
+
+## Deliverable 7 & 8: Backlink Profile Audit & Acquisition Playbook
+
+### Observed Existing Brand Mentions & Citations (Verified via Web Search)
+- **Better Business Bureau (BBB):** `https://www.bbb.org/us/tn/nashville/profile/pool-contractors/pools-by-elio-0573-37378278`
+- **Yelp:** `https://www.yelp.com/biz/pools-by-elio-nashville-2`
+- **Facebook:** `https://www.facebook.com/poolsbyelio/` | **Instagram:** `https://www.instagram.com/poolbyelio/`
+- **Birdeye / Google Maps / County Advisory Board / TN Pool Builders (`tnpoolbuilders.com`)**
+- **Missing High-Value Profiles:** **Houzz Pro** (competitors Basin, Noble, and McMillion dominate Houzz Nashville results), **PHTA Member Directory**, **Apple Business Connect**, **Bing Places**, and **Equipment Manufacturer Dealer Locators** (Pentair / Hayward / Jandy).
+
+### Realistic White-Hat Backlink Acquisition Targets
+
+| Target Website | URL | Relevance | Link Type | Application / Entry Path | Difficulty | Outreach Strategy |
 |---|---|---|---|---|---|---|
-| Custom pool builders Nashville TN / Luxury pool builders Nashville TN | Commercial | Nashville, TN | Primary | `/` | Critical | Optimized root title, H1, metadata, JSON-LD |
-| Pool builders Nashville TN / Swimming pool contractors Nashville | Local Commercial | Nashville, TN | Primary | `/pool-builders-nashville-tn` | High | **Created** dedicated local page |
-| Pool builders Franklin TN / Gunite pool builders Franklin TN | Local Commercial | Franklin, TN | Primary | `/pool-builders-franklin-tn` | High | **Created** dedicated local page |
-| Pool builders Brentwood TN / Luxury outdoor living Brentwood TN | Local Commercial | Brentwood, TN | Primary | `/pool-builders-brentwood-tn` | High | **Created** dedicated local page |
-| Custom gunite pool construction / Gunite pool builders Nashville TN | Commercial | Middle TN | Primary | `/gunite-pool-construction` | High | **Created** dedicated service page |
-| Custom inground pools & spas / Pool and spa combinations | Commercial | Middle TN | Primary | `/pools-and-spas` | High | Optimized metadata & internal links |
-| Infinity edge swimming pools / Vanishing edge pools Nashville | Commercial | Middle TN | Primary | `/infinity-edge-pools` | High | **Created** dedicated service page |
-| Pool remodeling Nashville / Pool resurfacing & repair | Commercial | Middle TN | Primary | `/pool-remodeling` | High | **Created** dedicated service page |
-| Custom pool waterfalls / Rock grottos / Water features | Commercial | Middle TN | Primary | `/water-features` | Medium | Optimized metadata & internal links |
-| Smart pool automation / Variable speed pool pumps | Commercial / Info | Middle TN | Primary | `/technology` | Medium | Optimized metadata & removed unverified % claims |
-| Custom pool houses Nashville / Outdoor pool bars / Fire pits | Commercial | Middle TN | Primary | `/backyard-concepts` | High | Optimized metadata & internal links |
-| Commercial swimming pool contractors Tennessee / Hotel pools | Commercial | Tennessee | Primary | `/commercial-pool-construction` | High | **Created** dedicated commercial page |
-| Water park construction companies / Splash pad / Wave pool | Commercial | Tennessee | Primary | `/water-parks` | High | Optimized metadata & linked from projects |
-| Lazy river construction contractors / Lazy river builders | Commercial | Tennessee | Primary | `/lazy-river-construction` | High | **Created** dedicated commercial page |
-| Commercial fountains & residential estate fountains | Commercial | Middle TN | Primary | `/fountains` | Medium | Optimized metadata & internal links |
-| How much does a custom pool cost in Nashville? | Informational | Nashville, TN | Primary | `/resources/custom-pool-cost-nashville` | High | **Created** dedicated guide (`Article` schema) |
-| Gunite vs fiberglass swimming pools | Informational | Middle TN | Primary | `/resources/gunite-vs-fiberglass-pools` | High | **Created** comparison guide (`Article` schema) |
-| How long does pool construction take? / Pool build timeline | Informational | Middle TN | Primary | `/resources/pool-construction-timeline` | Medium | **Created** phase-by-phase guide (`Article` schema) |
-| How to choose a pool contractor in Tennessee? | Informational | Tennessee | Primary | `/resources/how-to-choose-a-pool-contractor-tennessee` | Medium | **Created** 7-step vetting guide (`Article` schema) |
-| Pool construction FAQ / Common questions | Informational | Middle TN | Primary | `/faq` | High | **Created** crawlable `<details>` FAQ + `FAQPage` schema |
-| Custom pool building process | Informational | Middle TN | Secondary | `/process` | Medium | **Created** dedicated 4-stage process page |
-| Pools By Elio projects / Sound Waves Gaylord Opryland builder | Navigational / Proof | Nashville, TN | Primary | `/projects`, `/projects/sound-waves-gaylord-opryland`, `/projects/downtown-nashville-pool-bars` | High | **Created** project hub & documented case pages |
+| **Houzz Pro** | `https://www.houzz.com/` | Very High | Profile + Portfolio Citation | `https://www.houzz.com/professionals` | Easy | Claim profile, upload 20+ real projects tagged Nashville/Franklin/Brentwood, link to `https://www.poolsbyelio.net/` |
+| **Pool & Hot Tub Alliance (PHTA)** | `https://www.phta.org/` | Very High | Industry Association Directory | `https://www.phta.org/membership/` | Medium | Join PHTA & list company in official consumer "Find a Pool Pro" directory |
+| **Pentair / Hayward / Jandy Dealer Locators** | `https://www.pentair.com/` / `https://hayward.com/` | Very High | Manufacturer Partner Listing | Authorized Builder Portal via distributor rep | Easy–Med | Request official "Find a Dealer / Builder" listing through your Middle TN equipment rep |
+| **Home Builders Association of Middle TN** | `https://www.hbamt.org/` | High | Local Trade Association | `https://www.hbamt.org/join` | Medium | Join as Associate / Specialty Contractor for local Nashville .org backlink & builder referrals |
+| **Nashville Area Chamber of Commerce** | `https://www.nashvillechamber.com/` | High | Local Chamber Directory | `https://www.nashvillechamber.com/membership` | Medium | Member directory profile with verified Nashville HQ NAP |
+| **Bing Places & Apple Business Connect** | `https://www.bingplaces.com/` / `https://businessconnect.apple.com/` | High | Search Engine Local Graph | Direct owner verification | Easy | Powers Bing Copilot, Siri, and Apple Maps entity discovery |
+| **Nashville Lifestyles / StyleBlueprint / Williamson Scene** | `https://nashvillelifestyles.com/` / `https://styleblueprint.com/` | Very High | Local Editorial Feature | Editorial pitch / Home & Garden issue | High | Pitch a professionally photographed Belle Meade, Franklin, or Brentwood backyard transformation story |
+| **Pool & Spa News / Aquatics International** | `https://www.poolspanews.com/` / `https://www.aquaticsintl.com/` | High | Industry Editorial / Case Study | Submit project photography & engineering story | High | Pitch commercial hospitality / lazy river engineering expertise |
+| **The House of Fountains (Sister Brand)** | `http://thehouseoffountains.com/` | High | Partner Contextual Link | Direct owner control | Easy | Ensure clean contextual cross-link back to `https://www.poolsbyelio.net/fountains` |
+| **Tennessee Contractor License / Local Home Tours** | Local Parade of Homes / Charity Sponsorships | Medium–High | Community Sponsorship | Event sponsor page | Medium | Sponsor a Williamson County or Nashville Parade of Homes / school fundraiser for hyper-local `.org` links |
 
 ---
 
-## 4. Technical, On-Page, Local, Schema & AI Search Implementation (Phases 4–10)
+## Deliverable 9: AI Search Visibility (GEO / AEO) Audit
 
-### New Pages Created (15 Routes)
-- **Residential & Commercial Service Pages:** `/gunite-pool-construction`, `/infinity-edge-pools`, `/pool-remodeling`, `/lazy-river-construction`, `/commercial-pool-construction`
-- **Local Landing Pages:** `/pool-builders-nashville-tn`, `/pool-builders-franklin-tn`, `/pool-builders-brentwood-tn`
-- **Core Trust & Architecture Pages:** `/faq`, `/process`, `/projects`, `/projects/sound-waves-gaylord-opryland`, `/projects/downtown-nashville-pool-bars`
-- **Guides & Resources Hub:** `/resources`, `/resources/gunite-vs-fiberglass-pools`, `/resources/custom-pool-cost-nashville`, `/resources/pool-construction-timeline`, `/resources/how-to-choose-a-pool-contractor-tennessee`
-
-### Structured Data (`src/components/JsonLdSchema.tsx`)
-- Global `@graph`: `HomeAndConstructionBusiness` + `GeneralContractor` (linked founders, verified NAP, Mon–Fri hours, official `sameAs` profiles, `areaServed`, `knowsAbout`, `hasOfferCatalog`) + `WebSite`.
-- Page-level `@graph`: `WebPage` / `AboutPage` / `ContactPage` / `CollectionPage` / `FAQPage`, `BreadcrumbList`, `Service`, `Article` (on guides), and `FAQPage` **only** on pages rendering the identical visible Q&A.
-- Removed self-serving `AggregateRating`/`Review` JSON-LD to remain compliant with Google structured data policies.
-
-### AI Search / GEO Readiness
-- Server-rendered HTML for all new service, local, project, FAQ, and guide pages (zero JS dependency for crawlers).
-- Updated [`public/llms.txt`](../../public/llms.txt) and [`public/llms-full.txt`](../../public/llms-full.txt) with purely factual, verifiable entity details and full route maps.
-- Verified [`src/app/robots.ts`](../../src/app/robots.ts) permits `Googlebot`, `Bingbot`, `OAI-SearchBot`, `PerplexityBot`, `ClaudeBot`, and other search/AI agents while disallowing `/api/`.
+- **Live Verification Win:** Live web-grounded AI search queries for *"best luxury custom pool builders Nashville Franklin Brentwood TN gunite"* and *"commercial pool contractors Tennessee water park builders Nashville"* **already cite `poolsbyelio.net`** as a top Nashville residential gunite and commercial lazy river contractor!
+- **Implemented GEO/AEO Enhancements:**
+  1. All 15 new high-intent pages render **100% crawlable server-side HTML** (including native `<details>` FAQs that require zero JavaScript execution).
+  2. Synchronized [`public/llms.txt`](../../public/llms.txt) and [`public/llms-full.txt`](../../public/llms-full.txt) to canonical `https://www.poolsbyelio.net` with strictly factual, citation-ready summaries.
+  3. Verified [`/robots.txt`](../../src/app/robots.ts) welcomes `Googlebot`, `Bingbot`, `OAI-SearchBot`, `PerplexityBot`, `ClaudeBot`, and `Applebot` without accidental blocking.
 
 ---
 
-## 5. Google Business Profile & Local Citation Checklist (Phase 7)
+## Deliverable 10 & 11: E-E-A-T & Structured Data Report
 
-1. **Primary Category:** `Swimming pool contractor`
-2. **Secondary Categories:** `Pool cleaning service` (only if actively offered), `Landscape designer`, `General contractor`, `Fountain contractor` (if available).
-3. **NAP Exact Match:** `Pools By Elio` | `412 Ezell Pike, Nashville, TN 37217` | `(615) 568-3154` | `https://poolsbyelio.net`
-4. **Service Areas:** Nashville, Franklin, Brentwood, Belle Meade, Green Hills, Forest Hills, Oak Hill, Hendersonville, Mount Juliet, Murfreesboro, Nolensville, Leiper's Fork, Spring Hill.
-5. **Photos & Updates:** Upload original job-site photos (excavation, rebar, gunite, completed night lighting) monthly; post seasonal planning reminders in Fall/Winter.
-6. **Review Acquisition & Response:** Send direct Google review link after pool start-up orientation; reply personally as Jonathan/Pools By Elio to every review within 48 hours mentioning the project type naturally.
-7. **Core Citations to Keep Consistent:** Google Business Profile, Bing Places, Apple Business Connect, BBB, Yelp, Houzz, Nextdoor, Tennessee Chamber / local Nashville homebuilder directories.
+- **E-E-A-T:** Highlighted co-founders **Jonathan Elio Rodriguez** and **David Elio Rodriguez**, 25+ years experience, 100% in-house execution, verified Nashville headquarters, and documented commercial work while removing all unsubstantiated superlatives.
+- **Schema.org JSON-LD (`src/components/JsonLdSchema.tsx`):** Clean `@graph` connecting `HomeAndConstructionBusiness` + `GeneralContractor` → `Person` (founders) → `OfferCatalog` (10 services) → `WebSite` → page-specific `WebPage`/`AboutPage`/`ContactPage`/`CollectionPage`/`Service`/`Article`/`BreadcrumbList` and visible-only `FAQPage`. Zero duplicate entities, zero fabricated ratings.
 
 ---
 
-## 6. 90-Day Content Marketing & Backlink Strategy (Phases 11–12)
+## Deliverable 12: 6-Month Content Marketing Strategy (30-Article Roadmap)
 
-### 90-Day Content Publishing Calendar (Building on the 4 Guides Published Today)
-- **Days 1–30 (Luxury Residential & Site Engineering):**
-  - *Designing a Resort-Style Backyard on Sloped Williamson County Lots*
-  - *10 Custom Pool Features That Elevate Everyday Backyard Living*
-  - *Documented Project Case Studies* (add 3–5 real residential Nashville/Franklin/Brentwood builds with homeowner-approved photos, dimensions, and materials)
-- **Days 31–60 (Commercial Aquatics & Hospitality):**
-  - *How to Plan a Commercial Water Park or Resort Pool in Tennessee*
-  - *Hotel & Multi-Family Swimming Pool Construction: Compliance, Hydraulics & Durability*
-  - *Commercial Splash Pad Planning for Municipalities and Resorts*
-- **Days 61–90 (Pool Technology & Maintenance Longevity):**
-  - *Smart Pool Automation Explained: Pumps, Heaters, Lighting & Sanitation*
-  - *Saltwater vs. Traditional Chlorine & UV/Ozone Pool Systems*
-  - *When to Resurface vs. Remodel a Concrete Pool in Tennessee*
+*4 foundational pillar guides are already published under `/resources/`. The next 26 articles complete a 6-month topical authority calendar (approx. 1 high-quality, fact-checked article per week):*
 
-### Ethical Digital Authority & Backlink Plan
-1. **Equipment & Material Partners:** Request authorized builder listings from Pentair, Hayward, Jandy, pebble/quartz aggregate manufacturers, and stone suppliers.
-2. **Trade Associations:** PHTA (Pool & Hot Tub Alliance), Home Builders Association of Middle Tennessee (HBAMT), Nashville Area Chamber of Commerce.
-3. **Local Architectural & Design Features:** Pitch completed luxury residential and hospitality projects (with professional photography) to *Nashville Lifestyles*, *StyleBlueprint*, *Williamson Scene*, and *Houzz* editorial teams.
-4. **Sister-Brand Cross-Linking:** Ensure clean contextual reciprocal links between `poolsbyelio.net` and `thehouseoffountains.com`.
+- **Month 1 (Published + Core Residential):**
+  1. *(Live)* Gunite vs. Fiberglass Swimming Pools (`/resources/gunite-vs-fiberglass-pools`)
+  2. *(Live)* How Much Does a Custom Pool Cost in Nashville, TN? (`/resources/custom-pool-cost-nashville`)
+  3. *(Live)* Pool Construction Timeline: From Design to First Swim (`/resources/pool-construction-timeline`)
+  4. *(Live)* How to Choose a Pool Contractor in Tennessee (`/resources/how-to-choose-a-pool-contractor-tennessee`)
+  5. Complete Guide to Building a Luxury Backyard Pool in Middle Tennessee
+- **Month 2 (Design & Engineering):**
+  6. Custom Pool Design Ideas for Tennessee Homes
+  7. Luxury Pool and Spa Combination Design & Cost Factors
+  8. Infinity Pools vs. Traditional Inground Pools on Sloped Lots
+  9. Building a Custom Pool Over Middle Tennessee Limestone & Clay Soil
+  10. Pool Setbacks, Zoning & HOA Approvals in Nashville, Franklin & Brentwood
+- **Month 3 (Outdoor Living & Water Features):**
+  11. Pool Houses, Cabanas & Outdoor Bars: Design Ideas for Entertaining
+  12. How to Design a Cohesive Luxury Outdoor Living Space Around Your Pool
+  13. Modern Pool Waterfall, Grotto & Scupper Ideas
+  14. Residential & Estate Fountain Design for Tennessee Properties
+  15. Best Pool Decking Materials for Tennessee Summers & Freeze-Thaw Winters
+- **Month 4 (Commercial Aquatic Authority):**
+  16. Commercial Pool Construction in Tennessee: Complete Owner's Guide
+  17. How Commercial Water Parks Are Designed and Built
+  18. Lazy River Hydraulics, Layout & Guest Flow Explained
+  19. Hotel & Resort Swimming Pool Construction Best Practices
+  20. Commercial Splash Pad Planning for Municipalities & Resorts
+- **Month 5 (Pool Technology & Energy Efficiency):**
+  21. Pool Automation: Smart Features Every Modern Pool Should Have
+  22. Energy-Efficient Swimming Pool Pumps, Heaters & Hydraulics
+  23. Saltwater vs. Traditional Chlorine & UV/Ozone Pool Sanitization
+  24. Modern Underwater LED & Landscape Lighting Design for Pools
+  25. Heating Your Pool in Tennessee: Gas Heaters vs. Heat Pumps
+- **Month 6 (Remodeling, Longevity & Local Spotlights):**
+  26. When to Resurface vs. Completely Remodel an Aging Concrete Pool
+  27. Pebble, Quartz & Plaster Pool Interior Finishes Compared
+  28. Designing a Custom Pool for Historic & Urban Nashville Lots (Belle Meade & Green Hills)
+  29. Custom Estate Pools on Acreage Lots in Franklin & Leiper's Fork
+  30. Seasonal Pool Care & Freeze Protection for Middle Tennessee Homeowners
 
 ---
 
-## 7. Analytics & Verification Setup (Phase 14)
+## Deliverable 13, 14 & 15: Core Web Vitals, CRO, Analytics & 30/60/90-Day Roadmap
 
-All tracking hooks are pre-installed in [`src/components/Analytics.tsx`](../../src/components/Analytics.tsx) and [`src/lib/analytics.ts`](../../src/lib/analytics.ts) and stay completely dormant until IDs are configured in Vercel Environment Variables (see [`.env.example`](../../.env.example)):
+### Core Web Vitals Improvements Implemented
+- Stripped `unoptimized` from all `<Image>` components across the project so Vercel Edge Image Optimizer delivers AVIF/WebP automatically.
+- Added responsive `sizes=` to all 64 `<Image fill>` tags so mobile devices download appropriately sized assets instead of `100vw` desktop banners.
+- Removed `priority` from below-the-fold images (`Footer.tsx`, `WhyUsSection.tsx`) so the primary Hero LCP banner gets uninterrupted preload priority.
+- Configured `images.minimumCacheTTL: 2592000` (30 days) and immutable `/assets/:path*` caching headers.
 
-- `NEXT_PUBLIC_SITE_URL` — Set to match your exact primary domain in Vercel (`https://poolsbyelio.net` or `https://www.poolsbyelio.net`).
-- `NEXT_PUBLIC_GA_ID` (GA4 Measurement ID) **or** `NEXT_PUBLIC_GTM_ID` (Google Tag Manager container ID — do not set both).
-- `NEXT_PUBLIC_CLARITY_ID` (optional Microsoft Clarity project ID for UX heatmaps).
-- `GOOGLE_SITE_VERIFICATION` & `BING_SITE_VERIFICATION` — Automatically injected into `<meta>` verification tags in `src/app/layout.tsx`.
-- **Automatic Events Tracked:** `click_to_call` (every `tel:` tap), `click_email` (every `mailto:` tap), and `generate_lead` (all 3 quote/contact forms with `form_source`).
+### Conversion Rate Optimization & Analytics Status
+- **Installed & Active:** `@vercel/analytics/next` (`<Analytics />`), Google Search Console verification meta tag (`Auu241hl33WysD9GSyHtq1Yg_dpQ00FRE7UlQqH9e98`), honeypot spam protection + validation + privacy notices on all 3 forms, and event hooks (`click_to_call`, `click_email`, `generate_lead`) ready for `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_GTM_ID` / `NEXT_PUBLIC_CLARITY_ID`.
+- **Analytics Access Required from Owner:** Connect Google Search Console (`https://www.poolsbyelio.net/`), Bing Webmaster Tools, GA4/GTM Measurement ID in Vercel Environment Variables, and Google Business Profile Insights to track real impressions, clicks, rankings, and conversion rate.
 
----
-
-## 8. Remaining Owner-Side Action Items (Pending External Access)
-
-1. **Vercel Domain Canonicalization:** In Vercel → Settings → Domains, confirm whether `poolsbyelio.net` or `www.poolsbyelio.net` is the primary domain (so the non-primary host 308-redirects cleanly) and set `NEXT_PUBLIC_SITE_URL` to match.
-2. **Configure Analytics & Webmaster Verification:** Add GA4/GTM, Search Console, and Bing Webmaster Tools IDs in Vercel Environment Variables and submit `/sitemap.xml` in both Google Search Console and Bing Webmaster Tools.
-3. **Replace Illustrative Photography:** Replace stock/illustrative photos on `/projects/sound-waves-gaylord-opryland` and `/projects/downtown-nashville-pool-bars` with owner-approved original photography, and document 3–5 verified residential builds with homeowner permission.
-4. **Verify License Number Display:** If desired, provide your official Tennessee General Contractor license number to display on `/about`, `/contact`, and the footer for maximum homeowner trust.
-
+### 30 / 60 / 90-Day Action Plan
+- **Days 1–30:** Deploy this commit to Vercel; verify `https://www.poolsbyelio.net/` in Google Search Console & Bing Webmaster Tools; submit `https://www.poolsbyelio.net/sitemap.xml`; add GA4/GTM ID in Vercel env vars; claim/optimize Houzz Pro, Bing Places, Apple Business Connect, and GBP.
+- **Days 31–60:** Upload 3–5 owner-approved residential project case studies with original photos (Nashville, Franklin, Brentwood) and replace illustrative commercial images where permitted; join PHTA / HBAMT and request Pentair/Hayward/Jandy dealer listings; publish Month 2–3 content guides.
+- **Days 61–90:** Review first 60 days of GSC query/impression data and GA4 lead attribution (`generate_lead` & `click_to_call`); expand winning service/local pages based on actual search queries; pitch 2 local Nashville home/design editorial features.

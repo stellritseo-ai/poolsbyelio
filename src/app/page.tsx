@@ -28,7 +28,7 @@ export default function Home() {
       {/* 1. Header (Top Bar + Main Nav + Mobile Menu) */}
       <Header />
 
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         {/* 2. Hero Section */}
         <Hero />
 

@@ -241,6 +241,7 @@ export default function ServicesSection() {
                           src={service.image}
                           alt={service.title}
                           fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-cover object-center transition-transform duration-700 hover:scale-105"
                         />
                       </div>
@@ -272,6 +273,7 @@ export default function ServicesSection() {
                 src={activeModal.image}
                 alt={activeModal.title}
                 fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
               />
             </div>

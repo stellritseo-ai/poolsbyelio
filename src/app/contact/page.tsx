@@ -217,6 +217,7 @@ export default function ContactPage() {
               src="/assets/banner2.png"
               alt="Contact Pools By Elio"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-30"
             />

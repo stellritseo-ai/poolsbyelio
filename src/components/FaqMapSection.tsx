@@ -262,10 +262,10 @@ export default function FaqMapSection() {
                   (615) 568-3154
                 </a>
                 <Link
-                  href="/contact"
+                  href="/faq"
                   className="px-4 py-2 rounded-full bg-white hover:bg-slate-50 text-[#004b93] text-xs font-bold transition-all border border-blue-200 shadow-sm"
                 >
-                  Contact Us &rarr;
+                  Full FAQ &rarr;
                 </Link>
               </div>
             </div>
@@ -304,14 +304,14 @@ export default function FaqMapSection() {
               {/* Framed Interactive Google Map */}
               <div className="relative h-64 sm:h-72 w-full rounded-[5px] overflow-hidden border border-slate-200/90 shadow-inner bg-slate-100">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412182.3223460992!2d-86.78514695!3d36.186640350000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sNashville%2C%20TN%2C%20USA!5e0!3m2!1sen!2snp!4v1793924341147!5m2!1sen!2snp"
+                  src="https://www.google.com/maps?q=412+Ezell+Pike,+Nashville,+TN+37217&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
-                  title="Pools By Elio Service Map Nashville TN"
+                  title="Pools By Elio Headquarters — 412 Ezell Pike, Nashville, TN 37217"
                   className="w-full h-full min-h-[256px] sm:min-h-[288px] border-0"
                 />
 
@@ -334,20 +334,31 @@ export default function FaqMapSection() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-1.5">
-                  {serviceLocations.map((loc, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-between text-xs font-semibold text-slate-700 bg-slate-50/90 hover:bg-blue-50/60 px-2.5 py-1.5 rounded-[4px] border border-slate-200/70 transition-colors"
-                    >
-                      <div className="flex items-center gap-1.5 truncate">
-                        <CheckCircle2 className="w-3 h-3 text-[#004b93] shrink-0" />
-                        <span className="truncate">{loc.name}</span>
-                      </div>
-                      <span className="text-[10px] font-medium text-slate-400 shrink-0">
-                        {loc.time}
-                      </span>
-                    </div>
-                  ))}
+                  {serviceLocations.map((loc, idx) => {
+                    const locHref =
+                      loc.name === "Nashville, TN"
+                        ? "/pool-builders-nashville-tn"
+                        : loc.name === "Franklin, TN"
+                          ? "/pool-builders-franklin-tn"
+                          : loc.name === "Brentwood, TN"
+                            ? "/pool-builders-brentwood-tn"
+                            : "/areas-we-serve";
+                    return (
+                      <Link
+                        key={idx}
+                        href={locHref}
+                        className="flex items-center justify-between text-xs font-semibold text-slate-700 hover:text-[#004b93] bg-slate-50/90 hover:bg-blue-50/80 px-2.5 py-1.5 rounded-[4px] border border-slate-200/70 transition-colors"
+                      >
+                        <div className="flex items-center gap-1.5 truncate">
+                          <CheckCircle2 className="w-3 h-3 text-[#004b93] shrink-0" />
+                          <span className="truncate">{loc.name}</span>
+                        </div>
+                        <span className="text-[10px] font-medium text-slate-400 shrink-0">
+                          {loc.time}
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
 
                 {/* Dedicated Areas Page Link */}

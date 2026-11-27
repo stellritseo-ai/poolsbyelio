@@ -242,6 +242,7 @@ export default function Header() {
                   src="/assets/logo.png"
                   alt="Pools By Elio - Nashville's Premier Custom Pool Company"
                   fill
+                  sizes="(max-width: 768px) 160px, 185px"
                   priority
                   className="object-contain object-left"
                 />

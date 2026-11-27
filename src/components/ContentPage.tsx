@@ -63,7 +63,7 @@ export default function ContentPage({ data }: { data: ContentPageData }) {
 
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* HERO */}
         <section className="relative mx-[10px] mb-[10px] rounded-[5px] overflow-hidden bg-[#001a40] text-white shadow-2xl">
           <div className="absolute inset-0 z-0">

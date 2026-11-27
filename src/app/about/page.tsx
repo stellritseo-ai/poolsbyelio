@@ -162,6 +162,7 @@ export default function AboutPage() {
               src="/assets/banner1.png"
               alt="Pools By Elio Custom Luxury Pool"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-35"
             />
@@ -236,6 +237,7 @@ export default function AboutPage() {
                       src="/assets/gallery/20.webp"
                       alt="We Are Pools by Elio - Luxury Custom Pool & Spa in Middle Tennessee"
                       fill
+                  sizes="100vw"
                       priority
                       className="object-cover object-center transition-transform duration-700 hover:scale-105"
                     />
@@ -289,6 +291,7 @@ export default function AboutPage() {
                       src="/assets/gallery/22.webp"
                       alt="Commercial and Resort Pool Craftsmanship by Pools by Elio"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
@@ -304,6 +307,7 @@ export default function AboutPage() {
                       src="/assets/gallery/23.webp"
                       alt="Custom Backyard Swim-Up Bar Pool"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -313,6 +317,7 @@ export default function AboutPage() {
                       src="/assets/gallery/24.webp"
                       alt="Nighttime LED Lit Fountain Pool"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -398,6 +403,7 @@ export default function AboutPage() {
                     src="/assets/first.png"
                     alt="Jonathan Elio Rodriguez – Founder & Hands-On Operator"
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -439,6 +445,7 @@ export default function AboutPage() {
                     src="/assets/second.png"
                     alt="David Elio Rodriguez – Co-Founder"
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -503,6 +510,7 @@ export default function AboutPage() {
                       src="/assets/whyimg.png"
                       alt="Why Pools by Elio"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center"
                     />
                   </div>
@@ -531,6 +539,7 @@ export default function AboutPage() {
                           src={item.icon}
                           alt={item.title}
                           fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-contain p-1"
                         />
                       </div>
@@ -588,6 +597,7 @@ export default function AboutPage() {
                         src={service.image}
                         alt={service.title}
                         fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />

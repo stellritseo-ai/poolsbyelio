@@ -13,7 +13,7 @@ import type { Metadata } from "next";
  * primary domain configured in Vercel so that exactly one host serves 200s and
  * the other 308-redirects to it.
  */
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://poolsbyelio.net";
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.poolsbyelio.net";
 
 export const SITE_CONFIG = {
   name: "Pools By Elio",
@@ -76,7 +76,7 @@ export const SITE_CONFIG = {
   ],
   defaultOgImage: "/assets/og-default.jpg",
   /** Bump when site content materially changes (used by the sitemap). */
-  lastUpdated: "2026-11-20",
+  lastUpdated: "2026-11-28",
 };
 
 interface PageSeoOptions {

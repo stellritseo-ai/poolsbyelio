@@ -167,6 +167,7 @@ export default function WaterFeaturesPage() {
               src="/assets/banner3.png"
               alt="Pools By Elio Custom Water Features"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-30"
             />
@@ -256,6 +257,7 @@ export default function WaterFeaturesPage() {
                       src="/assets/service5.png"
                       alt="Water Features by Pools By Elio"
                       fill
+                  sizes="100vw"
                       priority
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
@@ -351,6 +353,7 @@ export default function WaterFeaturesPage() {
                     src={featureCategories[activeCategory].image}
                     alt={featureCategories[activeCategory].title}
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
@@ -504,6 +507,7 @@ export default function WaterFeaturesPage() {
                       src="/assets/service3.png"
                       alt="Smart Pool Automation by Pools by Elio"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

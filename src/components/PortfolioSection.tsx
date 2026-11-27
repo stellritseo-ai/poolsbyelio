@@ -817,6 +817,7 @@ export default function PortfolioSection() {
                 src={filteredItems[selectedImageIndex].src}
                 alt={filteredItems[selectedImageIndex].title}
                 fill
+                  sizes="100vw"
                 priority
                 className="object-contain"
               />
@@ -855,6 +856,7 @@ export default function PortfolioSection() {
                   src={item.src}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </button>

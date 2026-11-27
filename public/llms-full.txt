@@ -1,14 +1,14 @@
 # Pools By Elio — Extended Factual Reference (llms-full.txt)
 
 ## 1. Entity Overview
-**Pools By Elio** (https://poolsbyelio.net) is a family-owned residential and commercial swimming pool construction company headquartered at **412 Ezell Pike, Nashville, TN 37217**. Founded by brothers **Jonathan Elio Rodriguez** and **David Elio Rodriguez**, the company brings **25+ years of experience** designing and building custom gunite pools, spas, water features, fountains, outdoor living spaces and commercial aquatic installations across Nashville, Franklin, Brentwood and Middle Tennessee.
+**Pools By Elio** (https://www.poolsbyelio.net) is a family-owned residential and commercial swimming pool construction company headquartered at **412 Ezell Pike, Nashville, TN 37217**. Founded by brothers **Jonathan Elio Rodriguez** and **David Elio Rodriguez**, the company brings **25+ years of experience** designing and building custom gunite pools, spas, water features, fountains, outdoor living spaces and commercial aquatic installations across Nashville, Franklin, Brentwood and Middle Tennessee.
 
 ### Official Contact Information (NAP)
 - **Name**: Pools By Elio
 - **Address**: 412 Ezell Pike, Nashville, TN 37217
 - **Phone**: (615) 568-3154
 - **Email**: eliocustompools@live.com
-- **Website**: https://poolsbyelio.net
+- **Website**: https://www.poolsbyelio.net
 - **Operating Hours**: Monday–Friday 8:00 AM – 6:00 PM; Saturday & evening consultations by appointment
 - **Fountains Specialty Website**: http://thehouseoffountains.com/
 
@@ -23,7 +23,7 @@
 ## 2. How Pools By Elio Operates
 - **In-House Execution**: Excavation, steel rebar framing, hydraulic plumbing, pneumatic gunite application, tile, coping, stone work and finishing are carried out by Pools By Elio's own full-time crew rather than subcontracted to outside crews.
 - **Hands-On Leadership**: Co-founder Jonathan Elio Rodriguez directs work on site from layout through completion.
-- **4-Stage Build Process** (https://poolsbyelio.net/process):
+- **4-Stage Build Process** (https://www.poolsbyelio.net/process):
   1. **Consultation**: On-site property visit evaluating topography, sun orientation, drainage, access and family goals.
   2. **Design**: 3D renderings and material curation (tile, coping, interior finish, decking) before breaking ground.
   3. **Construction**: In-house excavation, steel reinforcement, plumbing, pneumatic gunite, masonry and finishing.
@@ -69,4 +69,4 @@ Pools By Elio serves a roughly **50-mile radius** around Nashville for residenti
 - **How much does a custom gunite pool cost in Nashville?** Pools By Elio's custom gunite pools start at $140,000+. Final pricing depends on dimensions, site access/rock excavation, attached spas, water features, decking and outdoor structures, confirmed in a written proposal.
 - **What is the difference between gunite and fiberglass pools?** Gunite is a custom-formed reinforced concrete shell shaped to the yard with unlimited geometry and integrated features (spas, swim-up bars, vanishing edges); fiberglass is a factory-molded shell with fixed dimensions. Pools By Elio specializes in custom gunite construction (`/resources/gunite-vs-fiberglass-pools`).
 - **How should homeowners vet a pool contractor in Tennessee?** Verify active licensing through the Tennessee Board for Licensing Contractors, confirm general liability and workers' compensation insurance, ask whether crews are in-house or subcontracted, inspect completed work and obtain an itemized written scope (`/resources/how-to-choose-a-pool-contractor-tennessee`).
-- **Full FAQ**: https://poolsbyelio.net/faq
+- **Full FAQ**: https://www.poolsbyelio.net/faq

@@ -348,6 +348,7 @@ export default function ServicesHubPage() {
               src="/assets/banner1.png"
               alt="Pools By Elio Master Aquatic Construction Services in Nashville TN"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center scale-105"
             />
@@ -578,6 +579,7 @@ export default function ServicesHubPage() {
                         src={service.image}
                         alt={`${service.title} - Pools By Elio Nashville`}
                         fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#001838]/90 via-[#001838]/25 to-transparent" />
@@ -960,6 +962,7 @@ export default function ServicesHubPage() {
                   src="/assets/gallery/20.webp"
                   alt="Pools By Elio Luxury Pool Renovation and Remodeling in Nashville TN"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#001433]/90 via-transparent to-transparent" />

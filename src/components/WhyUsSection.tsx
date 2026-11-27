@@ -83,7 +83,7 @@ export default function WhyUsSection() {
                   src="/assets/whyimg.png"
                   alt="Why Homeowners & Business Owners Trust Pools By Elio"
                   fill
-                  priority
+                  sizes="(max-width: 1024px) 100vw, 540px"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Subtle specular sheen */}
@@ -140,6 +140,7 @@ export default function WhyUsSection() {
                       src={item.icon}
                       alt={item.title}
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-contain p-1"
                     />
                   </div>

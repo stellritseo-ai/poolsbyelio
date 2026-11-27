@@ -385,6 +385,7 @@ export default function ReviewsPage() {
               src="/assets/banner4.jpg"
               alt="Pools By Elio 100% Google Verified Customer Reviews"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-25"
             />
@@ -843,6 +844,7 @@ export default function ReviewsPage() {
               src="/assets/banner1.png"
               alt="Pools By Elio Custom Pools"
               fill
+                  sizes="100vw"
               className="object-cover object-center"
             />
           </div>

@@ -163,13 +163,21 @@ export default function ProcessSection() {
               </div>
             </div>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#004ba3] to-[#009bb8] hover:opacity-95 shadow-sm transition-all duration-300 transform hover:scale-[1.02] shrink-0"
-            >
-              <span>Book Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
+              <Link
+                href="/process"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold text-[#003870] bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors"
+              >
+                <span>Full Build Process</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#004ba3] to-[#009bb8] hover:opacity-95 shadow-sm transition-all duration-300 transform hover:scale-[1.02]"
+              >
+                <span>Book Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </div>
 

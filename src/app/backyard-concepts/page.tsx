@@ -314,6 +314,7 @@ export default function BackyardConceptsPage() {
               src="/assets/whybg.png"
               alt="Pools By Elio Custom Backyard Concepts, Pool Houses & Bars"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-30"
             />
@@ -396,6 +397,7 @@ export default function BackyardConceptsPage() {
                       src="/assets/service6.png"
                       alt="Luxury Backyard Concepts by Pools by Elio"
                       fill
+                  sizes="100vw"
                       priority
                       className="object-cover object-center"
                     />
@@ -495,6 +497,7 @@ export default function BackyardConceptsPage() {
                       src={currentConcept.image}
                       alt={currentConcept.title}
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center"
                     />
                     <div className="absolute top-3 left-3 bg-[#071684] text-white text-xs font-bold px-3 py-1 rounded-full shadow">
@@ -605,6 +608,7 @@ export default function BackyardConceptsPage() {
                     src="/assets/service6.png"
                     alt="Custom Pool House by Pools By Elio"
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -701,6 +705,7 @@ export default function BackyardConceptsPage() {
               src="/assets/whybg.png"
               alt="Pool Bars by Pools By Elio"
               fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-[#001736]/90" />
@@ -856,6 +861,7 @@ export default function BackyardConceptsPage() {
                     src="/assets/gallery/23.webp"
                     alt="Custom Poolside Fire Pit by Pools By Elio"
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -949,6 +955,7 @@ export default function BackyardConceptsPage() {
               src="/assets/banner4.jpg"
               alt="Outdoor Fireplace by Pools By Elio"
               fill
+                  sizes="100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-slate-900/95" />
@@ -1071,6 +1078,7 @@ export default function BackyardConceptsPage() {
                     src="/assets/banner5.jpg"
                     alt="Outdoor Kitchen Built by Pools By Elio"
                     fill
+                  sizes="100vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -1187,6 +1195,7 @@ export default function BackyardConceptsPage() {
                     src="/assets/gallery/20.webp"
                     alt="Cabana and Pergola by Pools By Elio"
                     fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -1290,6 +1299,7 @@ export default function BackyardConceptsPage() {
                     src="/assets/banner1.png"
                     alt="Custom Pool Decks and Patios by Pools By Elio"
                     fill
+                  sizes="100vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
@@ -1428,6 +1438,7 @@ export default function BackyardConceptsPage() {
               src="/assets/banner2.png"
               alt="Pools By Elio Custom Pools"
               fill
+                  sizes="100vw"
               className="object-cover object-center"
             />
           </div>

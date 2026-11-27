@@ -280,6 +280,7 @@ export default function QuotePage() {
               src="/assets/banner1.png"
               alt="Pools By Elio Custom 3D Pool Quote"
               fill
+                  sizes="100vw"
               priority
               className="object-cover object-center opacity-30"
             />
@@ -926,6 +927,7 @@ export default function QuotePage() {
                       src="/assets/gallery/21.webp"
                       alt="Commercial Grade Pool Construction by Pools by Elio"
                       fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />

@@ -199,6 +199,7 @@ export default function WelcomeSection() {
                 src={pool.img}
                 alt={pool.alt}
                 fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover object-center group-hover/card:scale-108 transition-transform duration-700 ease-out"
               />
               {/* Subtle specular rim border */}
